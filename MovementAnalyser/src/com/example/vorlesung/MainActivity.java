@@ -116,16 +116,16 @@ public class MainActivity extends Activity implements SensorEventListener, OnCli
 
 	 @Override
 	    public void onClick(View v) {
-	        switch (v.getId()) {
-	        case R.id.btnStart:
+//	        switch (v.getId()) {
+	        if(v.getId() == R.id.btnStart){
 	        	btnStart.setEnabled(false);
 	            btnStop.setEnabled(true);
 	            dataSet = new ArrayList<DataObject>();
 	            started = true;
 	    		Sensor s1 = sensorMan.getDefaultSensor(Sensor.TYPE_LINEAR_ACCELERATION);
 	    		sensorMan.registerListener(this, s1, SensorManager.SENSOR_DELAY_NORMAL);
-	            break;
-	        case R.id.btnStop:
+	        }
+	        if(v.getId() == R.id.btnStop){
 	        	btnStart.setEnabled(true);
 	            btnStop.setEnabled(false);
 	            started = false;
@@ -148,11 +148,7 @@ public class MainActivity extends Activity implements SensorEventListener, OnCli
 	    		i.setType("text/Message");
 	    		i.putExtra(Intent.EXTRA_STREAM, U);
 	    		startActivity(Intent.createChooser(i,"Email:"));
-	            break;
-	        default:
-	            break;
 	        }
-	 
 	    }
 	 
 	@Override
