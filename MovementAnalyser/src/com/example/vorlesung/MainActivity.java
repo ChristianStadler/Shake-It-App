@@ -1,6 +1,16 @@
 package com.example.vorlesung;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+
+import jxl.Workbook;
+import jxl.write.Label;
+import jxl.write.Number;
+import jxl.write.WritableSheet;
+import jxl.write.WritableWorkbook;
+import jxl.write.WriteException;
+import jxl.write.biff.RowsExceededException;
 
 import org.achartengine.ChartFactory;
 import org.achartengine.chart.PointStyle;
@@ -11,11 +21,13 @@ import org.achartengine.renderer.XYSeriesRenderer;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -31,6 +43,11 @@ public class MainActivity extends Activity implements SensorEventListener, OnCli
 	private SensorManager sensorMan;
 	private LinearLayout layout;
 	private View mChart;
+	private WritableSheet sheet;
+	private final int X = 0, Y = 1, Z = 2;
+	private int rowCount = 0;
+	private WritableWorkbook workbook;
+	private File f;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +75,30 @@ public class MainActivity extends Activity implements SensorEventListener, OnCli
 	@Override
 	public void onStart(){
 		super.onStart();
-		
+		try {
+			Context context = getApplicationContext();
+			String filePath = "mnt/sdcard/output.xls";
+			System.out.println(filePath);
+			f = new File(filePath);
+			workbook = Workbook.createWorkbook(f);
+			System.out.println("absolute path: "+f.getAbsolutePath());
+			sheet = workbook.createSheet("First Sheet", 0);
+			Label label = new Label(X, rowCount, "X-Wert");
+			sheet.addCell(label);
+			label = new Label(Y, rowCount, "Y-Wert");
+			sheet.addCell(label);
+			label = new Label(Z, rowCount, "Z-Wert");
+			sheet.addCell(label);
+			} catch (IOException e) {
+				System.out.println("create failed");
+				e.printStackTrace();
+			} catch (RowsExceededException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (WriteException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 
 	@Override
@@ -80,7 +120,7 @@ public class MainActivity extends Activity implements SensorEventListener, OnCli
 	        case R.id.btnStart:
 	        	btnStart.setEnabled(false);
 	            btnStop.setEnabled(true);
-	            dataSet = new ArrayList();
+	            dataSet = new ArrayList<DataObject>();
 	            started = true;
 	    		Sensor s1 = sensorMan.getDefaultSensor(Sensor.TYPE_LINEAR_ACCELERATION);
 	    		sensorMan.registerListener(this, s1, SensorManager.SENSOR_DELAY_NORMAL);
@@ -91,6 +131,23 @@ public class MainActivity extends Activity implements SensorEventListener, OnCli
 	            started = false;
 	            sensorMan.unregisterListener(this);
 	            showChart();
+	            try {
+	            	System.out.println("workbook write");
+	            	workbook.write();
+	            	System.out.println("workbook close");
+					workbook.close();
+				} catch (WriteException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+	            Uri U = Uri.fromFile(f);
+	    		Intent i = new Intent(Intent.ACTION_SEND);
+	    		i.setType("text/Message");
+	    		i.putExtra(Intent.EXTRA_STREAM, U);
+	    		startActivity(Intent.createChooser(i,"Email:"));
 	            break;
 	        default:
 	            break;
@@ -107,9 +164,30 @@ public class MainActivity extends Activity implements SensorEventListener, OnCli
         long timestamp = System.currentTimeMillis();
         DataObject data = new DataObject(timestamp, x, y, z);
         dataSet.add(data);
+		saveToExcel(data);
 		}
 	}
 	
+	private void saveToExcel(DataObject data) {
+		rowCount++;
+		Number valueX = new Number(X, rowCount, data.getX());
+		Number valueY = new Number(Y, rowCount, data.getY());
+		Number valueZ = new Number(Z, rowCount, data.getZ());
+		try {
+			sheet.addCell(valueX);
+			System.out.println(sheet.getCell(rowCount, X).getContents());
+			sheet.addCell(valueY);
+			System.out.println(sheet.getCell(rowCount, Y).getContents());
+			sheet.addCell(valueZ);
+			System.out.println(sheet.getCell(rowCount, Z).getContents());
+		} catch (RowsExceededException e) {
+			e.printStackTrace();
+		} catch (WriteException e) {
+			e.printStackTrace();
+		}		
+	}
+
+
 	private void showChart(){
 		if (dataSet != null || dataSet.size() > 0) {
 			long t = dataSet.get(0).getTimestamp();
