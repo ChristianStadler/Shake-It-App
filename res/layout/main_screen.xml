@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp" >
+    
+    <TextView
+        android:id="@+id/textViewFilter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="6dp"
+        android:ems="12"
+        android:text="Suche"
+        android:textSize="15sp" />
+
+    <View
+        android:id="@+id/viewblue"
+        android:layout_width="fill_parent"
+        android:layout_height="2dip"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textViewFilter"
+        android:background="#005998" />
+
+    <TextView
+        android:id="@+id/textViewName"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/viewblue"
+        android:layout_marginTop="17dp"
+        android:textSize="12sp"
+        android:text="Name" />
+
+    <EditText
+        android:id="@+id/editTextName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textViewName"
+        android:layout_alignBottom="@+id/textViewName"
+        android:layout_alignLeft="@+id/spinnerStadtteil"
+        android:layout_alignRight="@+id/spinnerStadtteil"
+        android:contentDescription="Name"
+        android:ems="10"
+        android:hint="Name des Clubs"
+        android:inputType="textFilter"
+        android:textSize="12sp" />
+
+    <Spinner
+        android:id="@+id/spinnerStadtteil"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textViewStadtteil"
+        android:layout_toRightOf="@+id/textViewStadtteil"
+        android:entries="@array/stadtteil_arrays"
+        android:prompt="@string/stadtteil_prompt" />
+
+    <TextView
+        android:id="@+id/textViewStadtteil"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textViewName"
+        android:layout_below="@+id/editTextName"
+        android:ems="10"
+        android:paddingTop="3dp"
+        android:text="Stadtteil"
+        android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/textViewDurchschnShake"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewAktShake"
+            android:layout_toLeftOf="@+id/spinnerStadtteil"
+            android:text="Durchschn. Shake-Index"
+            android:textSize="12sp" /> />
+
+        <SeekBar
+            android:id="@+id/SeekBarAktShake"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/spinnerStadtteil"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/textViewAktShake" />
+
+        <SeekBar
+            android:id="@+id/seekBarDurchschnShake"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/SeekBarAktShake"
+            android:layout_toRightOf="@+id/textViewDurchschnShake" />
+
+        <TextView
+            android:id="@+id/textViewAktShake"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textViewDurchschnShake"
+            android:layout_below="@+id/textViewStadtteil"
+            android:layout_marginTop="31dp"
+            android:text="Aktueller Shake-Index"
+            android:textSize="12sp" />
+
+    <View
+        android:id="@+id/viewblueClubs"
+        android:layout_width="fill_parent"
+        android:layout_height="2dip"
+        android:layout_alignRight="@+id/seekBarDurchschnShake"
+        android:layout_centerVertical="true"
+        android:background="#005998" />
+
+    <TextView
+        android:id="@+id/textViewClubs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/viewblueClubs"
+        android:layout_alignLeft="@+id/viewblueClubs"
+        android:ems="12"
+        android:paddingTop="6dp"
+        android:text="Clubs"
+        android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/textViewClubShakeIndize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textViewClub"
+            android:layout_below="@+id/textViewClub"
+            android:text="Aktuell XY Pkt./ Durchschnittlich XY Pkt."
+            android:textSize="12sp"/>
+
+        <ImageButton
+            android:id="@+id/imageButtonWeiterClub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/viewblueClubs"
+            android:layout_below="@+id/viewblueClubs"
+            android:layout_marginTop="18dp"
+            android:src="@drawable/button_weiter" />
+
+        <TextView
+            android:id="@+id/textViewClub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/viewblueClubs"
+            android:layout_alignTop="@+id/imageButtonWeiterClub"
+            android:text="CLUB_NAME"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+</RelativeLayout>

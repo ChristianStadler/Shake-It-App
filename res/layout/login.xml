@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp" >
+
+    <Button
+        android:id="@+id/Loginbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/password"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="22dp"
+        android:text="Anmelden" />
+
+    <TextView
+        android:id="@+id/TextViewPasswort"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/Loginbutton"
+        android:layout_alignLeft="@+id/textViewSpitzname"
+        android:ems="12"
+        android:paddingTop="6dp"
+        android:text="Passwort"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/textViewSpitzname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="40dp"
+        android:layout_toLeftOf="@+id/username"
+        android:ems="12"
+        android:paddingTop="6dp"
+        android:text="Spitzname"
+        android:textSize="15sp" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/Loginbutton"
+        android:layout_below="@+id/username"
+        android:layout_marginTop="14dp"
+        android:ems="10"
+        android:hint="Passwort"
+        android:inputType="textPassword" />
+
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textViewSpitzname"
+        android:layout_alignBottom="@+id/textViewSpitzname"
+        android:layout_alignLeft="@+id/password"
+        android:ems="10"
+        android:hint="Spitzname" >
+
+        <requestFocus />
+    </EditText>
+
+        <Button
+            android:id="@+id/RegistrierenButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/PWvergessenButton"
+            android:layout_alignLeft="@+id/PWvergessenButton"
+            android:text="Registrieren" />
+
+        <Button
+            android:id="@+id/PWvergessenButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/TextViewPasswort"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="15dp"
+            android:text="Passwort vergessen" />
+
+</RelativeLayout>
