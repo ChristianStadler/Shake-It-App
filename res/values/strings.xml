@@ -2,7 +2,26 @@
 <resources>
 
     <string name="app_name">Shake-It-App</string>
-    <string name="action_settings">Settings</string>
+        <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    
+    <string-array name="menus">
+        <item >Shake-It-App</item>
+        <item >Rangliste</item>
+        <item >Profil</item>
+    </string-array>
+    
+    <string name="drawer_open">Open Drawer</string>
+    <string name="drawer_close">Close Drawer</string>
+    
+    <string name="stadtteil_prompt">Stadtteil</string>
+ 
+    <string-array name="stadtteil_arrays">
+         <item>alle</item>
+        <item>Quadrate</item>
+        <item>Jungsbusch</item>
+        <item>Neckarstadt</item>
+    </string-array>
 
 </resources>
+
