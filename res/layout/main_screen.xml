@@ -64,41 +64,9 @@
         android:ems="10"
         android:paddingTop="3dp"
         android:text="Stadtteil"
-        android:textSize="12sp" />
+        android:textSize="12sp" /> />
 
-        <TextView
-            android:id="@+id/textViewDurchschnShake"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textViewAktShake"
-            android:layout_toLeftOf="@+id/spinnerStadtteil"
-            android:text="Durchschn. Shake-Index"
-            android:textSize="12sp" /> />
-
-        <SeekBar
-            android:id="@+id/SeekBarAktShake"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/spinnerStadtteil"
-            android:layout_alignParentRight="true"
-            android:layout_alignTop="@+id/textViewAktShake" />
-
-        <SeekBar
-            android:id="@+id/seekBarDurchschnShake"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/SeekBarAktShake"
-            android:layout_toRightOf="@+id/textViewDurchschnShake" />
-
-        <TextView
-            android:id="@+id/textViewAktShake"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/textViewDurchschnShake"
-            android:layout_below="@+id/textViewStadtteil"
-            android:layout_marginTop="31dp"
-            android:text="Aktueller Shake-Index"
-            android:textSize="12sp" />
+        
 
     <View
         android:id="@+id/viewblueClubs"
@@ -146,5 +114,48 @@
             android:text="CLUB_NAME"
             android:textSize="12sp"
             android:textStyle="bold" />
+
+        <SeekBar
+            android:id="@+id/seekBarDurchschnShake"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="420dip"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textViewDurchschnShake"
+            android:layout_alignLeft="@+id/SeekBarAktShake"
+            android:layout_alignParentRight="true"
+            android:maxHeight="9dp"
+            android:minHeight="9dp"
+            android:progressDrawable="@drawable/seekbar_progress"
+            android:thumb="@drawable/shine_btn" />
+
+        <SeekBar
+            android:id="@+id/SeekBarAktShake"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="420dip"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textViewAktShake"
+            android:layout_alignLeft="@+id/spinnerStadtteil"
+            android:maxHeight="9dp"
+            android:minHeight="9dp"
+            android:progressDrawable="@drawable/seekbar_progress"
+            android:thumb="@drawable/shine_btn" />
+
+        <TextView
+            android:id="@+id/textViewDurchschnShake"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewAktShake"
+            android:layout_toLeftOf="@+id/seekBarDurchschnShake"
+            android:text="Durchschn. Shake-Index"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/textViewAktShake"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/spinnerStadtteil"
+            android:layout_toLeftOf="@+id/spinnerStadtteil"
+            android:text="Aktueller Shake-Index"
+            android:textSize="12sp" />
 
 </RelativeLayout>

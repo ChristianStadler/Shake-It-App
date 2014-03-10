@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+            
+    <ImageView
+        android:id="@+id/imageClub"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/tiffany" />
+
+    <TextView
+        android:id="@+id/textViewAvgIndex"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/imageClub"
+        android:layout_below="@+id/imageClub"
+        android:layout_marginTop="16dp"
+        android:text="durchschn. Shake-Index" />
+
+    <Switch
+        android:id="@+id/switchShaken"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="Jetzt Shaken" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView3"
+        android:layout_toLeftOf="@+id/switchShaken"
+        android:text="XY"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_below="@+id/switchShaken"
+        android:layout_marginTop="38dp"
+        android:text="Dein akt. Shake-Index" />
+
+    <TextView
+        android:id="@+id/textViewAvgIndex"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="18dp"
+        android:text="Dein durchschn. Shake-Index" />
+
+    <TextView
+        android:id="@+id/textViewAvgIndexPkt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textViewAvgIndex"
+        android:layout_below="@+id/textViewAvgIndex"
+        android:text="XY"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+</RelativeLayout>
