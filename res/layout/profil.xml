@@ -1,14 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
-
-
-    <TextView
-        android:id="@+id/textViewPosition"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp" >
+    
+    
+        <TextView
+        android:id="@+id/textNameUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:paddingTop="6dp"
+        android:ems="12"
+        android:text="Spitzname"
+        android:textSize="20sp" />
 
-</LinearLayout>
+    <View
+        android:id="@+id/viewblue"
+        android:layout_width="fill_parent"
+        android:layout_height="2dip"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textNameUser"
+        android:background="#005998" />
+
+    <ImageView
+        android:id="@+id/imageViewUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/viewblue"
+        android:layout_below="@+id/viewblue"
+        android:layout_marginTop="17dp"
+        android:background="#000000"
+        android:padding="1dp"
+        android:src="@drawable/tiggermiddle" />
+
+    <TextView
+        android:id="@+id/editTextName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textViewName"
+        android:layout_alignBottom="@+id/textViewName"
+        android:layout_centerHorizontal="true"
+        android:text="Name" />
+
+    <TextView
+        android:id="@+id/textViewName"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/viewblue"
+        android:layout_below="@+id/imageViewUser"
+        android:layout_marginTop="22dp"
+        android:text="Spitzname" />
+
+    <TextView
+        android:id="@+id/textEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textViewName"
+        android:layout_below="@+id/textViewName"
+        android:layout_marginTop="14dp"
+        android:text="E-Mail" />
+
+    <TextView
+        android:id="@+id/textEmailUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textEmail"
+        android:layout_alignBottom="@+id/textEmail"
+        android:layout_alignLeft="@+id/editTextName"
+        android:text="tigger@web.de" />
+
+</RelativeLayout>

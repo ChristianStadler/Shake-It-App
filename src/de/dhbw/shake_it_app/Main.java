@@ -52,6 +52,7 @@ public class Main extends Activity {
 		mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
 				R.drawable.ic_drawer, R.string.drawer_open,
 				R.string.drawer_close) {
+			
 
 			/** Called when drawer is closed */ 
 			public void onDrawerClosed(View view) {
@@ -67,6 +68,7 @@ public class Main extends Activity {
 			}
 
 		};
+		
 
 		// Setting DrawerToggle on DrawerLayout
 		mDrawerLayout.setDrawerListener(mDrawerToggle);
@@ -84,6 +86,7 @@ public class Main extends Activity {
 		// Enabling Up navigation
 		getActionBar().setDisplayHomeAsUpEnabled(true);
 
+
 		// Setting item click listener for the listview mDrawerList
 		mDrawerList.setOnItemClickListener(new OnItemClickListener() {
 
@@ -95,27 +98,7 @@ public class Main extends Activity {
 				// Currently selected river
 				mTitle = menuItems[position];
 
-				rFragment = getFragment(position);
-
-				// Creating a fragment object
-				//WebViewFragment rFragment = new WebViewFragment();
-
-				// Passing selected item information to fragment
-				Bundle data = new Bundle();
-				data.putInt("position", position);
-				rFragment.setArguments(data);				
-				
-				// Getting reference to the FragmentManager
-				FragmentManager fragmentManager = getFragmentManager();
-
-				// Creating a fragment transaction
-				FragmentTransaction ft = fragmentManager.beginTransaction();
-
-				// Adding a fragment to the fragment transaction
-				ft.replace(R.id.content_frame, rFragment);
-
-				// Committing the transaction
-				ft.commit();
+				changeView(position);
 
 				// Closing the drawer
 				mDrawerLayout.closeDrawer(mDrawerList);
@@ -123,6 +106,32 @@ public class Main extends Activity {
 			}
 		});
 	}
+	
+	protected void changeView(int position) {
+		rFragment = getFragment(position);
+
+		// Creating a fragment object
+		//WebViewFragment rFragment = new WebViewFragment();
+
+		// Passing selected item information to fragment
+		Bundle data = new Bundle();
+		data.putInt("position", position);
+		rFragment.setArguments(data);				
+		
+		// Getting reference to the FragmentManager
+		FragmentManager fragmentManager = getFragmentManager();
+
+		// Creating a fragment transaction
+		FragmentTransaction ft = fragmentManager.beginTransaction();
+
+		// Adding a fragment to the fragment transaction
+		ft.replace(R.id.content_frame, rFragment);
+
+		// Committing the transaction
+		ft.commit();
+	}
+	
+	
 
 	protected android.app.Fragment getFragment(int position) {
 		// Creating a fragment object
@@ -130,12 +139,17 @@ public class Main extends Activity {
 		case 0:
 			return rFragment = new MainScreen();
 		case 1:
+			return rFragment = new ClubShake();
+		case 2:	
 			return rFragment = new Rangliste();
-		case 2:
-			return rFragment = new Profil();				 
+		case 3:
+			return rFragment = new Profil();	
+		case 4:	
+			return rFragment = new LogInActivity();
 		default:
 			return rFragment = new MainScreen();
 		}
+		
 
 	}
 

@@ -12,7 +12,7 @@
         android:paddingTop="6dp"
         android:ems="12"
         android:text="Suche"
-        android:textSize="18sp" />
+        android:textSize="20sp" />
 
     <View
         android:id="@+id/viewblue"
@@ -29,7 +29,6 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/viewblue"
         android:layout_marginTop="17dp"
-        android:textSize="12sp"
         android:text="Name" />
 
     <EditText
@@ -43,8 +42,7 @@
         android:contentDescription="Name"
         android:ems="10"
         android:hint="Name des Clubs"
-        android:inputType="textFilter"
-        android:textSize="12sp" />
+        android:inputType="textFilter" />
 
     <Spinner
         android:id="@+id/spinnerStadtteil"
@@ -53,17 +51,7 @@
         android:layout_alignTop="@+id/textViewStadtteil"
         android:layout_toRightOf="@+id/textViewStadtteil"
         android:entries="@array/stadtteil_arrays"
-        android:prompt="@string/stadtteil_prompt" /> 
-
-        
-
-    <View
-        android:id="@+id/viewblueClubs"
-        android:layout_width="fill_parent"
-        android:layout_height="2dip"
-        android:layout_alignRight="@+id/seekBarDurchschnShake"
-        android:layout_centerVertical="true"
-        android:background="#005998" />
+        android:prompt="@string/stadtteil_prompt" />
 
     <TextView
         android:id="@+id/textViewClubs"
@@ -74,7 +62,7 @@
         android:ems="12"
         android:paddingTop="6dp"
         android:text="Clubs"
-        android:textSize="18sp" />
+        android:textSize="20sp" />
 
         <TextView
             android:id="@+id/textViewClubShakeIndize"
@@ -82,8 +70,7 @@
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/textViewClub"
             android:layout_below="@+id/textViewClub"
-            android:text="Aktuell XY Pkt./ Durchschnittlich XY Pkt."
-            android:textSize="12sp"/>
+            android:text="Aktuell XY Pkt./ Durchschn. XY Pkt."/>
 
         <ImageButton
             android:id="@+id/imageButtonWeiterClub"
@@ -95,27 +82,15 @@
             android:src="@drawable/button_weiter" />
 
         <TextView
-            android:id="@+id/textViewClub"
-            android:layout_width="wrap_content"
+            android:id="@+id/textViewStadtteil"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/viewblueClubs"
-            android:layout_alignTop="@+id/imageButtonWeiterClub"
-            android:text="CLUB_NAME"
-            android:textSize="12sp"
-            android:textStyle="bold" />
-
-        <SeekBar
-            android:id="@+id/seekBarDurchschnShake"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="420dip"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/textViewDurchschnShake"
-            android:layout_alignLeft="@+id/SeekBarAktShake"
-            android:layout_alignParentRight="true"
-            android:maxHeight="9dp"
-            android:minHeight="9dp"
-            android:progressDrawable="@drawable/seekbar_progress"
-            android:thumb="@drawable/shine_btn" />
+            android:layout_alignLeft="@+id/textViewName"
+            android:layout_below="@+id/editTextName"
+            android:layout_marginTop="14dp"
+            android:ems="10"
+            android:paddingTop="3dp"
+            android:text="Stadtteil" />
 
         <SeekBar
             android:id="@+id/SeekBarAktShake"
@@ -129,35 +104,50 @@
             android:progressDrawable="@drawable/seekbar_progress"
             android:thumb="@drawable/shine_btn" />
 
+        <View
+            android:id="@+id/viewblueClubs"
+            android:layout_width="fill_parent"
+            android:layout_height="2dip"
+            android:layout_alignLeft="@+id/textViewDurchschnShake"
+            android:layout_centerVertical="true"
+            android:background="#005998" />
+
         <TextView
-            android:id="@+id/textViewDurchschnShake"
-            android:layout_width="80dp"
+            android:id="@+id/textViewClub"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/textViewAktShake"
-            android:layout_toLeftOf="@+id/seekBarDurchschnShake"
-            android:text="Durchschn. Shake-Index"
-            android:textSize="12sp" />
+            android:layout_alignLeft="@+id/viewblueClubs"
+            android:layout_alignTop="@+id/imageButtonWeiterClub"
+            android:text="CLUB_NAME"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textViewAktShake"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/textViewStadtteil"
-            android:layout_marginTop="32dp"
-            android:layout_toLeftOf="@+id/spinnerStadtteil"
-            android:text="Aktueller Shake-Index"
-            android:textSize="12sp" />
+            android:layout_above="@+id/seekBarDurchschnShake"
+            android:layout_alignLeft="@+id/textViewDurchschnShake"
+            android:layout_marginBottom="22dp"
+            android:text="Aktueller Shake-Index" />
 
         <TextView
-            android:id="@+id/textViewStadtteil"
+            android:id="@+id/textViewDurchschnShake"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/textViewName"
-            android:layout_below="@+id/editTextName"
-            android:layout_marginTop="14dp"
-            android:ems="10"
-            android:paddingTop="3dp"
-            android:text="Stadtteil"
-            android:textSize="12sp" />
+            android:layout_above="@+id/textViewClubs"
+            android:layout_toLeftOf="@+id/seekBarDurchschnShake"
+            android:text="Durchschn. Shake-Index" />
+
+        <SeekBar
+            android:id="@+id/seekBarDurchschnShake"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="420dip"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textViewDurchschnShake"
+            android:layout_alignLeft="@+id/spinnerStadtteil"
+            android:maxHeight="9dp"
+            android:minHeight="9dp"
+            android:progressDrawable="@drawable/seekbar_progress"
+            android:thumb="@drawable/shine_btn" />
 
 </RelativeLayout>

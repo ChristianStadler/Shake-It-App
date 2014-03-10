@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-public class Profil extends Fragment {
+public class ClubShake extends Fragment {
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -20,7 +20,7 @@ public class Profil extends Fragment {
 		String[] menus = getResources().getStringArray(R.array.menus);
 
 		// Creating view corresponding to the fragment
-		View v = inflater.inflate(R.layout.profil, container, false);
+		View v = inflater.inflate(R.layout.clubshake, container, false);
 
 		// Updating the action bar title
 		getActivity().getActionBar().setTitle(menus[position]);

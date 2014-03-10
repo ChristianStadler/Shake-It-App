@@ -37,17 +37,6 @@
         android:ems="10"
         android:hint="Spitzname" />
 
-    <Button
-        android:id="@+id/RegistrieungButton"
-        style="@style/button_text"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/passwordWDH"
-        android:layout_below="@+id/passwordWDH"
-        android:layout_marginTop="44dp"
-        android:background="@drawable/blue_button"
-        android:text="Registrieren" />
-
     <EditText
         android:id="@+id/passwordWDH"
         android:layout_width="fill_parent"
@@ -60,5 +49,16 @@
 
         <requestFocus />
     </EditText>
+
+    <Button
+        android:id="@+id/RegistrieungButton"
+        style="@style/button_text"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/passwordWDH"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/blue_button"
+        android:text="Registrieren" />
 
 </RelativeLayout>

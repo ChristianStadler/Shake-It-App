@@ -6,9 +6,11 @@
     <string name="hello_world">Hello world!</string>
     
     <string-array name="menus">
-        <item >Shake-It-App</item>
+        <item >Suche</item>
+        <item >Club</item>
         <item >Rangliste</item>
         <item >Profil</item>
+        <item >Login</item>
     </string-array>
     
     <string name="drawer_open">Open Drawer</string>

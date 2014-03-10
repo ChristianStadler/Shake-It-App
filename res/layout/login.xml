@@ -7,35 +7,22 @@
 
         <Button
             android:id="@+id/PWvergessenButton"
-            style="@style/button_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/TextViewPasswort"
             android:layout_centerVertical="true"
-            android:background="@drawable/blue_button"
+            android:textSize="15dp"
             android:text="Passwort vergessen" />
 
         <Button
             android:id="@+id/RegistrierenButton"
-            style="@style/button_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignRight="@+id/password"
             android:layout_centerVertical="true"
             android:layout_toRightOf="@+id/PWvergessenButton"
-            android:background="@drawable/blue_button"
+            android:textSize="15dp"
             android:text="Registrieren" />
-
-        <Button
-            android:id="@+id/Loginbutton"
-            style="@style/button_text"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/password"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="14dp"
-            android:background="@drawable/blue_button"
-            android:text="Anmelden" />
 
         <EditText
             android:id="@+id/password"
@@ -56,5 +43,15 @@
             android:layout_marginTop="44dp"
             android:ems="10"
             android:hint="Spitzname" />
+
+        <Button
+            android:id="@+id/Loginbutton"
+            style="@style/button_text"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/PWvergessenButton"
+            android:layout_alignRight="@+id/password"
+            android:background="@drawable/blue_button"
+            android:text="Anmelden" />
 
 </RelativeLayout>
