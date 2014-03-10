@@ -12,7 +12,7 @@
         android:paddingTop="6dp"
         android:ems="12"
         android:text="Suche"
-        android:textSize="15sp" />
+        android:textSize="18sp" />
 
     <View
         android:id="@+id/viewblue"
@@ -53,18 +53,7 @@
         android:layout_alignTop="@+id/textViewStadtteil"
         android:layout_toRightOf="@+id/textViewStadtteil"
         android:entries="@array/stadtteil_arrays"
-        android:prompt="@string/stadtteil_prompt" />
-
-    <TextView
-        android:id="@+id/textViewStadtteil"
-        android:layout_width="80dp"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textViewName"
-        android:layout_below="@+id/editTextName"
-        android:ems="10"
-        android:paddingTop="3dp"
-        android:text="Stadtteil"
-        android:textSize="12sp" /> />
+        android:prompt="@string/stadtteil_prompt" /> 
 
         
 
@@ -85,7 +74,7 @@
         android:ems="12"
         android:paddingTop="6dp"
         android:text="Clubs"
-        android:textSize="15sp" />
+        android:textSize="18sp" />
 
         <TextView
             android:id="@+id/textViewClubShakeIndize"
@@ -153,9 +142,22 @@
             android:id="@+id/textViewAktShake"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/spinnerStadtteil"
+            android:layout_below="@+id/textViewStadtteil"
+            android:layout_marginTop="32dp"
             android:layout_toLeftOf="@+id/spinnerStadtteil"
             android:text="Aktueller Shake-Index"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/textViewStadtteil"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textViewName"
+            android:layout_below="@+id/editTextName"
+            android:layout_marginTop="14dp"
+            android:ems="10"
+            android:paddingTop="3dp"
+            android:text="Stadtteil"
             android:textSize="12sp" />
 
 </RelativeLayout>
