@@ -8,7 +8,6 @@ import android.content.Context;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
-import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -87,6 +86,8 @@ public class Main extends Activity {
 
 		// Enabling Up navigation
 		getActionBar().setDisplayHomeAsUpEnabled(true);
+		
+		changeView(4);
 
 
 		// Setting item click listener for the listview mDrawerList
@@ -109,7 +110,7 @@ public class Main extends Activity {
 		});
 	}
 	
-	protected void changeView(int position) {
+	public void changeView(int position) {
 		rFragment = getFragment(position);
 
 		// Creating a fragment object
@@ -177,15 +178,20 @@ public class Main extends Activity {
 
 		return super.onPrepareOptionsMenu(menu);
 	}
+	
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
+	
+
+        
 	public SensorManager getSensorManager(){
 		SensorManager sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
 		return sensorManager;
 		}
-	
+
+	 
 }

@@ -2,20 +2,28 @@ package de.dhbw.shake_it_app;
 
 import android.app.Fragment;
 import android.os.Bundle;
+import android.text.Editable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
  
 public class MainScreen extends Fragment {
 	
-	  private Spinner spinnerStadtteil;
-	  private View v;
-	  private String selectedStadtteil = null;
+	private TextView textViewFilter, textViewName, textViewClubs;
+	private EditText editTextName;
+	private Spinner spinnerStadtteil;
+	private View v;
+	private String selectedStadtteil = null;
+	private Editable clubName;
+	private ImageButton imageButtonWeiterClub;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -33,19 +41,58 @@ public class MainScreen extends Fragment {
 
 		// Updating the action bar title
 		getActivity().getActionBar().setTitle(menus[position]);
+		
+		// Subtitle setzen
+		textViewFilter = (TextView) v.findViewById(R.id.textViewFilter);
+		textViewFilter.setText("Suche");
+		
+		//Daten setzen und erfassen
+		textViewName = (TextView) v.findViewById(R.id.textViewName);
+		textViewName.setText("Name");
+		
+		editTextName = (EditText) v.findViewById(R.id.editTextName);
+		clubName = editTextName.getText();
+		
+		
+		
+		//Anzeige der Ergebnisse
+		textViewClubs = (TextView) v.findViewById(R.id.textViewClubs);
+		textViewClubs.setText("Clubs");
+		
+		//imageButtonWeiterClub = (ImageButton) getView().findViewById(R.id.imageButtonWeiterClub);
+		/*
+	    imageButtonWeiterClub.setOnClickListener(new View.OnClickListener() {
+	        @Override
+	        public void onClick(View v) {
+	        	
+	        	
+	        }
+
+
+	    });
+*/		
 
 		return v;
 	}
+
+	
 	
 	
 	 
-	  @Override
+
+
+
+
+
+
+	@Override
 	  public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 	 
 
 	  }
-
+	  
+	  //Stadtteil spinner 
 	  public void addListenerOnSpinnerItemSelection() {
 		  spinnerStadtteil = (Spinner) v.findViewById(R.id.spinnerStadtteil);
 		  spinnerStadtteil.setOnItemSelectedListener(new MyOnItemSelectedListener());
@@ -73,9 +120,12 @@ public class MainScreen extends Fragment {
 	  	  public void onNothingSelected(AdapterView<?> parent) {
 	          // Do nothing.
 	      }
+
 	 
 	            
-	        }
+}
+
+	    
 	  
 	  
 

@@ -41,7 +41,6 @@
         android:layout_alignRight="@+id/spinnerStadtteil"
         android:contentDescription="Name"
         android:ems="10"
-        android:hint="Name des Clubs"
         android:inputType="textFilter" />
 
     <Spinner
