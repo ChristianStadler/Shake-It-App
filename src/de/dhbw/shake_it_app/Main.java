@@ -33,6 +33,16 @@ public class Main extends Activity {
 	
 	//Fragment
 	private android.app.Fragment rFragment;
+	
+	private static Main main;
+	private Main(){
+		
+	}
+	
+	public static Main getMain(){
+		if(main == null) main = new Main();
+		return main;
+	}
 
 	@SuppressLint("NewApi")
 	@Override 
