@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.Fragment;
@@ -181,4 +182,9 @@ public class Main extends Activity {
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
+	public SensorManager getSensorManager(){
+		SensorManager sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+		return sensorManager;
+		}
+	
 }
