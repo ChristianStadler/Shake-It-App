@@ -19,7 +19,7 @@ public class ShakeAnalyser implements SensorEventListener{
 	private double[] last10Values = new double[10];
 	
 	private ShakeAnalyser(){
-		this.sensorManager = Main.getMain().getSensorManager();
+	//	this.sensorManager = Main.getMain().getSensorManager();
 		sensor = sensorManager.getDefaultSensor(Sensor.TYPE_LINEAR_ACCELERATION);
 	}
 	

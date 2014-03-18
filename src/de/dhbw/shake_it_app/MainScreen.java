@@ -59,18 +59,19 @@ public class MainScreen extends Fragment {
 		textViewClubs = (TextView) v.findViewById(R.id.textViewClubs);
 		textViewClubs.setText("Clubs");
 		
-		//imageButtonWeiterClub = (ImageButton) getView().findViewById(R.id.imageButtonWeiterClub);
-		/*
+		imageButtonWeiterClub = (ImageButton) v.findViewById(R.id.imageButtonWeiterClub);
+
 	    imageButtonWeiterClub.setOnClickListener(new View.OnClickListener() {
 	        @Override
 	        public void onClick(View v) {
-	        	
+	        	Main main = (Main)getActivity();
+	        	main.changeView(1);
 	        	
 	        }
 
 
 	    });
-*/		
+		
 
 		return v;
 	}

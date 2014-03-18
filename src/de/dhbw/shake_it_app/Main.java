@@ -30,10 +30,10 @@ public class Main extends Activity {
 
 	// Title of the action bar
 	private String mTitle = "";
-	
+
 	//Fragment
 	private android.app.Fragment rFragment;
-	
+	/*	
 	private static Main main;
 	private Main(){
 		
@@ -43,7 +43,7 @@ public class Main extends Activity {
 		if(main == null) main = new Main();
 		return main;
 	}
-
+*/
 	@SuppressLint("NewApi")
 	@Override 
 	protected void onCreate(Bundle savedInstanceState) {
