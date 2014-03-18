@@ -97,6 +97,7 @@ public class Main extends Activity {
 		// Enabling Up navigation
 		getActionBar().setDisplayHomeAsUpEnabled(true);
 		
+		//Initialisierung des Startbildschirms 
 		changeView(4);
 
 

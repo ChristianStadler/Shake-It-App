@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,6 +25,7 @@ public class MainScreen extends Fragment {
 	private String selectedStadtteil = null;
 	private Editable clubName;
 	private ImageButton imageButtonWeiterClub;
+	private int eingabeAktuellerShakeIndex, eingabeDurchschnShakeIndex;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -53,43 +55,38 @@ public class MainScreen extends Fragment {
 		editTextName = (EditText) v.findViewById(R.id.editTextName);
 		clubName = editTextName.getText();
 		
-		
-		
+
+	    
+	    //Eingabe des Aktuellen Indize
+	    SeekBar SeekBarAktShake = (SeekBar) v.findViewById(R.id.SeekBarAktShake);
+	    eingabeAktuellerShakeIndex = SeekBarAktShake.getProgress();
+	   
+	    //Eingabe des Durchschnittlichen Indize zur Suche
+	    SeekBar seekBarDurchschnShake = (SeekBar) v.findViewById(R.id.seekBarDurchschnShake);
+	    eingabeDurchschnShakeIndex = seekBarDurchschnShake.getProgress();
+	    
 		//Anzeige der Ergebnisse
 		textViewClubs = (TextView) v.findViewById(R.id.textViewClubs);
 		textViewClubs.setText("Clubs");
 		
+		//Button um auf ClubSeite zu kommen.
 		imageButtonWeiterClub = (ImageButton) v.findViewById(R.id.imageButtonWeiterClub);
-
 	    imageButtonWeiterClub.setOnClickListener(new View.OnClickListener() {
 	        @Override
 	        public void onClick(View v) {
 	        	Main main = (Main)getActivity();
 	        	main.changeView(1);
-	        	
 	        }
 
-
 	    });
-		
 
 		return v;
 	}
-
-	
-	
-	
-	 
-
-
-
-
 
 
 	@Override
 	  public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-	 
 
 	  }
 	  
@@ -121,13 +118,6 @@ public class MainScreen extends Fragment {
 	  	  public void onNothingSelected(AdapterView<?> parent) {
 	          // Do nothing.
 	      }
-
-	 
-	            
-}
-
-	    
-	  
-	  
-
+     
+	}
 }
