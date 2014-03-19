@@ -5,9 +5,14 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class Profil extends Fragment {
+	
+	private TextView textViewNameUser, textEmailUser;
+	private ImageView imageViewUser;
+	private String userName, eMailUser;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -24,6 +29,21 @@ public class Profil extends Fragment {
 
 		// Updating the action bar title
 		getActivity().getActionBar().setTitle(menus[position]);
+		
+		//erste Testdaten
+		userName = "Tigger";
+		eMailUser = "Tigger@dhbw-mannheim.de";
+		
+		//Avatar User
+		imageViewUser = (ImageView) v.findViewById(R.id.imageViewUser);
+		
+		//Username setzen
+		textViewNameUser = (TextView) v.findViewById(R.id.textViewNameUser);
+		textViewNameUser.setText(userName);
+		
+		//E-Mail setzen
+		textEmailUser = (TextView) v.findViewById(R.id.textEmailUser);
+		textEmailUser.setText(eMailUser);
 
 		return v;
 	}

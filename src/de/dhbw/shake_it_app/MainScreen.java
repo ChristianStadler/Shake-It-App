@@ -44,6 +44,8 @@ public class MainScreen extends Fragment {
 		// Updating the action bar title
 		getActivity().getActionBar().setTitle(menus[position]);
 		
+		//ShakeAnalyser shakeAnalyser = new ShakeAnalyser((Main)getActivity());
+		
 		// Subtitle setzen
 		textViewFilter = (TextView) v.findViewById(R.id.textViewFilter);
 		textViewFilter.setText("Suche");

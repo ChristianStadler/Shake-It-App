@@ -5,30 +5,11 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp" >
 
-        <Button
-            android:id="@+id/PWvergessenButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/TextViewPasswort"
-            android:layout_centerVertical="true"
-            android:textSize="15dp"
-            android:text="Passwort vergessen" />
-
-        <Button
-            android:id="@+id/RegistrierenButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignRight="@+id/password"
-            android:layout_centerVertical="true"
-            android:layout_toRightOf="@+id/PWvergessenButton"
-            android:textSize="15dp"
-            android:text="Registrieren" />
-
         <EditText
             android:id="@+id/password"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/PWvergessenButton"
+            android:layout_alignLeft="@+id/checkBoxDatenSpeichern"
             android:layout_below="@+id/username"
             android:ems="10"
             android:hint="Passwort"
@@ -44,14 +25,47 @@
             android:ems="10"
             android:hint="Spitzname" />
 
+        <CheckBox
+            android:id="@+id/checkBoxDatenSpeichern"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/RegistrierenButton"
+            android:layout_below="@+id/Loginbutton"
+            android:text="Logindaten speichern" />
+
+        <Button
+            android:id="@+id/RegistrierenButton"
+            style="@style/button_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/Loginbutton"
+            android:layout_alignParentBottom="true"
+            android:layout_alignRight="@+id/Loginbutton"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/blue_button"
+            android:text="Registrieren"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/PWvergessenButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/checkBoxDatenSpeichern"
+            android:layout_below="@+id/checkBoxDatenSpeichern"
+            android:layout_marginRight="18dp"
+            android:text="Passwort vergessen"
+            android:textSize="15sp" />
+
         <Button
             android:id="@+id/Loginbutton"
             style="@style/button_text"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/PWvergessenButton"
-            android:layout_alignRight="@+id/password"
+            android:layout_below="@+id/password"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="72dp"
             android:background="@drawable/blue_button"
-            android:text="Anmelden" />
+            android:text="Anmelden"
+            android:onClick="loginClick" />
 
 </RelativeLayout>

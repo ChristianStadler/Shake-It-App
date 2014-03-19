@@ -158,8 +158,6 @@ public class Main extends Activity {
 			return rFragment = new Rangliste();
 		case 3:
 			return rFragment = new Profil();	
-		case 4:	
-			return rFragment = new LogInActivity();
 		default:
 			return rFragment = new MainScreen();
 		}
