@@ -1,10 +1,6 @@
 package de.dhbw.shake_it_app;
 
-import java.lang.reflect.Array;
-import java.util.Queue;
-
 import android.app.Activity;
-import android.content.Context;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -13,9 +9,11 @@ import android.hardware.SensorManager;
 public class ShakeAnalyser implements SensorEventListener{
 	
 	private static ShakeAnalyser shakeAnalyser;
+	private long timeStart;
 	private SensorManager sensorManager;
 	private Sensor sensor;
-	private int currentIndex, convertedValue, arrayCounter = 0;
+	private double sessionIndex = 0;
+	private int currentIndex, convertedValue, arrayCounter = 0, convertedSessionIndex, amountValues;
 	private final int maxIndex = 30;
 	private double[] last10Values = new double[10];
 		
@@ -32,6 +30,7 @@ public class ShakeAnalyser implements SensorEventListener{
 	
 	public void startShakeAnalyser(){
 		sensorManager.registerListener(this, sensor, SensorManager.SENSOR_DELAY_NORMAL);
+		timeStart = System.currentTimeMillis();
 	}
 	
 	public void stopShakeAnalyser(){
@@ -52,6 +51,26 @@ public class ShakeAnalyser implements SensorEventListener{
 		return convertedValue;
 	}
 	
+	public int[] calcTimeDanced(){
+		long millis = System.currentTimeMillis() - timeStart;
+		int[] dancedTime = new int[3];
+		dancedTime[0] = (int) (millis / 3600000);
+		dancedTime[1] = (int) ((millis - 3600000 * dancedTime[0])/60000);
+		dancedTime[2] = (int) ((millis - (3600000 * dancedTime[0] + 60000 * dancedTime[1]))/1000);
+		
+		return dancedTime;
+	}
+	
+	public void calcSessionIndex(double lastValue){
+		sessionIndex =(sessionIndex - (sessionIndex - lastValue) / amountValues);
+		convertedSessionIndex = convertToIndex(sessionIndex);
+		}
+	
+	
+	public int getConvertedSessionIndex(){
+		return convertedSessionIndex;	
+	}
+	
 	@Override
 	public void onAccuracyChanged(Sensor arg0, int arg1) {
 		// TODO Auto-generated method stub
@@ -61,8 +80,10 @@ public class ShakeAnalyser implements SensorEventListener{
 	@Override
 	public void onSensorChanged(SensorEvent event) {
 		last10Values[arrayCounter] = event.values[0] + event.values[1] + event.values[2];
+		amountValues++;
+		calcSessionIndex(last10Values[arrayCounter]);
 		arrayCounter++;
-		if(arrayCounter == 10)arrayCounter = 0;			
+		if(arrayCounter == 10)arrayCounter = 0;		
 	}
 	
 }
