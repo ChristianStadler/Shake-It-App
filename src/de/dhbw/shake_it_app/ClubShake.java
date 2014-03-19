@@ -15,8 +15,8 @@ public class ClubShake extends Fragment {
 	
 	private Switch switchShaken;
 	private TextView textViewAvgIndexClub, textAvgIndexClubPkt, textViewAvgIndexPkt, textViewAktIndexPkt, TextTNAnzahl, textVeranstaltungName;
-	private String clubName;
-	private int avgIndexClub, aktIndexUser, avgIndexUser, anzahlTN;
+	public String clubName;
+	public int avgIndexClub, aktIndexUser, avgIndexUser, anzahlTN;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
