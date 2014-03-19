@@ -3,6 +3,7 @@ package de.dhbw.shake_it_app;
 import java.lang.reflect.Array;
 import java.util.Queue;
 
+import android.app.Activity;
 import android.content.Context;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -17,14 +18,15 @@ public class ShakeAnalyser implements SensorEventListener{
 	private int currentIndex, convertedValue, arrayCounter = 0;
 	private final int maxIndex = 30;
 	private double[] last10Values = new double[10];
-	
-	private ShakeAnalyser(){
-	//	this.sensorManager = Main.getMain().getSensorManager();
+		
+	private ShakeAnalyser(Activity activity){
+		Main main = (Main) activity;
+		this.sensorManager = main.getSensorManager();
 		sensor = sensorManager.getDefaultSensor(Sensor.TYPE_LINEAR_ACCELERATION);
 	}
 	
-	public static ShakeAnalyser getShakeAnalyser(){
-		if(shakeAnalyser == null) shakeAnalyser = new ShakeAnalyser();
+	public static ShakeAnalyser getShakeAnalyser(Activity activity){
+		if(shakeAnalyser == null) shakeAnalyser = new ShakeAnalyser(activity);
 		return shakeAnalyser;
 	}
 	
