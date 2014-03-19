@@ -23,6 +23,7 @@
         </activity>
         <activity android:name="de.dhbw.shake_it_app.Main"/>
         <activity android:name="de.dhbw.shake_it_app.Registrierung"/>
+        <activity android:name="de.dhbw.shake_it_app.PWvergessen"/>
     </application>
 
 </manifest>
