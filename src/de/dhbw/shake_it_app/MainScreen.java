@@ -18,7 +18,7 @@ import android.widget.Toast;
  
 public class MainScreen extends Fragment {
 	
-	private TextView textViewFilter, textViewName, textViewClubs;
+	private TextView textViewFilter, textViewName, textViewClubs, textViewStadtteil, textViewAktShake;
 	private EditText editTextName;
 	private Spinner spinnerStadtteil;
 	private View v;
@@ -55,7 +55,8 @@ public class MainScreen extends Fragment {
 		editTextName = (EditText) v.findViewById(R.id.editTextName);
 		clubName = editTextName.getText();
 		
-
+		textViewStadtteil = (TextView) v.findViewById(R.id.textViewStadtteil);
+		textViewStadtteil.setText("Stadtteil");
 	    
 	    //Eingabe des Aktuellen Indize
 	    SeekBar SeekBarAktShake = (SeekBar) v.findViewById(R.id.SeekBarAktShake);

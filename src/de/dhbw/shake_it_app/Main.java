@@ -98,7 +98,7 @@ public class Main extends Activity {
 		getActionBar().setDisplayHomeAsUpEnabled(true);
 		
 		//Initialisierung des Startbildschirms 
-		changeView(4);
+		//changeView(4);
 
 
 		// Setting item click listener for the listview mDrawerList

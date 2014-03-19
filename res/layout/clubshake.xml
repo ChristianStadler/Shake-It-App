@@ -35,7 +35,7 @@
         android:text="Dein durchschnittl. Shake-Index" />
 
     <TextView
-        android:id="@+id/textViewAvgIndexPkt"
+        android:id="@+id/textViewAktIndexPkt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/switchShaken"
@@ -123,7 +123,7 @@
         android:layout_height="2dip"
         android:layout_alignLeft="@+id/textViewAvgIndexClub"
         android:layout_alignRight="@+id/TextTNAnzahl"
-        android:layout_below="@+id/textViewAvgIndexPkt"
+        android:layout_below="@+id/textViewAktIndexPkt"
         android:layout_marginTop="15dp"
         android:background="#005998" />
 

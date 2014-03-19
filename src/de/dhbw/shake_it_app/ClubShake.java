@@ -14,6 +14,9 @@ import android.widget.Toast;
 public class ClubShake extends Fragment {
 	
 	private Switch switchShaken;
+	private TextView textViewAvgIndexClub, textAvgIndexClubPkt, textViewAvgIndexPkt, textViewAktIndexPkt, TextTNAnzahl, textVeranstaltungName;
+	private String clubName;
+	private int avgIndexClub, aktIndexUser, avgIndexUser, anzahlTN;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -31,6 +34,28 @@ public class ClubShake extends Fragment {
 		// Updating the action bar title
 		getActivity().getActionBar().setTitle(menus[position]);
 		
+		//Testdaten
+		clubName = "Tiffany";
+		avgIndexClub = 89;
+		aktIndexUser = 78;
+		avgIndexUser = 90;
+		anzahlTN = 200;
+		
+		//Durchschnittlicher Index des Clubs setzen
+		textViewAvgIndexClub = (TextView) v.findViewById(R.id.textViewAvgIndexClub);
+		textViewAvgIndexClub.setText("Durchschnittlicher Shake-Index im " + clubName );
+		
+		textAvgIndexClubPkt = (TextView) v.findViewById(R.id.textAvgIndexClubPkt);
+		textAvgIndexClubPkt.setText(String.valueOf(avgIndexClub));
+		
+		//Indize des Users setzen:
+		textViewAktIndexPkt = (TextView) v.findViewById(R.id.textViewAktIndexPkt);
+		textViewAktIndexPkt.setText(String.valueOf(aktIndexUser));
+		
+		textViewAvgIndexPkt = (TextView) v.findViewById(R.id.textViewAvgIndexPkt);
+		textViewAvgIndexPkt.setText(String.valueOf(avgIndexUser));
+		
+		//Schalter zum Starten des Shaken
 		Switch switchShaken = (Switch) v.findViewById(R.id.switchShaken);
 		switchShaken.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 			
@@ -39,14 +64,14 @@ public class ClubShake extends Fragment {
 				if (isChecked==true) {
 					Toast.makeText(
 							getActivity(),
-							 "Ab jetzt werden deine Bewegungen aufgenommen",
+							 "Shake it, now!",
 						    Toast.LENGTH_SHORT).show();
                         //hier den ShakeAnalyse starten
 				}
 				else if (isChecked==false) {
 					Toast.makeText(
 							getActivity(),
-							 "Ab jetzt werden deine Bewegungen NICHT mehr aufgenommen",
+							 "Stop Shaking!",
 						    Toast.LENGTH_SHORT).show();
                     //hier den ShakeAnalyse stoppen
 				}
@@ -56,6 +81,13 @@ public class ClubShake extends Fragment {
 				
 			}
 		});
+		
+		//Teilnehmerzahl & Veranstaltung des Clubs setzen
+		TextTNAnzahl = (TextView) v.findViewById(R.id.TextTNAnzahl);
+		TextTNAnzahl.setText(String.valueOf(anzahlTN)+ " Personen");
+		
+		textVeranstaltungName = (TextView) v.findViewById(R.id.textVeranstaltungName);
+		textVeranstaltungName.setText("DanceNight");
 		
 		return v;
 		
