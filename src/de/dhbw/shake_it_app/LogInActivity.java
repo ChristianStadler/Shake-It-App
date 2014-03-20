@@ -43,8 +43,8 @@ import de.dhbw.shake_it_app.model.ModelController;
 	          //Registrieren Button
 	          RegistrierenButton = (Button)findViewById(R.id.RegistrierenButton);
 	          
-	          //startDebugging() is a method for Christian
-	          ModelController.startDebugging();
+	          //startDebugging() is for debugging the ModelController etc.
+	          ModelController.get().startDebugging();
 	          
 	      }
     
