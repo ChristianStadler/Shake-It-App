@@ -4,13 +4,13 @@ import java.sql.Timestamp;
 
 public class Session {
 
-	int ID, locationID, userID;
-	Timestamp checkInTime;
+	private int id, locationID, userID;
+	private Timestamp checkInTime;
 
 	public Session() {}
 	
-	public Session(int ID, int locationID, int userID, Timestamp checkInTime) {
-		setID(ID);
+	public Session(int id, int locationID, int userID, Timestamp checkInTime) {
+		setID(id);
 		setLocationID(locationID);
 		setUserID(userID);
 		setCheckInTime(checkInTime);
@@ -18,7 +18,7 @@ public class Session {
 	
 	/* GETTER */
 	public int getID() {
-		return ID;
+		return id;
 	}
 	
 	public int getLocationID() {
@@ -34,8 +34,8 @@ public class Session {
 	}
 	
 	/* SETTER */
-	public void setID(int ID) {
-		this.ID = ID;
+	public void setID(int id) {
+		this.id = id;
 	}
 	
 	public void setLocationID(int locationID) {

@@ -2,14 +2,14 @@ package de.dhbw.shake_it_app.model;
 
 public class Location {
 
-	int ID;
-	String name, description;
-	double longitude, latitude;
+	private int id;
+	private String name, description;
+	private double longitude, latitude;
 	
 	public Location() {}
 	
-	public Location(int ID, String name, String description, double longitude, double latitude) {
-		setID(ID);
+	public Location(int id, String name, String description, double longitude, double latitude) {
+		setID(id);
 		setName(name);
 		setDescription(description);
 		setLongitude(longitude);
@@ -18,7 +18,7 @@ public class Location {
 	
 	/* GETTER */
 	public int getID() {
-		return ID;
+		return id;
 	}
 	
 	public String getName() {
@@ -38,8 +38,8 @@ public class Location {
 	}
 	
 	/* SETTER */
-	public void setID(int ID) {
-		this.ID = ID;
+	public void setID(int id) {
+		this.id = id;
 	}
 	
 	public void setName(String name) {

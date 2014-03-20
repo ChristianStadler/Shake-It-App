@@ -2,13 +2,13 @@ package de.dhbw.shake_it_app.model;
 
 public class ShakeEvent {
 
-	int ID, sessionID, locationID, shakeIndex;
-	double longitude, latitude;
+	private int id, sessionID, locationID, shakeIndex;
+	private double longitude, latitude;
 
 	public ShakeEvent() {}
 	
-	public ShakeEvent(int ID, int sessionID, int locationID, int shakeIndex, double longitude, double latitude) {
-		setID(ID);
+	public ShakeEvent(int id, int sessionID, int locationID, int shakeIndex, double longitude, double latitude) {
+		setID(id);
 		setSessionID(sessionID);
 		setLocationID(locationID);
 		setShakeIndex(shakeIndex);
@@ -18,7 +18,7 @@ public class ShakeEvent {
 	
 	/* GETTER */
 	public int getID() {
-		return ID;
+		return id;
 	}
 	
 	public int getSessionID() {
@@ -42,8 +42,8 @@ public class ShakeEvent {
 	}
 	
 	/* SETTER */
-	public void setID(int ID) {
-		this.ID = ID;
+	public void setID(int id) {
+		this.id = id;
 	}
 	
 	public void setSessionID(int sessionID) {

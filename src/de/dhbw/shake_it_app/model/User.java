@@ -2,41 +2,49 @@ package de.dhbw.shake_it_app.model;
 
 public class User {
 
-	int ID;
-	String name, eMail;
+	private int id;
+	private String name, email, password;
 	
 	public User() {}
 	
-	public User(int ID, String name, String eMail) {
-		setID(ID);
+	public User(int id, String name, String email, String password) {
+		setID(id);
 		setName(name);
-		setEMail(eMail);
+		setEmail(email);
+		setPassword(password);
 	}
 	
 	/* GETTER */
 	public int getID() {
-		return ID;
+		return id;
 	}
 	
 	public String getName() {
 		return name;
 	}
 	
-	public String getEMail() {
-		return eMail;
+	public String getEmail() {
+		return email;
+	}
+	
+	public String getPassword() {
+		return password;
 	}
 	
 	/* SETTER */
-	public void setID(int ID) {
-		this.ID = ID;
+	public void setID(int id) {
+		this.id = id;
 	}
 	
 	public void setName(String name) {
 		this.name = name;
 	}
 	
-	public void setEMail(String eMail) {
-		this.eMail = eMail;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	
+	public void setPassword(String password) {
+		this.password = password;
+	}
 }
