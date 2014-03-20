@@ -2,7 +2,7 @@ package de.dhbw.shake_it_app.model;
 
 import java.sql.Timestamp;
 
-public class Session {
+public class Session extends Object {
 
 	private int id, locationID, userID;
 	private Timestamp checkInTime;

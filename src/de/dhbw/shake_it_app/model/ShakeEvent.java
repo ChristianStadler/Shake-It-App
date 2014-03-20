@@ -1,6 +1,6 @@
 package de.dhbw.shake_it_app.model;
 
-public class ShakeEvent {
+public class ShakeEvent extends Object {
 
 	private int id, sessionID, locationID, shakeIndex;
 	private double longitude, latitude;

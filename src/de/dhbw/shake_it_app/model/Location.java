@@ -1,6 +1,6 @@
 package de.dhbw.shake_it_app.model;
 
-public class Location {
+public class Location extends Object {
 
 	private int id;
 	private String name, description;

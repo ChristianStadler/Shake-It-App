@@ -1,6 +1,6 @@
 package de.dhbw.shake_it_app.model;
 
-public class User {
+public class User extends Object {
 
 	private int id;
 	private String name, email, password;
