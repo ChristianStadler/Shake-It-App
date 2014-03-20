@@ -22,20 +22,20 @@ public class DataProvider extends HTTPConnector {
 		System.out.println("CS_START DEBUGGING -----");
 				
 //		User[] users = (User[]) getModel(Model.User);
-////		User[] users = (User[]) getModel("user", "id=3755004");
-////		User[] users = (User[]) getModel("user", "filter=password&value=dc647eb65e6711e155375218212b3964");
-////		User[] users = (User[]) getModel("user", "sort=name");
-//		
-//		if(users != null) {
-//			for(User user : users) {
-//				System.out.println("CS_ID: "+user.getID());
-//				System.out.println("CS_Name: "+user.getName());
-//				System.out.println("CS_Email: "+user.getEmail());
-//				System.out.println("CS_Password: "+user.getPassword());
-//				System.out.println("CS_-------------------------");
-//			}
-//		} else
-//			System.out.println("CS_ARRAY IS NULL");
+//		User[] users = (User[]) getModel("user", "id=3755004");
+		User[] users = (User[]) getModel("user", "filter=password&value=dc647eb65e6711e155375218212b3964");
+//		User[] users = (User[]) getModel("user", "sort=name");
+		
+		if(users != null) {
+			for(User user : users) {
+				System.out.println("CS_ID: "+user.getID());
+				System.out.println("CS_Name: "+user.getName());
+				System.out.println("CS_Email: "+user.getEmail());
+				System.out.println("CS_Password: "+user.getPassword());
+				System.out.println("CS_-------------------------");
+			}
+		} else
+			System.out.println("CS_ARRAY IS NULL");
 		
 		System.out.println(deleteModel(Model.User, 3755005));
 				
@@ -67,13 +67,15 @@ public class DataProvider extends HTTPConnector {
 	// START API METHODS
 	public Object[] getModel(String model, String... parameters) {
 		// Modify the URL with optional parameters
-		String modelURL = model + ".sjs";
+		String requestURL = model + ".sjs";
 		if(parameters.length > 0) {
-			modelURL += "?";
+			requestURL += "?";
 			for(String parameter : parameters) {
-				modelURL += parameter + "&";
+				requestURL += parameter + "&";
 			}
+			requestURL = requestURL.substring(0, requestURL.length()-1);
 		}
+		
 		// Define type of class in which the json is converted
 		Class<?> convertClass = null;
 		if(model.equals(Model.Location)) convertClass = Location[].class;
@@ -83,7 +85,7 @@ public class DataProvider extends HTTPConnector {
 		
 		if(getConnectivityState())
 			try {
-				return (Object[]) getGson().fromJson(getResultJson(modelURL, "GET"), convertClass);
+				return (Object[]) getGson().fromJson(getResultJson("GET", requestURL), convertClass);
 			} catch (JsonSyntaxException e) {
 				e.printStackTrace();
 			} catch (Exception e) {
@@ -92,15 +94,14 @@ public class DataProvider extends HTTPConnector {
 		return null;
 	}
 	
+//	TODO
 	public int createModel(String model, Object object) {
 		// Modify the URL with optional parameters
-		String modelURL = model + ".sjs";
+		String requestURL = model + ".sjs";
 
-		// TBD
 //		if(getConnectivityState()) {
 //			try {
-//				String resultJsonString = getResultJson(modelURL, "POST");
-//				if(resultJsonString.contains("{ Updated : true }"))
+//				if(getResultJson("PUT", requestURL).contains("{ Updated : true }"))
 //					return 1;
 //				else
 //					return 0;
@@ -111,15 +112,14 @@ public class DataProvider extends HTTPConnector {
 		return 0;
 	}
 	
+//	TODO
 	public boolean updateModel(String model, Object object) {
 		// Modify the URL with optional parameters
-		String modelURL = model + ".sjs";
+		String requestURL = model + ".sjs";
 
-		// TBD
 //		if(getConnectivityState()) {
 //			try {
-//				String resultJsonString = getResultJson(modelURL, "POST");
-//				if(resultJsonString.contains("{ Updated : true }"))
+//				if(getResultJson("POST", requestURL).contains("{ Updated : true }"))
 //					return true;
 //				else
 //					return false;
@@ -132,12 +132,11 @@ public class DataProvider extends HTTPConnector {
 	
 	public boolean deleteModel(String model, int id) {
 		// Modify the URL with optional parameters
-		String modelURL = model + ".sjs?id=" + id;
+		String requestURL = model + ".sjs?id=" + id;
 
 		if(getConnectivityState()) {
 			try {
-				String resultJsonString = getResultJson(modelURL, "DELETE");
-				if(resultJsonString.contains("{ Deleted : true }"))
+				if(getResultJson("DELETE", requestURL).contains("{ Deleted : true }"))
 					return true;
 				else
 					return false;
@@ -149,8 +148,8 @@ public class DataProvider extends HTTPConnector {
 	}
 	// END API METHODS
 	
-	private String getResultJson(String requestMethod, String modelURL) throws IOException, Exception {	
-		return convertStreamToString(getConnection(requestMethod, modelURL).getInputStream());
+	private String getResultJson(String requestMethod, String requestURL) throws IOException, Exception {	
+		return convertStreamToString(getConnection(requestMethod, requestURL).getInputStream());
 	}
 
 }
