@@ -1,4 +1,4 @@
-package de.dhbw.shake_it_app.model;
+package de.dhbw.shake_it_app.data.model;
 
 public class User extends Object {
 

@@ -1,19 +1,23 @@
-package de.dhbw.shake_it_app.model;
+package de.dhbw.shake_it_app.data;
+
+import java.io.IOException;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 
-public class ModelController extends HTTPController {
+import de.dhbw.shake_it_app.data.model.Location;
+import de.dhbw.shake_it_app.data.model.Model;
+import de.dhbw.shake_it_app.data.model.Session;
+import de.dhbw.shake_it_app.data.model.ShakeEvent;
+import de.dhbw.shake_it_app.data.model.User;
+
+public class DataProvider extends HTTPConnector {
 	
-	private static ModelController modelController;
+	private static DataProvider dataProvider;
 	private Gson gson;
 	
 	// DEBUGGING
-	public static void startDebugging() {	
-		ModelController.get().startInternDebugging();
-	}
-	
-	private void startInternDebugging() {
+	public void startDebugging() {
 		// START
 		System.out.println("CS_START DEBUGGING -----");
 				
@@ -40,18 +44,24 @@ public class ModelController extends HTTPController {
 	}
 	// END DEBUGGING
 	
-	private ModelController() {
-		gson = new Gson();
+	private DataProvider() {
+		setGson(new Gson());
 	}
 	
-	public static ModelController get() {
-		if(modelController == null)
-			modelController = new ModelController();
-		return modelController;
+	public static DataProvider get() {
+		if(dataProvider == null)
+			dataProvider = new DataProvider();
+		return dataProvider;
 	}
 	
+	/* GETTER */
 	private Gson getGson() {
 		return gson;
+	}
+	
+	/* SETTER */
+	private void setGson(Gson gson) {
+		this.gson = gson;
 	}
 	
 	// START API METHODS
@@ -139,8 +149,8 @@ public class ModelController extends HTTPController {
 	}
 	// END API METHODS
 	
-	private String getResultJson(String modelURL, String requestMethod) throws Exception {	
-		return convertStreamToString(getConnection(modelURL, requestMethod).getInputStream());
+	private String getResultJson(String requestMethod, String modelURL) throws IOException, Exception {	
+		return convertStreamToString(getConnection(requestMethod, modelURL).getInputStream());
 	}
 
 }

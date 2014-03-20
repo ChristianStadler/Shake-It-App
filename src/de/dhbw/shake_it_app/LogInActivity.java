@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
-import de.dhbw.shake_it_app.model.ModelController;
+import de.dhbw.shake_it_app.data.DataProvider;
 
  public class LogInActivity extends Activity{
 	      private Button login, RegistrierenButton;
@@ -43,8 +43,8 @@ import de.dhbw.shake_it_app.model.ModelController;
 	          //Registrieren Button
 	          RegistrierenButton = (Button)findViewById(R.id.RegistrierenButton);
 	          
-	          //startDebugging() is for debugging the ModelController etc.
-	          ModelController.get().startDebugging();
+	          //startDebugging() is for debugging the DataProvider
+	          DataProvider.get().startDebugging();
 	          
 	      }
     

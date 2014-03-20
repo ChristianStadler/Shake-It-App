@@ -1,4 +1,4 @@
-package de.dhbw.shake_it_app.model;
+package de.dhbw.shake_it_app.data;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -9,7 +9,7 @@ import java.net.URL;
 
 import android.os.StrictMode;
 
-class HTTPController {
+class HTTPConnector {
 
 	protected InputStream is;
 	
@@ -24,7 +24,7 @@ class HTTPController {
 		return true;
 	}
 	
-	protected HttpURLConnection getConnection(String modelURL, String RequestMethod) throws IOException {
+	protected HttpURLConnection getConnection(String RequestMethod, String modelURL, String... jsonString) throws IOException {
 		// Workaround!!!
 		StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
 		StrictMode.setThreadPolicy(policy);
