@@ -4,15 +4,12 @@ package de.dhbw.shake_it_app;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.CheckedTextView;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
+import de.dhbw.shake_it_app.model.ModelController;
 
  public class LogInActivity extends Activity{
 	      private Button login, RegistrierenButton;
@@ -45,6 +42,9 @@ import android.widget.Toast;
 	          
 	          //Registrieren Button
 	          RegistrierenButton = (Button)findViewById(R.id.RegistrierenButton);
+	          
+	          //startDebugging() is a method for Christian
+	          ModelController.startDebugging();
 	          
 	      }
     

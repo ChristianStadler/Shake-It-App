@@ -8,6 +8,10 @@ import java.net.URL;
 
 public class ModelController {
 
+	public static void startDebugging() {
+		System.out.println("CS_Christian kann nun mit dem Debugging beginnen!");
+	}
+	
 	public ModelController() throws Exception {
 //		Gson gson = new Gson();
 		getLocation();
