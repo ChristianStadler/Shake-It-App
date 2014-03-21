@@ -33,17 +33,7 @@ public class Main extends Activity {
 
 	//Fragment
 	private android.app.Fragment rFragment;
-	/*	
-	private static Main main;
-	private Main(){
-		
-	}
-	
-	public static Main getMain(){
-		if(main == null) main = new Main();
-		return main;
-	}
-*/
+
 	@SuppressLint("NewApi")
 	@Override 
 	protected void onCreate(Bundle savedInstanceState) {
@@ -98,7 +88,9 @@ public class Main extends Activity {
 		getActionBar().setDisplayHomeAsUpEnabled(true);
 		
 		//Initialisierung des Startbildschirms 
-		//changeView(4);
+        if (savedInstanceState == null) {
+            changeView(0);
+        }
 
 
 		// Setting item click listener for the listview mDrawerList
