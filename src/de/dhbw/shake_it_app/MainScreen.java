@@ -110,10 +110,12 @@ public class MainScreen extends Fragment {
 	            //country spinner
 	            case R.id.spinnerStadtteil:
 	                //make sure the country was already selected during the onCreate
-	                if(selectedStadtteil != null){
+	                /*
+	            	if(selectedStadtteil != null){
 	                    Toast.makeText(parent.getContext(), "Stadtteil, dass du ausgewählt hast: " + selectedItem,
 	                    Toast.LENGTH_LONG).show();
 	                }
+	                */
 	                selectedStadtteil = selectedItem;
 	                break;
 	            }

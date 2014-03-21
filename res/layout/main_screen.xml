@@ -101,7 +101,7 @@
             android:maxHeight="9dp"
             android:minHeight="9dp"
             android:progressDrawable="@drawable/seekbar_progress"
-            android:thumb="@drawable/shine_btn" />
+            android:thumb="@drawable/shine_btn2" />
 
         <View
             android:id="@+id/viewblueClubs"
@@ -147,6 +147,6 @@
             android:maxHeight="9dp"
             android:minHeight="9dp"
             android:progressDrawable="@drawable/seekbar_progress"
-            android:thumb="@drawable/shine_btn" />
+            android:thumb="@drawable/shine_btn2" />
 
 </RelativeLayout>

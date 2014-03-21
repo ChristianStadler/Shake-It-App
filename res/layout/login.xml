@@ -54,10 +54,10 @@
             android:layout_alignRight="@+id/checkBoxDatenSpeichern"
             android:layout_below="@+id/checkBoxDatenSpeichern"
             android:layout_marginRight="18dp"
+			android:onClick="pwVergessenClick" 
             android:text="Passwort vergessen"
             android:textSize="15sp"
-            android:textColor="#005998"
-            android:onClick="pwVergessenClick" />
+            android:textColor="#005998"/>
 
         <Button
             android:id="@+id/Loginbutton"

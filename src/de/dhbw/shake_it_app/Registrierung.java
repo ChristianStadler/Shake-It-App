@@ -4,6 +4,7 @@ package de.dhbw.shake_it_app;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -29,28 +30,42 @@ import android.widget.Toast;
          passwordWDH =(EditText) findViewById(R.id.passwordWDH);
          
          RegistrierungButton = (Button) findViewById(R.id.RegistrierungButton);
-         
-         
      }
      
-     public void registrierenClick(){
-         eMailUser = eMail.getText().toString();
-         nameUser = username.getText().toString();
-         passwordUser = password.getText().toString();
-         passwordWDHUser = passwordWDH.getText().toString();
+     public void registrierenClick(View v){
          
          //weitere Prüfungen wie: wurde e-mail schon verwendet
          //oder auch gibt es den username schon
-         if(passwordUser!=passwordWDHUser){
-        	 fehlermeldung="Die Passwörter sind nicht gleich";
-         }
+         if ( eMail.getText().toString()==null) {
+        	 fehlermeldung="Bitte E-Mail eingeben";
+		}
+         else if (username.getText().toString()==null) {
+        	 fehlermeldung="Bitte Username eingeben";
+		}
+         else if (password.getText().toString()==null) {
+        	 fehlermeldung="Bitte Passwort eingeben";
+		}
+         else if (passwordWDH.getText().toString()==null) {
+        	 fehlermeldung="Bitte Passwort-Wiederholung eingeben";
+		}
          else {
-        	 //wenn alle Angaben richtig sind 
-        	 //-> Daten in die DB einspeichern
-        	 
-        	 //-> den Hauptbilschrirm starten
-	    	  Intent nextScreen = new Intent(this, Main.class);
-        	  startActivity(nextScreen);
+             eMailUser = eMail.getText().toString();
+             nameUser = username.getText().toString();
+             passwordUser = password.getText().toString();
+             passwordWDHUser = passwordWDH.getText().toString();
+             
+             if(passwordUser.equals(passwordWDHUser)==false){
+            	 fehlermeldung="Die Passwörter sind nicht gleich";
+             }
+             else {
+            	 //wenn alle Angaben richtig sind 
+            	 //-> Daten in die DB einspeichern
+            	 
+            	 //-> den Hauptbilschrirm starten
+            	 fehlermeldung = "erfolgreich registriert";
+    	    	  Intent nextScreen = new Intent(this, Main.class);
+            	  startActivity(nextScreen);
+    		}
 		}
     	 Toast.makeText(this, fehlermeldung, Toast.LENGTH_SHORT).show();
          

@@ -15,8 +15,9 @@ public class ClubShake extends Fragment {
 	
 	private Switch switchShaken;
 	private TextView textViewAvgIndexClub, textAvgIndexClubPkt, textViewAvgIndexPkt, textViewAktIndexPkt, TextTNAnzahl, textVeranstaltungName;
-	public String clubName;
-	public int avgIndexClub, aktIndexUser, avgIndexUser, anzahlTN;
+	private String clubName;
+	private int avgIndexClub, aktIndexUser, avgIndexUser, anzahlTN;
+	private ShakeAnalyser shakeAnalyser;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -40,6 +41,9 @@ public class ClubShake extends Fragment {
 		aktIndexUser = 78;
 		avgIndexUser = 90;
 		anzahlTN = 200;
+		
+		//ShakeAnalyser initialisieren
+		 shakeAnalyser = ShakeAnalyser.getShakeAnalyser(getActivity());
 		
 		//Durchschnittlicher Index des Clubs setzen
 		textViewAvgIndexClub = (TextView) v.findViewById(R.id.textViewAvgIndexClub);
@@ -66,6 +70,7 @@ public class ClubShake extends Fragment {
 							getActivity(),
 							 "Shake it, now!",
 						    Toast.LENGTH_SHORT).show();
+					 shakeAnalyser.startShakeAnalyser();
                         //hier den ShakeAnalyse starten
 				}
 				else if (isChecked==false) {
@@ -74,6 +79,7 @@ public class ClubShake extends Fragment {
 							 "Stop Shaking!",
 						    Toast.LENGTH_SHORT).show();
                     //hier den ShakeAnalyse stoppen
+					shakeAnalyser.stopShakeAnalyser();
 				}
 				else {
 					
