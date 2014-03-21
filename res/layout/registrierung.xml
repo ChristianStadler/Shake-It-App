@@ -8,6 +8,7 @@
 
     <EditText
         android:id="@+id/eMail"
+        android:inputType="textEmailAddress"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/username"
@@ -35,7 +36,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="80dp"
         android:ems="10"
-        android:hint="Spitzname" />
+        android:hint="Spitzname"
+        />
 
     <EditText
         android:id="@+id/passwordWDH"
@@ -51,7 +53,7 @@
     </EditText>
 
     <Button
-        android:id="@+id/RegistrieungButton"
+        android:id="@+id/RegistrierungButton"
         style="@style/button_text"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -59,6 +61,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:background="@drawable/blue_button"
-        android:text="Registrieren" />
+        android:text="Registrieren"
+        android:onClick="registrierenClick" />
 
 </RelativeLayout>

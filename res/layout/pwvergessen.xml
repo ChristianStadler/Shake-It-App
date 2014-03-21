@@ -5,7 +5,35 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp" >
     
-    
+  <EditText
+        android:id="@+id/eMail"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/username"
+        android:layout_below="@+id/username"
+        android:ems="10"
+        android:hint="E-Mail" >
+    </EditText>
 
-    
-    </RelativeLayout>
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:ems="10"
+        android:hint="Spitzname" />
+
+    <Button
+        android:id="@+id/RegistrieungButton"
+        style="@style/button_text"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/eMail"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/blue_button"
+        android:text="Passwort anfordern" />
+
+</RelativeLayout>
