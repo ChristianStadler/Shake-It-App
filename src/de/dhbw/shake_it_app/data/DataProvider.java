@@ -6,12 +6,16 @@ import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 
 import de.dhbw.shake_it_app.data.model.Location;
-import de.dhbw.shake_it_app.data.model.Model;
 import de.dhbw.shake_it_app.data.model.Session;
 import de.dhbw.shake_it_app.data.model.ShakeEvent;
 import de.dhbw.shake_it_app.data.model.User;
 
 public class DataProvider extends HTTPConnector {
+	
+	public static final String Location = "location";
+	public static final String Session = "session";
+	public static final String ShakeEvent = "shake";
+	public static final String User = "user";
 	
 	private static DataProvider dataProvider;
 	private Gson gson;
@@ -21,10 +25,10 @@ public class DataProvider extends HTTPConnector {
 		// START
 		System.out.println("CS_START DEBUGGING -----");
 				
-//		User[] users = (User[]) getModel(Model.User);
-//		User[] users = (User[]) getModel("user", "id=3755004");
-		User[] users = (User[]) getModel("user", "filter=password&value=dc647eb65e6711e155375218212b3964");
-//		User[] users = (User[]) getModel("user", "sort=name");
+//		User[] users = (User[]) getModel(DataProvider.User);
+//		User[] users = (User[]) getModel(DataProvider.User, "id=3755004");
+		User[] users = (User[]) getModel(DataProvider.User, "filter=password&value=dc647eb65e6711e155375218212b3964");
+//		User[] users = (User[]) getModel(DataProvider.User, "sort=name");
 		
 		if(users != null) {
 			for(User user : users) {
@@ -37,7 +41,7 @@ public class DataProvider extends HTTPConnector {
 		} else
 			System.out.println("CS_ARRAY IS NULL");
 		
-		System.out.println(deleteModel(Model.User, 3755005));
+		System.out.println(deleteModel(DataProvider.User, 3755005));
 				
 		// ENDE
 		System.out.println("CS_END DEBUGGING -----");
@@ -78,10 +82,10 @@ public class DataProvider extends HTTPConnector {
 		
 		// Define type of class in which the json is converted
 		Class<?> convertClass = null;
-		if(model.equals(Model.Location)) convertClass = Location[].class;
-		if(model.equals(Model.Session)) convertClass = Session[].class;
-		if(model.equals(Model.ShakeEvent)) convertClass = ShakeEvent[].class;
-		if(model.equals(Model.User)) convertClass = User[].class;
+		if(model.equals(DataProvider.Location)) convertClass = Location[].class;
+		if(model.equals(DataProvider.Session)) convertClass = Session[].class;
+		if(model.equals(DataProvider.ShakeEvent)) convertClass = ShakeEvent[].class;
+		if(model.equals(DataProvider.User)) convertClass = User[].class;
 		
 		if(getConnectivityState())
 			try {
