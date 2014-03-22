@@ -73,21 +73,34 @@ public class Rangliste extends Fragment {
  
 	    private ArrayList<Rangliste_Item> getListData() {
 	        ArrayList <Rangliste_Item> results = new ArrayList<Rangliste_Item>();
-	        Rangliste_Item ranglisteData = new Rangliste_Item();
 	        
+	        Rangliste_Item ranglisteData = new Rangliste_Item();
 	        ranglisteData.setUsername("Tigger");
 	        ranglisteData.setAvgIndexUser(89);
 	        results.add(ranglisteData);
 	        
+	         ranglisteData = new Rangliste_Item();
 	        ranglisteData.setUsername("Tanzbienchen");
 	        ranglisteData.setAvgIndexUser(90);
 	        results.add(ranglisteData);
 	        
+	         ranglisteData = new Rangliste_Item();
 	        ranglisteData.setUsername("HüpfMäuschen");
 	        ranglisteData.setAvgIndexUser(71);
 	        results.add(ranglisteData);
 	        
+	         ranglisteData = new Rangliste_Item();
 	        ranglisteData.setUsername("Lalal");
+	        ranglisteData.setAvgIndexUser(83);
+	        results.add(ranglisteData);
+	        
+	         ranglisteData = new Rangliste_Item();
+	        ranglisteData.setUsername("HansWurst");
+	        ranglisteData.setAvgIndexUser(83);
+	        results.add(ranglisteData);
+	        
+	         ranglisteData = new Rangliste_Item();
+	        ranglisteData.setUsername("hahaha");
 	        ranglisteData.setAvgIndexUser(83);
 	        results.add(ranglisteData);
 	        
