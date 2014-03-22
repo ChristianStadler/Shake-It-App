@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="50dp"
+    android:orientation="horizontal"
+    android:padding="5dip" >
+
+            <TextView
+                android:id="@+id/textSpitzname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:text="SPITZNAME"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textPunkte"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/textSpitzname"
+                android:layout_alignBottom="@+id/textSpitzname"
+                android:layout_marginRight="44dp"
+                android:layout_toLeftOf="@+id/imageViewUser"
+                android:text="XY" />
+
+            <ImageView
+                android:id="@+id/imageViewUser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignTop="@+id/textPunkte"
+                android:layout_marginRight="34dp"
+                android:background="#000000"
+                android:padding="1dp"
+                android:src="@drawable/tigger" />
+            
+            </RelativeLayout>

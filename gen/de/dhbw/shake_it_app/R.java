@@ -48,13 +48,14 @@ public final class R {
     }
     public static final class id {
         public static final int ButtonPWanfordern=0x7f09002b;
+        public static final int ListViewRangliste=0x7f09002c;
         public static final int Loginbutton=0x7f090015;
         public static final int PWvergessenButton=0x7f090016;
         public static final int RegistrierenButton=0x7f090014;
-        public static final int RegistrierungButton=0x7f09002f;
+        public static final int RegistrierungButton=0x7f090030;
         public static final int SeekBarAktShake=0x7f090021;
         public static final int TextTNAnzahl=0x7f09000b;
-        public static final int action_settings=0x7f090030;
+        public static final int action_settings=0x7f090031;
         public static final int checkBoxDatenSpeichern=0x7f090012;
         public static final int content_frame=0x7f090001;
         public static final int drawer_layout=0x7f090000;
@@ -66,7 +67,7 @@ public final class R {
         public static final int imageView1=0x7f090002;
         public static final int imageViewUser=0x7f090026;
         public static final int password=0x7f090011;
-        public static final int passwordWDH=0x7f09002e;
+        public static final int passwordWDH=0x7f09002f;
         public static final int seekBarDurchschnShake=0x7f090024;
         public static final int spinnerStadtteil=0x7f09001b;
         public static final int switchShaken=0x7f09000a;
@@ -74,7 +75,7 @@ public final class R {
         public static final int textEmail=0x7f090027;
         public static final int textEmailUser=0x7f090028;
         public static final int textNameUser=0x7f090025;
-        public static final int textPunkte=0x7f09002c;
+        public static final int textPunkte=0x7f09002e;
         public static final int textSpitzname=0x7f09002d;
         public static final int textTNAnzahl=0x7f09000c;
         public static final int textVeranstaltung=0x7f09000e;
@@ -106,7 +107,8 @@ public final class R {
         public static final int profil=0x7f030005;
         public static final int pwvergessen=0x7f030006;
         public static final int rangliste=0x7f030007;
-        public static final int registrierung=0x7f030008;
+        public static final int rangliste_list_item=0x7f030008;
+        public static final int registrierung=0x7f030009;
     }
     public static final class menu {
         public static final int main=0x7f080000;

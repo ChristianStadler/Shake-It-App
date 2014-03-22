@@ -21,34 +21,13 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/textViewFilter"
         android:background="#005998" />
+    
+<ListView
+android:id="@+id/ListViewRangliste"
+android:layout_width="match_parent"
+android:layout_height="wrap_content" >
+</ListView>
 
-            <TextView
-                android:id="@+id/textPunkte"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignTop="@+id/textSpitzname"
-                android:layout_centerHorizontal="true"
-                android:text="XY" />
 
-            <TextView
-                android:id="@+id/textSpitzname"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/viewblue"
-                android:layout_below="@+id/viewblue"
-                android:layout_marginTop="28dp"
-                android:text="SPITZNAME"
-                android:textStyle="bold" />
-
-            <ImageView
-                android:id="@+id/imageViewUser"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignTop="@+id/textPunkte"
-                android:layout_marginLeft="14dp"
-                android:layout_toRightOf="@+id/textViewFilter"
-                android:background="#000000"
-				android:padding="1dp"
-                android:src="@drawable/tigger" />
 
 </RelativeLayout>
