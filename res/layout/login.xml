@@ -54,6 +54,7 @@
             android:layout_alignRight="@+id/checkBoxDatenSpeichern"
             android:layout_below="@+id/checkBoxDatenSpeichern"
             android:layout_marginRight="18dp"
+            android:clickable="true"
 			android:onClick="pwVergessenClick" 
             android:text="Passwort vergessen"
             android:textSize="15sp"

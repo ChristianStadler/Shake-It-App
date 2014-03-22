@@ -47,11 +47,11 @@ public final class R {
         public static final int whitepatch=0x7f020013;
     }
     public static final class id {
+        public static final int ButtonPWanfordern=0x7f09002b;
         public static final int Loginbutton=0x7f090015;
         public static final int PWvergessenButton=0x7f090016;
         public static final int RegistrierenButton=0x7f090014;
         public static final int RegistrierungButton=0x7f09002f;
-        public static final int RegistrieungButton=0x7f09002b;
         public static final int SeekBarAktShake=0x7f090021;
         public static final int TextTNAnzahl=0x7f09000b;
         public static final int action_settings=0x7f090030;
