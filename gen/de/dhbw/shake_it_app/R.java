@@ -14,6 +14,14 @@ public final class R {
     }
     public static final class attr {
     }
+    public static final class color {
+        public static final int list_row_default_bg=0x7f080003;
+        public static final int list_row_pressed_bg=0x7f080004;
+        public static final int list_row_selected_bg=0x7f080005;
+        public static final int text_color_default=0x7f080000;
+        public static final int text_color_inverse=0x7f080001;
+        public static final int white=0x7f080002;
+    }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
 
@@ -32,71 +40,74 @@ public final class R {
         public static final int button_weiter=0x7f020004;
         public static final int ic_drawer=0x7f020005;
         public static final int ic_launcher=0x7f020006;
-        public static final int seekbar_progress=0x7f020007;
-        public static final int seekbar_progress_bg=0x7f020008;
-        public static final int selector=0x7f020009;
-        public static final int selector_normal=0x7f02000a;
-        public static final int selector_press=0x7f02000b;
-        public static final int shakeitappicon=0x7f02000c;
-        public static final int shine_btn=0x7f02000d;
-        public static final int shine_btn2=0x7f02000e;
-        public static final int tiffany=0x7f02000f;
-        public static final int tigger=0x7f020010;
-        public static final int tiggerbig=0x7f020011;
-        public static final int tiggermiddle=0x7f020012;
-        public static final int whitepatch=0x7f020013;
+        public static final int rangliste_item_text_selector=0x7f020007;
+        public static final int rangliste_selector_flatcolor=0x7f020008;
+        public static final int seekbar_progress=0x7f020009;
+        public static final int seekbar_progress_bg=0x7f02000a;
+        public static final int selector=0x7f02000b;
+        public static final int selector_normal=0x7f02000c;
+        public static final int selector_press=0x7f02000d;
+        public static final int shakeitappicon=0x7f02000e;
+        public static final int shine_btn=0x7f02000f;
+        public static final int shine_btn2=0x7f020010;
+        public static final int tiffany=0x7f020011;
+        public static final int tigger=0x7f020012;
+        public static final int tiggerbig=0x7f020013;
+        public static final int tiggermiddle=0x7f020014;
+        public static final int whitepatch=0x7f020015;
     }
     public static final class id {
-        public static final int ButtonPWanfordern=0x7f09002b;
-        public static final int ListViewRangliste=0x7f09002c;
-        public static final int Loginbutton=0x7f090015;
-        public static final int PWvergessenButton=0x7f090016;
-        public static final int RegistrierenButton=0x7f090014;
-        public static final int RegistrierungButton=0x7f090030;
-        public static final int SeekBarAktShake=0x7f090021;
-        public static final int TextTNAnzahl=0x7f09000b;
-        public static final int action_settings=0x7f090031;
-        public static final int checkBoxDatenSpeichern=0x7f090012;
-        public static final int content_frame=0x7f090001;
-        public static final int drawer_layout=0x7f090000;
-        public static final int drawer_list=0x7f090003;
-        public static final int eMail=0x7f09002a;
-        public static final int editTextName=0x7f09001a;
-        public static final int imageButtonWeiterClub=0x7f090020;
-        public static final int imageClub=0x7f090004;
-        public static final int imageView1=0x7f090002;
-        public static final int imageViewUser=0x7f090026;
-        public static final int password=0x7f090011;
-        public static final int passwordWDH=0x7f09002f;
-        public static final int seekBarDurchschnShake=0x7f090024;
-        public static final int spinnerStadtteil=0x7f09001b;
-        public static final int switchShaken=0x7f09000a;
-        public static final int textAvgIndexClubPkt=0x7f090008;
-        public static final int textEmail=0x7f090027;
-        public static final int textEmailUser=0x7f090028;
-        public static final int textNameUser=0x7f090025;
-        public static final int textPunkte=0x7f09002e;
-        public static final int textSpitzname=0x7f09002d;
-        public static final int textTNAnzahl=0x7f09000c;
-        public static final int textVeranstaltung=0x7f09000e;
-        public static final int textVeranstaltungName=0x7f09000f;
-        public static final int textViewAktIndexPkt=0x7f090009;
-        public static final int textViewAktShake=0x7f090022;
-        public static final int textViewAvgIndex=0x7f090006;
-        public static final int textViewAvgIndexClub=0x7f090005;
-        public static final int textViewAvgIndexPkt=0x7f09000d;
-        public static final int textViewClub=0x7f09001f;
-        public static final int textViewClubShakeIndize=0x7f09001e;
-        public static final int textViewClubs=0x7f09001d;
-        public static final int textViewDurchschnShake=0x7f090023;
-        public static final int textViewFilter=0x7f090017;
-        public static final int textViewName=0x7f090019;
-        public static final int textViewNameUser=0x7f090029;
-        public static final int textViewStadtteil=0x7f09001c;
-        public static final int textViewaktIndex=0x7f090007;
-        public static final int username=0x7f090013;
-        public static final int viewblue=0x7f090018;
-        public static final int viewblueClubs=0x7f090010;
+        public static final int ButtonPWanfordern=0x7f0a002b;
+        public static final int ListViewRangliste=0x7f0a002d;
+        public static final int Loginbutton=0x7f0a0015;
+        public static final int PWvergessenButton=0x7f0a0016;
+        public static final int RegistrierenButton=0x7f0a0014;
+        public static final int RegistrierungButton=0x7f0a0031;
+        public static final int SeekBarAktShake=0x7f0a0021;
+        public static final int TextTNAnzahl=0x7f0a000b;
+        public static final int action_settings=0x7f0a0032;
+        public static final int checkBoxDatenSpeichern=0x7f0a0012;
+        public static final int content_frame=0x7f0a0001;
+        public static final int drawer_layout=0x7f0a0000;
+        public static final int drawer_list=0x7f0a0003;
+        public static final int eMail=0x7f0a002a;
+        public static final int editTextName=0x7f0a001a;
+        public static final int imageButtonWeiterClub=0x7f0a0020;
+        public static final int imageClub=0x7f0a0004;
+        public static final int imageView1=0x7f0a0002;
+        public static final int imageViewUser=0x7f0a0026;
+        public static final int password=0x7f0a0011;
+        public static final int passwordWDH=0x7f0a0030;
+        public static final int seekBarDurchschnShake=0x7f0a0024;
+        public static final int spinnerStadtteil=0x7f0a001b;
+        public static final int switchShaken=0x7f0a000a;
+        public static final int textAvgIndexClubPkt=0x7f0a0008;
+        public static final int textEmail=0x7f0a0027;
+        public static final int textEmailUser=0x7f0a0028;
+        public static final int textNameUser=0x7f0a0025;
+        public static final int textPunkte=0x7f0a002f;
+        public static final int textSpitzname=0x7f0a002e;
+        public static final int textTNAnzahl=0x7f0a000c;
+        public static final int textVeranstaltung=0x7f0a000e;
+        public static final int textVeranstaltungName=0x7f0a000f;
+        public static final int textViewAktIndexPkt=0x7f0a0009;
+        public static final int textViewAktShake=0x7f0a0022;
+        public static final int textViewAvgIndex=0x7f0a0006;
+        public static final int textViewAvgIndexClub=0x7f0a0005;
+        public static final int textViewAvgIndexPkt=0x7f0a000d;
+        public static final int textViewClub=0x7f0a001f;
+        public static final int textViewClubShakeIndize=0x7f0a001e;
+        public static final int textViewClubs=0x7f0a001d;
+        public static final int textViewDurchschnShake=0x7f0a0023;
+        public static final int textViewFilter=0x7f0a0017;
+        public static final int textViewName=0x7f0a0019;
+        public static final int textViewNameUser=0x7f0a0029;
+        public static final int textViewRanglisteUeberschrift=0x7f0a002c;
+        public static final int textViewStadtteil=0x7f0a001c;
+        public static final int textViewaktIndex=0x7f0a0007;
+        public static final int username=0x7f0a0013;
+        public static final int viewblue=0x7f0a0018;
+        public static final int viewblueClubs=0x7f0a0010;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
@@ -111,7 +122,7 @@ public final class R {
         public static final int registrierung=0x7f030009;
     }
     public static final class menu {
-        public static final int main=0x7f080000;
+        public static final int main=0x7f090000;
     }
     public static final class string {
         public static final int action_settings=0x7f050001;

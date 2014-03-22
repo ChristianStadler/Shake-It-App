@@ -6,26 +6,31 @@
     android:paddingRight="16dp" >
     
         <TextView
-        android:id="@+id/textViewFilter"
+        android:id="@+id/textViewRanglisteUeberschrift"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="6dp"
         android:ems="12"
         android:text="Aktuelle Shaker im Tiffanys"
-        android:textSize="15sp" />
+        android:textSize="20sp" />
 
     <View
         android:id="@+id/viewblue"
         android:layout_width="fill_parent"
         android:layout_height="2dip"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textViewFilter"
+         android:layout_below="@+id/textViewRanglisteUeberschrift"
         android:background="#005998" />
     
 <ListView
-android:id="@+id/ListViewRangliste"
-android:layout_width="match_parent"
-android:layout_height="wrap_content" >
+    android:id="@+id/ListViewRangliste"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" 
+    android:layout_below="@+id/viewblue"
+    android:divider="#005998"
+    android:listSelector="@drawable/rangliste_selector_flatcolor"
+    android:dividerHeight="1dp">
+         
 </ListView>
 
 

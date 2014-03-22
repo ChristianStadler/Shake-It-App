@@ -24,25 +24,16 @@ import android.widget.Toast;
 public class Rangliste extends Fragment {
 	
     // Declare the UI components
-    private ListView ListViewRangliste;
-    private ArrayAdapter arrayAdapter;
-	private TextView textSpitzname, textPunkte;
-	private ImageView imageViewUser;
-	
-	//
-	private String username;
-	private int avgIndexUser;
- // Initialize the array
-//	private String[] ranglisteNamen = { "Tigger", "TanzBienchen89", "HüpfMäuschen"};
+    private TextView textViewRanglisteUeberschrift;
+    
+    private String clubName;
 
-	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		
 		// Retrieving the currently selected item number
 		final int position = getArguments().getInt("position");
-
 		
 		// List of rivers
 		String[] menus = getResources().getStringArray(R.array.menus);
@@ -54,55 +45,28 @@ public class Rangliste extends Fragment {
 		// Updating the action bar title
 		getActivity().getActionBar().setTitle(menus[position]);
 		
+		//testdaten
+		clubName = "Tiffany's";
+		
+		textViewRanglisteUeberschrift = (TextView) v.findViewById(R.id.textViewRanglisteUeberschrift);
+		textViewRanglisteUeberschrift.setText("Aktuelle Shaker im "+ clubName);
+		
+		//ListView
         ArrayList<Rangliste_Item> image_details = getListData();
-        ListViewRangliste = (ListView) v.findViewById(R.id.ListViewRangliste);
+        final ListView ListViewRangliste = (ListView) v.findViewById(R.id.ListViewRangliste);
         ListViewRangliste.setAdapter(new RanglisteCustomListAdapter(getActivity(), image_details));
-        ListViewRangliste.setOnItemClickListener(new OnItemClickListener() {
+       ListViewRangliste.setOnItemClickListener(new OnItemClickListener() {
 			
 			@Override
-			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
-					long arg3) {
+            public void onItemClick(AdapterView<?> a, View v, int position, long id) {
                 Object o = ListViewRangliste.getItemAtPosition(position);
                 Rangliste_Item ranglisteItem = (Rangliste_Item) o;
-                Toast.makeText(getActivity(), "Selected :" + " " + ranglisteItem, Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(), "Selected :" + position + " " + ranglisteItem, Toast.LENGTH_LONG).show();
 				
 			}
 		});     
 
- 
-    
-/*
-	 
-	        // Initialize the UI components
-	        ListViewRangliste = (ListView) findViewById(R.id.rangliste_list_item);
-	        // For this moment, you have ListView where you can display a list.
-	        // But how can we put this data set to the list?
-	        // This is where you need an Adapter
-	 
-	        // context - The current context.
-	        // resource - The resource ID for a layout file containing a layout 
-	                // to use when instantiating views.
-	        // From the third parameter, you plugged the data set to adapter
-	        arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, ranglisteNamen);
-	 
-	        // By using setAdapter method, you plugged the ListView with adapter
-	        ListViewRangliste.setAdapter(arrayAdapter);
-*/	        
-	        
-		/*
-		//testdaten
-		username = "Tigger";
-		avgIndexUser = 89;
-		
-		//Daten des Profils setzen
-		textSpitzname = (TextView)v.findViewById(R.id.textSpitzname);
-		textSpitzname.setText(username);
-		
-		textPunkte = (TextView)v.findViewById(R.id.textPunkte);
-		textPunkte.setText(String.valueOf(avgIndexUser));
-		
-		imageViewUser = (ImageView)v.findViewById(R.id.imageViewUser);
-		*/
+       
 		return v;
 		
 	}
@@ -121,6 +85,10 @@ public class Rangliste extends Fragment {
 	        
 	        ranglisteData.setUsername("HüpfMäuschen");
 	        ranglisteData.setAvgIndexUser(71);
+	        results.add(ranglisteData);
+	        
+	        ranglisteData.setUsername("Lalal");
+	        ranglisteData.setAvgIndexUser(83);
 	        results.add(ranglisteData);
 	        
 	        return results;
