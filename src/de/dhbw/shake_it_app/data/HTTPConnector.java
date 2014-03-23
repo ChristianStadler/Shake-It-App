@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
@@ -33,8 +34,16 @@ class HTTPConnector {
 		HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 			
 		connection.setRequestMethod(RequestMethod);
-		connection.connect();
+			
+		if(jsonString != null) {
+			connection.setDoOutput(true);
+			OutputStreamWriter out = new OutputStreamWriter(connection.getOutputStream());
+			out.write(jsonString[0]);
+			out.close();
+		}
 		
+//		connection.connect();
+			
 		return connection;
 	}
 	

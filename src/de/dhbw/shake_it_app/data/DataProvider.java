@@ -17,6 +17,10 @@ public class DataProvider extends HTTPConnector {
 	public static final String ShakeEvent = "shake";
 	public static final String User = "user";
 	
+	public class NewEntry {
+		int new_id;
+	}
+	
 	private static DataProvider dataProvider;
 	private Gson gson;
 	
@@ -27,21 +31,23 @@ public class DataProvider extends HTTPConnector {
 				
 //		User[] users = (User[]) getModel(DataProvider.User);
 //		User[] users = (User[]) getModel(DataProvider.User, "id=3755004");
-		User[] users = (User[]) getModel(DataProvider.User, "filter=password&value=dc647eb65e6711e155375218212b3964");
+//		User[] users = (User[]) getModel(DataProvider.User, "filter=password&value=dc647eb65e6711e155375218212b3964");
 //		User[] users = (User[]) getModel(DataProvider.User, "sort=name");
 		
-		if(users != null) {
-			for(User user : users) {
-				System.out.println("CS_ID: "+user.getID());
-				System.out.println("CS_Name: "+user.getName());
-				System.out.println("CS_Email: "+user.getEmail());
-				System.out.println("CS_Password: "+user.getPassword());
-				System.out.println("CS_-------------------------");
-			}
-		} else
-			System.out.println("CS_ARRAY IS NULL");
+//		if(users != null) {
+//			for(User user : users) {
+//				System.out.println("CS_ID: "+user.getID());
+//				System.out.println("CS_Name: "+user.getName());
+//				System.out.println("CS_Email: "+user.getEmail());
+//				System.out.println("CS_Password: "+user.getPassword());
+//				System.out.println("CS_-------------------------");
+//			}
+//		} else
+//			System.out.println("CS_ARRAY IS NULL");
 		
-		System.out.println(deleteModel(DataProvider.User, 3755005));
+		System.out.println("CS_"+createModel(DataProvider.User, null));
+		
+//		System.out.println("CS_+deleteModel(DataProvider.User, 3755005));
 				
 		// ENDE
 		System.out.println("CS_END DEBUGGING -----");
@@ -102,17 +108,26 @@ public class DataProvider extends HTTPConnector {
 	public int createModel(String model, Object object) {
 		// Modify the URL with optional parameters
 		String requestURL = model + ".sjs";
+		
+		// Define type of class in which the json is converted
+//		Class<?> convertClass = null;
+//		if(model.equals(DataProvider.Location)) convertClass = Location.class;
+//		if(model.equals(DataProvider.Session)) convertClass = Session.class;
+//		if(model.equals(DataProvider.ShakeEvent)) convertClass = ShakeEvent.class;
+//		if(model.equals(DataProvider.User)) convertClass = User.class;
+		
+		object = new User(0, "Name", "name@domain.tld", "Password");
 
-//		if(getConnectivityState()) {
-//			try {
-//				if(getResultJson("PUT", requestURL).contains("{ Updated : true }"))
-//					return 1;
-//				else
-//					return 0;
-//			} catch (Exception e) {
-//				e.printStackTrace();
-//			}
-//		}		
+		if(getConnectivityState()) {
+			try {
+				String jsonString = getGson().toJson(object);
+				NewEntry newEntry = getGson().fromJson(getResultJson("PUT", requestURL, jsonString), NewEntry.class);
+//				return newEntry.new_id;
+				return 1;
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}		
 		return 0;
 	}
 	
@@ -152,8 +167,8 @@ public class DataProvider extends HTTPConnector {
 	}
 	// END API METHODS
 	
-	private String getResultJson(String requestMethod, String requestURL) throws IOException, Exception {	
-		return convertStreamToString(getConnection(requestMethod, requestURL).getInputStream());
+	private String getResultJson(String requestMethod, String requestURL, String... jsonString) throws IOException, Exception {	
+		return convertStreamToString(getConnection(requestMethod, requestURL, jsonString).getInputStream());
 	}
 
 }
