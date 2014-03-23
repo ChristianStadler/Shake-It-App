@@ -36,13 +36,13 @@
         <Button
             android:id="@+id/RegistrierenButton"
             style="@style/button_text"
+            android:background="@drawable/blue_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/Loginbutton"
             android:layout_alignParentBottom="true"
             android:layout_alignRight="@+id/Loginbutton"
             android:layout_marginBottom="50dp"
-            android:background="@drawable/blue_button"
             android:text="Registrieren"
             android:textSize="15sp"
             android:onClick="regstrierungClick" />

@@ -70,7 +70,7 @@ import de.dhbw.shake_it_app.data.DataProvider;
 	          
 	      }
     
-	      public  void loginClick(View v){
+	      public void loginClick(View v){
         	  
         	  //Userdaten auslesen
         	 // username = Textusername.getText().toString();
@@ -82,6 +82,7 @@ import de.dhbw.shake_it_app.data.DataProvider;
         	  //Übergabe von Werten an andere Activity 
               //nextScreen.putExtra("Vorname", username);
               //nextScreen.putExtra("Passwort", password);
+	    	 
         	  //auf nächste Main-Activity gehen
 	    	  
 	    	  nextScreen = new Intent(this, Main.class);

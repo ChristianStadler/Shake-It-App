@@ -1,5 +1,7 @@
 package de.dhbw.shake_it_app;
 
+import java.util.ArrayList;
+
 import android.app.Fragment;
 import android.os.Bundle;
 import android.text.Editable;
@@ -7,9 +9,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ListView;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -21,11 +26,14 @@ public class MainScreen extends Fragment {
 	private TextView textViewFilter, textViewName, textViewClubs, textViewStadtteil, textViewAktShake;
 	private EditText editTextName;
 	private Spinner spinnerStadtteil;
+	private ListView ListViewClubListe;
+	private Button buttonSuche;
 	private View v;
 	private String selectedStadtteil = null;
 	private Editable clubName;
 	private ImageButton imageButtonWeiterClub;
 	private int eingabeAktuellerShakeIndex, eingabeDurchschnShakeIndex;
+	
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -68,10 +76,23 @@ public class MainScreen extends Fragment {
 	    SeekBar seekBarDurchschnShake = (SeekBar) v.findViewById(R.id.seekBarDurchschnShake);
 	    eingabeDurchschnShakeIndex = seekBarDurchschnShake.getProgress();
 	    
-		//Anzeige der Ergebnisse
+	    //SuchButton mit Erstellung der ListView
+	    buttonSuche = (Button) v.findViewById(R.id.buttonSuche);
+	    buttonSuche.setText("Suche");
+	    buttonSuche.setOnClickListener(new View.OnClickListener() {
+	        @Override
+	        public void onClick(View v) {
+		    	//Hier Daten nach den angegeben Suchparametern aus der DB lesen
+		        ArrayList image_details = getListData();
+		        ListViewClubListe.setAdapter(new MainScreenCustomListAdapter(getActivity(), image_details));
+	        }
+	    });
+
+		//Überschrift der ListView
 		textViewClubs = (TextView) v.findViewById(R.id.textViewClubs);
 		textViewClubs.setText("Clubs");
 		
+		/*
 		//Button um auf ClubSeite zu kommen.
 		imageButtonWeiterClub = (ImageButton) v.findViewById(R.id.imageButtonWeiterClub);
 	    imageButtonWeiterClub.setOnClickListener(new View.OnClickListener() {
@@ -80,8 +101,22 @@ public class MainScreen extends Fragment {
 	        	Main main = (Main)getActivity();
 	        	main.changeView(1);
 	        }
-
 	    });
+	    */
+		//ListView initialisiern und Eventhandler
+		ListViewClubListe = (ListView) v.findViewById(R.id.ListViewClubListe);
+        ListViewClubListe.setOnItemClickListener(new OnItemClickListener() {
+       	 
+            @Override
+            public void onItemClick(AdapterView<?> a, View v, int position, long id) {
+                Object o = ListViewClubListe.getItemAtPosition(position);
+                MainScreen_Club_Item newsData = (MainScreen_Club_Item) o;
+                Toast.makeText(getActivity(), "Selected :" + " " + newsData, Toast.LENGTH_LONG).show();
+            }
+ 
+        });
+
+	    
 
 		return v;
 	}
@@ -125,4 +160,41 @@ public class MainScreen extends Fragment {
 	      }
      
 	}
+
+	    
+	    private ArrayList getListData() {
+	        ArrayList results = new ArrayList();
+	        
+	        MainScreen_Club_Item clubItem = new MainScreen_Club_Item();
+	        clubItem.setClubName("Tiffany's");
+	        clubItem.setAktClubIndexe(78);
+	        clubItem.setAvgClubIndex(89);
+	        results.add(clubItem);
+	        
+	        clubItem = new MainScreen_Club_Item();
+	        clubItem.setClubName("Koi");
+	        clubItem.setAktClubIndexe(87);
+	        clubItem.setAvgClubIndex(90);
+	        results.add(clubItem);
+	 
+	        clubItem = new MainScreen_Club_Item();
+	        clubItem.setClubName("Ritz");
+	        clubItem.setAktClubIndexe(51);
+	        clubItem.setAvgClubIndex(72);
+	        results.add(clubItem);
+	        
+	        clubItem = new MainScreen_Club_Item();
+	        clubItem.setClubName("Zimmer");
+	        clubItem.setAktClubIndexe(54);
+	        clubItem.setAvgClubIndex(65);
+	        results.add(clubItem);
+	        
+	        clubItem = new MainScreen_Club_Item();
+	        clubItem.setClubName("Suite");
+	        clubItem.setAktClubIndexe(91);
+	        clubItem.setAvgClubIndex(89);
+	        results.add(clubItem);
+	 
+	        return results;
+	    }
 }
