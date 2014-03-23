@@ -52,7 +52,7 @@ public class RanglisteCustomListAdapter extends BaseAdapter {
         Rangliste_Item rangliste_Item = (Rangliste_Item) listData.get(position);
         
         holder.textSpitzname.setText(rangliste_Item.getUsername());
-        holder.textPunkte.setText("mit einem Shake-Index von " + rangliste_Item.getAvgIndexUser() +"Pkt.");
+        holder.textPunkte.setText("Shake-Index von " + rangliste_Item.getAvgIndexUser() +"Pkt.");
         
         //Hinweis für Hannah
         //Button mit einbauen: http://javatechig.com/android/asynchronous-image-loader-in-android-listview

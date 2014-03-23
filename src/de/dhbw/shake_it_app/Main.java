@@ -30,6 +30,10 @@ public class Main extends Activity {
 
 	// Title of the action bar
 	private String mTitle = "";
+	
+	//
+    private String[] drawerTitles;
+    private int[] drawerIcons;
 
 	//Fragment
 	private android.app.Fragment rFragment;
@@ -40,8 +44,7 @@ public class Main extends Activity {
 
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-
-		mTitle = "Shake-It-App";
+		mTitle = getString(R.string.app_name);
 		getActionBar().setTitle(mTitle);
 
 		// Getting reference to the DrawerLayout
@@ -49,6 +52,16 @@ public class Main extends Activity {
 
 		mDrawerList = (ListView) findViewById(R.id.drawer_list);
 
+        // Hole die Titel aus einem Array aus der strings.xml
+        drawerTitles = getResources().getStringArray(R.array.menus);
+        // Setzt die Icons zu den Einträgen
+        drawerIcons = new int[] {R.drawable.ic_action_search, R.drawable.ic_action_locate, R.drawable.ic_action_person, R.drawable.ic_action_group};
+
+ 
+        // Bereitet die ActionBar auf den Navigation Drawer vor
+        getActionBar().setDisplayHomeAsUpEnabled(true);
+        getActionBar().setHomeButtonEnabled(true);
+        
 		// Getting reference to the ActionBarDrawerToggle
 		mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
 				R.drawable.ic_drawer, R.string.drawer_open,
@@ -74,12 +87,15 @@ public class Main extends Activity {
 		// Setting DrawerToggle on DrawerLayout
 		mDrawerLayout.setDrawerListener(mDrawerToggle);
 
+        // Erstellt den neuen MenuAdapter aus der Klasse MenuListAdapter
+        Main_MenuListAdapter mMenuAdapter = new Main_MenuListAdapter(this, drawerTitles, drawerIcons);
+        mDrawerList.setAdapter(mMenuAdapter);
 		// Creating an ArrayAdapter to add items to the listview mDrawerList
-		ArrayAdapter<String> adapter = new ArrayAdapter<String>(getBaseContext(), 
-				R.layout.drawer_list_item, getResources().getStringArray(R.array.menus));
+		//ArrayAdapter<String> adapter = new ArrayAdapter<String>(getBaseContext(), 
+		//		R.layout.drawer_list_item, getResources().getStringArray(R.array.menus));
 
 		// Setting the adapter on mDrawerList
-		mDrawerList.setAdapter(adapter);
+		//mDrawerList.setAdapter(adapter);
 
 		// Enabling Home button
 		getActionBar().setHomeButtonEnabled(true);
