@@ -75,6 +75,7 @@
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/textViewDurchschnShake"
             android:layout_alignLeft="@+id/editTextName"
+            android:layout_alignRight="@+id/textViewClubs"
             android:maxHeight="9dp"
             android:minHeight="9dp"
             android:progressDrawable="@drawable/seekbar_progress"
@@ -95,6 +96,7 @@
             android:layout_width="420dip"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/spinnerStadtteil"
+            android:layout_alignRight="@+id/spinnerStadtteil"
             android:layout_below="@+id/spinnerStadtteil"
             android:maxHeight="9dp"
             android:minHeight="9dp"
@@ -107,6 +109,7 @@
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/viewblueClubs"
             android:layout_alignLeft="@+id/viewblueClubs"
+            android:layout_below="@+id/buttonSuche"
             android:ems="12"
             android:paddingTop="6dp"
             android:text="Clubs"
@@ -133,14 +136,13 @@
         android:paddingTop="3dp"
         android:text="Stadtteil" />
 
-    <Button
+    <ImageButton
         android:id="@+id/buttonSuche"
-        style="@style/button_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/textViewClubs"
-        android:layout_alignRight="@+id/seekBarDurchschnShake"
+        android:layout_alignRight="@+id/SeekBarAktShake"
+        android:layout_below="@+id/seekBarDurchschnShake"
         android:background="@drawable/blue_button"
-        android:text="Suchen" />
+        android:src="@drawable/ic_action_search" />
 
 </RelativeLayout>

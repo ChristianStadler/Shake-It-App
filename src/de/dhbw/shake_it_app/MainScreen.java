@@ -27,7 +27,7 @@ public class MainScreen extends Fragment {
 	private EditText editTextName;
 	private Spinner spinnerStadtteil;
 	private ListView ListViewClubListe;
-	private Button buttonSuche;
+	private ImageButton buttonSuche;
 	private View v;
 	private String selectedStadtteil = null;
 	private Editable clubName;
@@ -77,10 +77,8 @@ public class MainScreen extends Fragment {
 	    eingabeDurchschnShakeIndex = seekBarDurchschnShake.getProgress();
 	    
 	    //SuchButton mit Erstellung der ListView
-	    buttonSuche = (Button) v.findViewById(R.id.buttonSuche);
-	    buttonSuche.setText("Suche");
+	    buttonSuche = (ImageButton) v.findViewById(R.id.buttonSuche);
 	    buttonSuche.setOnClickListener(new View.OnClickListener() {
-	        @Override
 	        public void onClick(View v) {
 		    	//Hier Daten nach den angegeben Suchparametern aus der DB lesen
 		        ArrayList image_details = getListData();
@@ -106,8 +104,6 @@ public class MainScreen extends Fragment {
 		//ListView initialisiern und Eventhandler
 		ListViewClubListe = (ListView) v.findViewById(R.id.ListViewClubListe);
         ListViewClubListe.setOnItemClickListener(new OnItemClickListener() {
-       	 
-            @Override
             public void onItemClick(AdapterView<?> a, View v, int position, long id) {
                 Object o = ListViewClubListe.getItemAtPosition(position);
                 MainScreen_Club_Item newsData = (MainScreen_Club_Item) o;

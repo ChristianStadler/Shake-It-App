@@ -71,4 +71,31 @@
         android:layout_toRightOf="@+id/textViewName"
         android:text="Name" />
 
+    <TextView
+        android:id="@+id/textViewGeschlecht"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textEmail"
+        android:layout_centerVertical="true"
+        android:text="Geschlecht" />
+
+    <TextView
+        android:id="@+id/textViewGeschlechtAngabe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textViewGeschlecht"
+        android:layout_alignBottom="@+id/textViewGeschlecht"
+        android:layout_alignLeft="@+id/textEmailUser"
+        android:text="männlich" />
+
+    <ImageButton
+        android:id="@+id/imageButton1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/imageViewUser"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/blue_button"
+        android:src="@drawable/ic_action_edit" />
+
 </RelativeLayout>

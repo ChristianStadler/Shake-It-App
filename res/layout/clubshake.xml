@@ -15,9 +15,8 @@
         android:id="@+id/textViewAvgIndexClub"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/imageClub"
-        android:layout_alignRight="@+id/imageClub"
         android:layout_below="@+id/imageClub"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
         android:gravity="center_horizontal"
         android:text="Durchschnittlicher Shake-Index des Clubs" />
@@ -61,6 +60,10 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:background="@drawable/blue_button"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp" 
         android:text="Jetzt Shaken" />
 
     <TextView

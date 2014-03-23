@@ -45,7 +45,6 @@ import de.dhbw.shake_it_app.data.model.User;
 	          checkBoxDatenSpeichern = (CheckBox)findViewById(R.id.checkBoxDatenSpeichern);
 	          checkBoxDatenSpeichern.setOnCheckedChangeListener(new OnCheckedChangeListener(){
 
-				@Override
 				public void onCheckedChanged(CompoundButton buttonView,
 						boolean isChecked) {
 					// TODO Auto-generated method stub

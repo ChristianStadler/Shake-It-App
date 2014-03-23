@@ -71,13 +71,11 @@ public class ShakeAnalyser implements SensorEventListener{
 		return convertedSessionIndex;	
 	}
 	
-	@Override
 	public void onAccuracyChanged(Sensor arg0, int arg1) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
 	public void onSensorChanged(SensorEvent event) {
 		last10Values[arrayCounter] = event.values[0] + event.values[1] + event.values[2];
 		amountValues++;

@@ -57,8 +57,7 @@ public class Rangliste extends Fragment {
         ListViewRangliste.setAdapter(new RanglisteCustomListAdapter(getActivity(), image_details));
         ListViewRangliste.setOnItemClickListener(new OnItemClickListener() {
 			
-			@Override
-            public void onItemClick(AdapterView<?> a, View v, int position, long id) {
+			public void onItemClick(AdapterView<?> a, View v, int position, long id) {
                 Object o = ListViewRangliste.getItemAtPosition(position);
                 Rangliste_Item ranglisteItem = (Rangliste_Item) o;
                 Toast.makeText(getActivity(), "Selected :" + position + " " + ranglisteItem, Toast.LENGTH_LONG).show();

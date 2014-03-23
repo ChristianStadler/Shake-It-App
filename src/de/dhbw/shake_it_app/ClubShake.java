@@ -63,7 +63,6 @@ public class ClubShake extends Fragment {
 		Switch switchShaken = (Switch) v.findViewById(R.id.switchShaken);
 		switchShaken.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 			
-			@Override
 			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 				if (isChecked==true) {
 					Toast.makeText(
