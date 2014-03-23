@@ -55,7 +55,7 @@ public class Main extends Activity {
         // Hole die Titel aus einem Array aus der strings.xml
         drawerTitles = getResources().getStringArray(R.array.menus);
         // Setzt die Icons zu den Einträgen
-        drawerIcons = new int[] {R.drawable.ic_action_search, R.drawable.ic_action_locate, R.drawable.ic_action_person, R.drawable.ic_action_group};
+        drawerIcons = new int[] {R.drawable.ic_action_search, R.drawable.ic_action_locate, R.drawable.ic_action_group, R.drawable.ic_action_person};
 
  
         // Bereitet die ActionBar auf den Navigation Drawer vor
