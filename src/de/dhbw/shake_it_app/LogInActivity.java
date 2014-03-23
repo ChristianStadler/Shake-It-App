@@ -4,6 +4,7 @@ package de.dhbw.shake_it_app;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -14,6 +15,7 @@ import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import de.dhbw.shake_it_app.data.DataProvider;
+import de.dhbw.shake_it_app.data.model.User;
 
  public class LogInActivity extends Activity{
 	      private Button login, RegistrierenButton;
@@ -49,7 +51,7 @@ import de.dhbw.shake_it_app.data.DataProvider;
 					// TODO Auto-generated method stub
 					if (isChecked==true) {
 						datenSpeichern=true;
-						//in die Datenbank einspeichern, damit das nächste Mal nicht anmelden auf dem Login-Screen
+						//in die Datenbank einspeichern, damit das nï¿½chste Mal nicht anmelden auf dem Login-Screen
 					}
 					else datenSpeichern=false;
 					
@@ -71,19 +73,31 @@ import de.dhbw.shake_it_app.data.DataProvider;
 	      }
     
 	      public void loginClick(View v){
+	    	  Log.d("tt", "gg");
+	    	  System.out.println("Test");
         	  
         	  //Userdaten auslesen
-        	 // username = Textusername.getText().toString();
-        	  //password = Textpassword.getText().toString();
+        	  username = Textusername.getText().toString();
+        	  password = Textpassword.getText().toString();
         	  
+
+        	  User users = new User(5, "name", "email", "password");
+        	  System.out.println(users.getName());      	  
+        	  
+        	  //DataProvider provider = DataProvider.get();
+        	  //User[] user = (User[]) provider.getModel(DataProvider.User, "sort=name");
+        	  //System.out.println(user[1].getName());
+        	  
+        	  
+  
         	  //mit Daten aus der Datenbank abgleichen
 	    	  
        	  
-        	  //Übergabe von Werten an andere Activity 
+        	  //ï¿½bergabe von Werten an andere Activity 
               //nextScreen.putExtra("Vorname", username);
               //nextScreen.putExtra("Passwort", password);
 	    	 
-        	  //auf nächste Main-Activity gehen
+        	  //auf nï¿½chste Main-Activity gehen
 	    	  
 	    	  nextScreen = new Intent(this, Main.class);
         	  startActivity(nextScreen);
