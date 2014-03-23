@@ -17,3 +17,5 @@ local.properties
 
 bin/classes/de/dhbw/shake_it_app/R.class
 gen/de/dhbw/shake_it_app/R.java
+
+.settings/
