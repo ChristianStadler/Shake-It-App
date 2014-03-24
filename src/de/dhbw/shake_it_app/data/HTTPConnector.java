@@ -35,14 +35,14 @@ class HTTPConnector {
 			
 		connection.setRequestMethod(RequestMethod);
 			
-		if(jsonString != null) {
-			connection.setDoOutput(true);
-			OutputStreamWriter out = new OutputStreamWriter(connection.getOutputStream());
-			out.write(jsonString[0]);
-			out.close();
-		}
+//		if(jsonString != null) {
+//			connection.setDoOutput(true);
+//			OutputStreamWriter out = new OutputStreamWriter(connection.getOutputStream());
+//			out.write(jsonString[0]);
+//			out.close();
+//		}
 		
-//		connection.connect();
+		connection.connect();
 			
 		return connection;
 	}

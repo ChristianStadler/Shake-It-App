@@ -45,7 +45,7 @@ public class DataProvider extends HTTPConnector {
 //		} else
 //			System.out.println("CS_ARRAY IS NULL");
 		
-		System.out.println("CS_"+createModel(DataProvider.User, null));
+//		System.out.println("CS_"+createModel(DataProvider.User, null));
 		
 //		System.out.println("CS_+deleteModel(DataProvider.User, 3755005));
 				
@@ -84,6 +84,7 @@ public class DataProvider extends HTTPConnector {
 				requestURL += parameter + "&";
 			}
 			requestURL = requestURL.substring(0, requestURL.length()-1);
+			
 		}
 		
 		// Define type of class in which the json is converted

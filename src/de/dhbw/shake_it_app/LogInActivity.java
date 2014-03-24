@@ -83,9 +83,9 @@ import de.dhbw.shake_it_app.data.model.User;
         	  User users = new User(5, "name", "email", "password");
         	  System.out.println(users.getName());      	  
         	  
-        	  //DataProvider provider = DataProvider.get();
-        	  //User[] user = (User[]) provider.getModel(DataProvider.User, "sort=name");
-        	  //System.out.println(user[1].getName());
+        	  DataProvider provider = DataProvider.get();
+        	  User[] user = (User[]) provider.getModel(DataProvider.User, "sort=name");
+        	  System.out.println(user[1].getName());
         	  
         	  
   
