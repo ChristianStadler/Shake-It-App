@@ -81,7 +81,7 @@ public class MainScreen extends Fragment {
 	    buttonSuche.setOnClickListener(new View.OnClickListener() {
 	        public void onClick(View v) {
 		    	//Hier Daten nach den angegeben Suchparametern aus der DB lesen
-		        ArrayList image_details = getListData();
+		        ArrayList<MainScreen_Club_Item> image_details = getListData();
 		        ListViewClubListe.setAdapter(new MainScreenCustomListAdapter(getActivity(), image_details));
 	        }
 	    });
@@ -103,15 +103,22 @@ public class MainScreen extends Fragment {
 	    */
 		//ListView initialisiern und Eventhandler
 		ListViewClubListe = (ListView) v.findViewById(R.id.ListViewClubListe);
+		ListViewClubListe.setItemsCanFocus(true);
+		ListViewClubListe.setFocusable(false);
+		ListViewClubListe.setFocusableInTouchMode(false);
+		ListViewClubListe.setClickable(false);
+		
         ListViewClubListe.setOnItemClickListener(new OnItemClickListener() {
             public void onItemClick(AdapterView<?> a, View v, int position, long id) {
                 Object o = ListViewClubListe.getItemAtPosition(position);
-                MainScreen_Club_Item newsData = (MainScreen_Club_Item) o;
-                Toast.makeText(getActivity(), "Selected :" + " " + newsData, Toast.LENGTH_LONG).show();
+                MainScreen_Club_Item club_item = (MainScreen_Club_Item) o;
+                Toast.makeText(getActivity(), "Selected :" + " " + club_item, Toast.LENGTH_LONG).show();
+	        	Main main = (Main)getActivity();
+	        	main.changeView(1);
             }
  
         });
-
+	
 	    
 
 		return v;
@@ -158,8 +165,8 @@ public class MainScreen extends Fragment {
 	}
 
 	    
-	    private ArrayList getListData() {
-	        ArrayList results = new ArrayList();
+	    private ArrayList<MainScreen_Club_Item> getListData() {
+	        ArrayList<MainScreen_Club_Item> results = new ArrayList<MainScreen_Club_Item>();
 	        
 	        MainScreen_Club_Item clubItem = new MainScreen_Club_Item();
 	        clubItem.setClubName("Tiffany's");

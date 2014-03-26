@@ -3,61 +3,52 @@
     android:layout_width="fill_parent"
     android:layout_height="match_parent"
     android:paddingLeft="16dp"
-    android:paddingRight="16dp" >
-    
-        <ImageView
-        android:id="@+id/imageViewUser"
-        android:layout_width="96dp"
-        android:layout_height="96dp"
-        android:layout_alignRight="@+id/viewblue"
-        android:layout_below="@+id/viewblue"
-        android:layout_marginTop="17dp"
-        android:background="#000000"
-        android:padding="1dp"
-        android:src="@drawable/tigger" />
-        
-        <TextView
-        android:id="@+id/textNameUser"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="6dp"
-        android:ems="12"
-        android:text="Profil"
-        android:textSize="20sp" />
+    android:paddingRight="16dp"
+    android:layout_marginTop="5dp" >
 
-    <View
-        android:id="@+id/viewblue"
-        android:layout_width="fill_parent"
-        android:layout_height="2dip"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textNameUser"
-        android:background="#005998" />
-    
     <ImageButton
         android:id="@+id/imageButtonAendern"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/imageViewUser"
-        android:layout_marginBottom="20dp"
+        android:layout_alignRight="@+id/relativeLayout1"
+        android:layout_marginBottom="17dp"
         android:background="@drawable/blue_button"
         android:src="@drawable/ic_action_edit" />
 
     <RelativeLayout
+        android:id="@+id/relativeLayout1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/imageViewUser"
-        android:layout_centerVertical="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
         android:background="@drawable/background_box_border"
+        android:paddingBottom="10dp"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:paddingBottom="10dp"
         android:paddingTop="10dp" >
+
+        <TextView
+            android:id="@+id/textNameUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Profil"
+            android:textSize="20sp" />
+
+        <View
+            android:id="@+id/viewblue"
+            android:layout_width="fill_parent"
+            android:layout_height="2dip"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/textNameUser"
+            android:background="#005998" />
 
         <TextView
             android:id="@+id/textViewName"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/imageViewUser"
+            android:paddingTop="30dp"
             android:text="Spitzname" />
 
         <TextView
@@ -99,12 +90,45 @@
             android:text="Geschlecht" />
 
         <TextView
+            android:id="@+id/textViewAlter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textViewGeschlecht"
+            android:layout_below="@+id/textViewGeschlecht"
+            android:paddingTop="10dp"
+            android:text="Alter" />
+
+        <TextView
             android:id="@+id/textViewNameUser"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_above="@+id/textEmail"
             android:layout_toRightOf="@+id/textViewName"
-            android:text="Name" />
+            android:text="Name"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textViewAlterAngabe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textViewAlter"
+            android:layout_alignBottom="@+id/textViewAlter"
+            android:layout_alignLeft="@+id/textViewGeschlechtAngabe"
+            android:paddingTop="10dp"
+            android:text="19" />
+
+        <ImageView
+            android:id="@+id/imageViewUser"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignRight="@+id/viewblue"
+            android:layout_below="@+id/viewblue"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="22dp"
+            android:background="#000000"
+            android:padding="1dp"
+            android:src="@drawable/tigger" />
+
     </RelativeLayout>
 
 </RelativeLayout>

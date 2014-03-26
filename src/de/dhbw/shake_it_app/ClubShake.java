@@ -47,7 +47,7 @@ public class ClubShake extends Fragment {
 		
 		//Durchschnittlicher Index des Clubs setzen
 		textViewAvgIndexClub = (TextView) v.findViewById(R.id.textViewAvgIndexClub);
-		textViewAvgIndexClub.setText("Durchschnittlicher Shake-Index im " + clubName );
+	//	textViewAvgIndexClub.setText("Durchschnittlicher Shake-Index im " + clubName );
 		
 		textAvgIndexClubPkt = (TextView) v.findViewById(R.id.textAvgIndexClubPkt);
 		textAvgIndexClubPkt.setText(String.valueOf(avgIndexClub));

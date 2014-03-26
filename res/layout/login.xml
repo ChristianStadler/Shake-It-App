@@ -3,6 +3,28 @@
     android:layout_height="match_parent"
     android:paddingLeft="16dp"
     android:paddingRight="16dp" xmlns:android="http://schemas.android.com/apk/res/android">
+    
+            <ImageView
+            android:id="@+id/imageViewIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="170dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:src="@drawable/icon_login" />
+            
+                <RelativeLayout
+        android:id="@+id/relativeLayoutSuche"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/imageViewIcon"
+        android:background="@drawable/background_box_border"
+        android:paddingBottom="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="10dp" >
 
         <EditText
             android:id="@+id/password"
@@ -53,22 +75,13 @@
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/Loginbutton"
             android:layout_alignRight="@+id/password"
-            android:layout_below="@+id/imageView1"
             android:ems="10"
             android:hint="Spitzname" >
 
             <requestFocus />
         </EditText>
 
-        <ImageView
-            android:id="@+id/imageView1"
-            android:layout_width="wrap_content"
-            android:layout_height="170dp"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:src="@drawable/icon_login" />
+
 
         <Button
             android:id="@+id/RegistrierenButton"
@@ -82,5 +95,7 @@
             android:onClick="regstrierungClick"
             android:text="Registrieren"
             android:textSize="15sp" />
+        
+        </RelativeLayout>
 
 </RelativeLayout>

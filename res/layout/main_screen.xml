@@ -3,52 +3,41 @@
     android:layout_width="fill_parent"
     android:layout_height="match_parent"
     android:paddingLeft="16dp"
-    android:paddingRight="16dp" >
+    android:paddingRight="16dp"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp" >
     
-    <TextView
-        android:id="@+id/textViewFilter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="6dp"
-        android:ems="12"
-        android:text="Suche"
-        android:textSize="20sp" />
-
-    <View
-        android:id="@+id/viewblue"
+    <RelativeLayout
+        android:id="@+id/relativeLayoutSuche"
         android:layout_width="fill_parent"
-        android:layout_height="2dip"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textViewFilter"
-        android:background="#005998" />
-
-        <EditText
-            android:id="@+id/editTextName"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/background_box_border"
+        android:paddingBottom="5dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="5dp" >
+        
+                <TextView
+            android:id="@+id/textViewFilter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignRight="@+id/textViewFilter"
-            android:layout_below="@+id/textViewFilter"
-            android:layout_toRightOf="@+id/textViewName"
-            android:contentDescription="Name"
-            android:ems="10"
-            android:inputType="textFilter" >
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:text="Suche"
+            android:textSize="20sp" />
 
-        </EditText>
+        
+            <View
+        android:id="@+id/viewblue"
+        android:layout_width="fill_parent"
+        android:layout_below="@+id/textViewFilter"
+        android:layout_height="2dip"
+        android:layout_alignParentLeft="true"
+        android:background="#005998" />
 
-        <TextView
-            android:id="@+id/textViewName"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/editTextName"
-            android:text="Name" />
 
-        <TextView
-            android:id="@+id/textViewAktShake"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/SeekBarAktShake"
-            android:layout_toLeftOf="@+id/seekBarDurchschnShake"
-            android:text="Aktueller Shake-Index" />
 
         <Spinner
             android:id="@+id/spinnerStadtteil"
@@ -68,57 +57,105 @@
             android:layout_below="@+id/textViewAktShake"
             android:text="Durchschn.Shake-Index" />
 
-        <SeekBar
-            android:id="@+id/seekBarDurchschnShake"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="420dip"
+                <TextView
+            android:id="@+id/textViewAktShake"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/textViewDurchschnShake"
-            android:layout_alignLeft="@+id/editTextName"
-            android:layout_alignRight="@+id/textViewClubs"
-            android:maxHeight="9dp"
-            android:minHeight="9dp"
-            android:progressDrawable="@drawable/seekbar_progress"
-            android:thumb="@drawable/shine_btn2" />
-
-        <View
-            android:id="@+id/viewblueClubs"
-            android:layout_width="fill_parent"
-            android:layout_height="2dip"
-            android:layout_alignLeft="@+id/textViewDurchschnShake"
-            android:layout_below="@+id/textViewDurchschnShake"
-            android:layout_marginTop="74dp"
-            android:background="#005998" />
+            android:layout_alignBottom="@+id/SeekBarAktShake"
+            android:layout_toLeftOf="@+id/seekBarDurchschnShake"
+            android:text="Aktueller Shake-Index" />
 
         <SeekBar
             android:id="@+id/SeekBarAktShake"
             style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="420dip"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/spinnerStadtteil"
             android:layout_alignRight="@+id/spinnerStadtteil"
             android:layout_below="@+id/spinnerStadtteil"
+            android:layout_marginTop="2dp"
             android:maxHeight="9dp"
             android:minHeight="9dp"
             android:progressDrawable="@drawable/seekbar_progress"
             android:thumb="@drawable/shine_btn2" />
+
+        <ImageButton
+            android:id="@+id/buttonSuche"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:layout_alignRight="@+id/SeekBarAktShake"
+            android:layout_below="@+id/textViewDurchschnShake"
+            android:background="@drawable/blue_button"
+            android:src="@drawable/ic_action_search" />
+
+        <SeekBar
+            android:id="@+id/seekBarDurchschnShake"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textViewDurchschnShake"
+            android:layout_alignLeft="@+id/editTextName"
+            android:layout_alignRight="@+id/editTextName"
+            android:maxHeight="9dp"
+            android:minHeight="9dp"
+            android:progressDrawable="@drawable/seekbar_progress"
+            android:thumb="@drawable/shine_btn2" />
+
+        <EditText
+            android:id="@+id/editTextName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/viewblue"
+            android:layout_below="@+id/viewblue"
+            android:layout_toRightOf="@+id/textViewName"
+            android:contentDescription="Name"
+            android:ems="10"
+            android:inputType="textFilter" >
+
+        </EditText>
+
+        <TextView
+            android:id="@+id/textViewName"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/editTextName"
+            android:layout_alignLeft="@+id/viewblue"
+            android:text="Name" />
+
+        <TextView
+            android:id="@+id/textViewStadtteil"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editTextName"
+            android:layout_toLeftOf="@+id/spinnerStadtteil"
+            android:ems="10"
+            android:paddingTop="3dp"
+            android:text="Stadtteil" />
+
+    </RelativeLayout>
 
         <TextView
             android:id="@+id/textViewClubs"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/viewblueClubs"
-            android:layout_alignLeft="@+id/viewblueClubs"
-            android:layout_below="@+id/buttonSuche"
+            android:layout_below="@+id/relativeLayoutSuche"
             android:ems="12"
             android:paddingTop="6dp"
             android:text="Clubs"
             android:textSize="20sp" />
         
+                <View
+            android:id="@+id/viewblueClubs"
+            android:layout_width="fill_parent"
+            android:layout_height="2dip"
+            android:layout_below="@+id/textViewClubs"
+
+            android:background="#005998" />
+        
     <ListView
     android:id="@+id/ListViewClubListe"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content" 
+    android:layout_height="match_parent" 
     android:layout_below="@+id/viewblueClubs"
     android:divider="#005998"
     android:listSelector="@drawable/rangliste_selector_flatcolor"
@@ -126,23 +163,8 @@
          
 </ListView>
 
-    <TextView
-        android:id="@+id/textViewStadtteil"
-        android:layout_width="80dp"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/spinnerStadtteil"
-        android:layout_toLeftOf="@+id/spinnerStadtteil"
-        android:ems="10"
-        android:paddingTop="3dp"
-        android:text="Stadtteil" />
 
-    <ImageButton
-        android:id="@+id/buttonSuche"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/SeekBarAktShake"
-        android:layout_below="@+id/seekBarDurchschnShake"
-        android:background="@drawable/blue_button"
-        android:src="@drawable/ic_action_search" />
+
+
 
 </RelativeLayout>
