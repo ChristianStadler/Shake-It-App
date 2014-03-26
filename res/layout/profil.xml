@@ -5,14 +5,24 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp" >
     
-    
+        <ImageView
+        android:id="@+id/imageViewUser"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:layout_alignRight="@+id/viewblue"
+        android:layout_below="@+id/viewblue"
+        android:layout_marginTop="17dp"
+        android:background="#000000"
+        android:padding="1dp"
+        android:src="@drawable/tigger" />
+        
         <TextView
         android:id="@+id/textNameUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="6dp"
         android:ems="12"
-        android:text="Spitzname"
+        android:text="Profil"
         android:textSize="20sp" />
 
     <View
@@ -22,74 +32,9 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/textNameUser"
         android:background="#005998" />
-
-    <ImageView
-        android:id="@+id/imageViewUser"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/viewblue"
-        android:layout_below="@+id/viewblue"
-        android:layout_marginTop="17dp"
-        android:background="#000000"
-        android:padding="1dp"
-        android:src="@drawable/tiggermiddle" />
-
-    <TextView
-        android:id="@+id/textViewName"
-        android:layout_width="80dp"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/viewblue"
-        android:layout_below="@+id/imageViewUser"
-        android:layout_marginTop="22dp"
-        android:text="Spitzname" />
-
-    <TextView
-        android:id="@+id/textEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textViewName"
-        android:layout_below="@+id/textViewName"
-        android:layout_marginTop="14dp"
-        android:text="E-Mail" />
-
-    <TextView
-        android:id="@+id/textEmailUser"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textEmail"
-        android:layout_alignBottom="@+id/textEmail"
-        android:layout_alignLeft="@+id/textViewNameUser"
-        android:text="tigger@web.de" />
-
-    <TextView
-        android:id="@+id/textViewNameUser"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textViewName"
-        android:layout_alignBottom="@+id/textViewName"
-        android:layout_marginLeft="14dp"
-        android:layout_toRightOf="@+id/textViewName"
-        android:text="Name" />
-
-    <TextView
-        android:id="@+id/textViewGeschlecht"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textEmail"
-        android:layout_centerVertical="true"
-        android:text="Geschlecht" />
-
-    <TextView
-        android:id="@+id/textViewGeschlechtAngabe"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textViewGeschlecht"
-        android:layout_alignBottom="@+id/textViewGeschlecht"
-        android:layout_alignLeft="@+id/textEmailUser"
-        android:text="männlich" />
-
+    
     <ImageButton
-        android:id="@+id/imageButton1"
+        android:id="@+id/imageButtonAendern"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -97,5 +42,69 @@
         android:layout_marginBottom="20dp"
         android:background="@drawable/blue_button"
         android:src="@drawable/ic_action_edit" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/imageViewUser"
+        android:layout_centerVertical="true"
+        android:background="@drawable/background_box_border"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp" >
+
+        <TextView
+            android:id="@+id/textViewName"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="Spitzname" />
+
+        <TextView
+            android:id="@+id/textEmailUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textEmail"
+            android:layout_alignBottom="@+id/textEmail"
+            android:layout_alignLeft="@+id/textViewNameUser"
+            android:paddingTop="10dp"
+            android:text="tigger@web.de" />
+
+        <TextView
+            android:id="@+id/textViewGeschlechtAngabe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textViewGeschlecht"
+            android:layout_alignBottom="@+id/textViewGeschlecht"
+            android:layout_alignLeft="@+id/textEmailUser"
+            android:paddingTop="10dp"
+            android:text="männlich" />
+
+        <TextView
+            android:id="@+id/textEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textViewName"
+            android:layout_below="@+id/textViewName"
+            android:paddingTop="10dp"
+            android:text="E-Mail" />
+
+        <TextView
+            android:id="@+id/textViewGeschlecht"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textEmail"
+            android:layout_below="@+id/textEmail"
+            android:paddingTop="10dp"
+            android:text="Geschlecht" />
+
+        <TextView
+            android:id="@+id/textViewNameUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/textEmail"
+            android:layout_toRightOf="@+id/textViewName"
+            android:text="Name" />
+    </RelativeLayout>
 
 </RelativeLayout>

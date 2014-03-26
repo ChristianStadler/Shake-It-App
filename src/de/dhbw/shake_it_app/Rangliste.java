@@ -75,32 +75,50 @@ public class Rangliste extends Fragment {
 	        
 	        Rangliste_Item ranglisteData = new Rangliste_Item();
 	        ranglisteData.setUsername("Tigger");
-	        ranglisteData.setAvgIndexUser(89);
+	        ranglisteData.setAvgIndexUser(91);
+	        ranglisteData.setImage("tigger");
 	        results.add(ranglisteData);
 	        
 	         ranglisteData = new Rangliste_Item();
 	        ranglisteData.setUsername("Tanzbienchen");
 	        ranglisteData.setAvgIndexUser(90);
+	        ranglisteData.setImage("tanzbiene");
 	        results.add(ranglisteData);
 	        
 	         ranglisteData = new Rangliste_Item();
 	        ranglisteData.setUsername("HüpfMäuschen");
-	        ranglisteData.setAvgIndexUser(71);
+	        ranglisteData.setAvgIndexUser(87);
+	        ranglisteData.setImage("maus");
 	        results.add(ranglisteData);
 	        
 	         ranglisteData = new Rangliste_Item();
-	        ranglisteData.setUsername("Lalal");
-	        ranglisteData.setAvgIndexUser(83);
+	        ranglisteData.setUsername("Kätzchen");
+	        ranglisteData.setAvgIndexUser(87);
+	        ranglisteData.setImage("kaetzchen");
 	        results.add(ranglisteData);
 	        
 	         ranglisteData = new Rangliste_Item();
-	        ranglisteData.setUsername("HansWurst");
+	        ranglisteData.setUsername("Tigger92");
 	        ranglisteData.setAvgIndexUser(83);
+	        ranglisteData.setImage("tigger");
 	        results.add(ranglisteData);
 	        
 	         ranglisteData = new Rangliste_Item();
-	        ranglisteData.setUsername("hahaha");
-	        ranglisteData.setAvgIndexUser(83);
+	        ranglisteData.setUsername("Elle");
+	        ranglisteData.setAvgIndexUser(82);
+	        ranglisteData.setImage("elefant");
+	        results.add(ranglisteData);
+	        
+	        ranglisteData = new Rangliste_Item();
+	        ranglisteData.setUsername("rudi");
+	        ranglisteData.setAvgIndexUser(81);
+	        ranglisteData.setImage("hund");
+	        results.add(ranglisteData);
+	        
+	        ranglisteData = new Rangliste_Item();
+	        ranglisteData.setUsername("tati");
+	        ranglisteData.setAvgIndexUser(81);
+	        ranglisteData.setImage("kaetzchen");
 	        results.add(ranglisteData);
 	        
 	        return results;

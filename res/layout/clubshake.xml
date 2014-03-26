@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp" >
 
     <ImageView
         android:id="@+id/imageClub"
@@ -11,123 +14,146 @@
         android:layout_centerHorizontal="true"
         android:src="@drawable/tiffany" />
 
-    <TextView
-        android:id="@+id/textViewAvgIndexClub"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
         android:layout_below="@+id/imageClub"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
-        android:gravity="center_horizontal"
-        android:text="Durchschnittlicher Shake-Index des Clubs" />
-
-    <TextView
-        android:id="@+id/textViewAvgIndex"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textViewaktIndex"
-        android:layout_alignBottom="@+id/textViewaktIndex"
-        android:layout_alignRight="@+id/imageClub"
-        android:layout_toRightOf="@+id/textAvgIndexClubPkt"
-        android:gravity="center_horizontal"
-        android:singleLine="false"
-        android:text="Dein durchschnittl. Shake-Index" />
-
-    <TextView
-        android:id="@+id/textViewAktIndexPkt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/switchShaken"
-        android:layout_below="@+id/textViewaktIndex"
-        android:layout_marginLeft="28dp"
-        android:text="XY"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <TextView
-        android:id="@+id/textAvgIndexClubPkt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textViewAvgIndexClub"
-        android:layout_centerHorizontal="true"
-        android:text="XY"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <Switch
-        android:id="@+id/switchShaken"
-        style="@style/button_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:background="@drawable/blue_button"
+        android:background="@drawable/background_box_border"
+        android:paddingBottom="10dp"
         android:paddingLeft="10dp"
-        android:paddingTop="10dp"
         android:paddingRight="10dp"
-        android:paddingBottom="10dp" 
-        android:text="Jetzt Shaken" />
+        android:paddingTop="10dp"
+        android:layout_marginTop="20dp" >
 
-    <TextView
-        android:id="@+id/TextTNAnzahl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textTNAnzahl"
-        android:layout_alignRight="@+id/textViewAvgIndex"
-        android:text="XY Personen" />
+        <TextView
+            android:id="@+id/textViewAvgIndexClub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_horizontal"
+            android:text="Durchschnittlicher Shake-Index des Clubs" />
 
-    <TextView
-        android:id="@+id/textViewAvgIndexPkt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/switchShaken"
-        android:layout_below="@+id/textViewAvgIndex"
-        android:layout_marginRight="28dp"
-        android:text="XY"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        <TextView
+            android:id="@+id/textViewAvgIndex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textViewaktIndex"
+            android:layout_alignBottom="@+id/textViewaktIndex"
+            android:layout_toRightOf="@+id/textAvgIndexClubPkt"
+            android:gravity="center_horizontal"
+            android:singleLine="false"
+            android:text="Dein durchschnittl. Shake-Index" />
 
-    <TextView
-        android:id="@+id/textVeranstaltung"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textTNAnzahl"
-        android:layout_below="@+id/textTNAnzahl"
-        android:text="Veranstaltung" />
+        <TextView
+            android:id="@+id/textViewAktIndexPkt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/switchShaken"
+            android:layout_below="@+id/textViewaktIndex"
+            android:layout_marginLeft="28dp"
+            android:text="XY"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <TextView
-        android:id="@+id/textVeranstaltungName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/TextTNAnzahl"
-        android:layout_below="@+id/textTNAnzahl"
-        android:text="DanceNightXY" />
+        <TextView
+            android:id="@+id/textAvgIndexClubPkt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewAvgIndexClub"
+            android:layout_centerHorizontal="true"
+            android:text="XY"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <TextView
-        android:id="@+id/textTNAnzahl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textViewaktIndex"
-        android:layout_below="@+id/viewblueClubs"
-        android:layout_marginTop="33dp"
-        android:text="Teilnehmeranzahl" />
+        <Switch
+            android:id="@+id/switchShaken"
+            style="@style/button_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textAvgIndexClubPkt"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/blue_button"
+            android:paddingBottom="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp"
+            android:text="Jetzt Shaken" />
 
-    <TextView
-        android:id="@+id/textViewaktIndex"
-        android:layout_width="130dp"
+        <TextView
+            android:id="@+id/textViewaktIndex"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/switchShaken"
+            android:layout_marginTop="14dp"
+            android:layout_toLeftOf="@+id/textAvgIndexClubPkt"
+            android:gravity="center_horizontal"
+            android:singleLine="false"
+            android:text="Dein aktueller Shake-Index" />
+
+        <TextView
+            android:id="@+id/textViewAvgIndexPkt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/switchShaken"
+            android:layout_below="@+id/textViewAvgIndex"
+            android:layout_marginRight="28dp"
+            android:text="XY"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout2"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/switchShaken"
-        android:layout_marginTop="24dp"
-        android:layout_toLeftOf="@+id/textAvgIndexClubPkt"
-        android:gravity="center_horizontal"
-        android:singleLine="false"
-        android:text="Dein aktueller Shake-Index" />
+        android:layout_alignLeft="@+id/relativeLayout1"
+		android:layout_below="@+id/viewblueClubs"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/background_box_border"
+        android:paddingBottom="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="10dp" >
+
+        <TextView
+            android:id="@+id/textVeranstaltung"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textTNAnzahl"
+            android:layout_below="@+id/textTNAnzahl"
+            android:text="Veranstaltung" />
+
+        <TextView
+            android:id="@+id/textTNAnzahl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Teilnehmeranzahl" />
+
+        <TextView
+            android:id="@+id/textVeranstaltungName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textVeranstaltung"
+            android:layout_alignBottom="@+id/textVeranstaltung"
+            android:layout_marginLeft="36dp"
+            android:layout_toRightOf="@+id/textTNAnzahl"
+            android:text="DanceNightXY" />
+
+        <TextView
+            android:id="@+id/TextTNAnzahl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/textVeranstaltungName"
+            android:layout_alignLeft="@+id/textVeranstaltungName"
+            android:text="XY Personen" />
+    </RelativeLayout>
 
     <View
         android:id="@+id/viewblueClubs"
         android:layout_width="fill_parent"
         android:layout_height="2dip"
-        android:layout_alignLeft="@+id/textViewAvgIndexClub"
-        android:layout_alignRight="@+id/TextTNAnzahl"
-        android:layout_below="@+id/textViewAktIndexPkt"
-        android:layout_marginTop="15dp"
+        android:layout_alignLeft="@+id/relativeLayout2"
+        android:layout_below="@+id/relativeLayout1"
+        android:layout_marginTop="10dp"
         android:background="#005998" />
 
 </RelativeLayout>

@@ -54,8 +54,13 @@ public class RanglisteCustomListAdapter extends BaseAdapter {
         holder.textSpitzname.setText(rangliste_Item.getUsername());
         holder.textPunkte.setText("Shake-Index von " + rangliste_Item.getAvgIndexUser() +"Pkt.");
         
+        if(rangliste_Item.getImage()!=null){
+        	int resId = convertView.getResources().getIdentifier(rangliste_Item.getImage(), "drawable", convertView.getContext().getPackageName());
+        	holder.imageViewUser.setImageResource(resId);
+        	}
+        
         //Hinweis für Hannah
-        //Button mit einbauen: http://javatechig.com/android/asynchronous-image-loader-in-android-listview
+        //Image mit einbauen: http://javatechig.com/android/asynchronous-image-loader-in-android-listview
  
         return convertView;
     }

@@ -10,16 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
 
-        <ImageView
-            android:id="@+id/imageView1"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:src="@drawable/shakeitappicon"
-            android:layout_gravity="center_horizontal"
-            android:paddingLeft="60dp"
-            android:paddingRight="60dp"
-            android:paddingTop="60dp"
-            android:paddingBottom="60dp" />
 
 
     </FrameLayout>
