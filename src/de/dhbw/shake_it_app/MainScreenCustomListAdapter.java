@@ -45,6 +45,7 @@ public class MainScreenCustomListAdapter extends BaseAdapter {
 	            holder.imageButtonWeiterClub = (ImageButton) convertView.findViewById(R.id.imageButtonWeiterClub);
 	            holder.imageButtonWeiterClub.setFocusable(false);
 	            holder.imageButtonWeiterClub.setFocusableInTouchMode(false);
+	            holder.imageButtonWeiterClub.setActivated(false);
 	            convertView.setTag(holder);
 	        } else {
 	            holder = (ViewHolder) convertView.getTag();
@@ -54,6 +55,7 @@ public class MainScreenCustomListAdapter extends BaseAdapter {
 	 
 	        holder.textViewClub.setText(club_Item.getClubName());
 	        holder.textViewClubShakeIndize.setText("Aktuell " + club_Item.getAktClubIndex() + " Pkt./ Durchschn. " + club_Item.getAvgClubIndex() + " Pkt.");
+	        /*
 	        holder.imageButtonWeiterClub.setOnClickListener(new OnClickListener() {
 				
 					@SuppressLint("ShowToast")
@@ -62,7 +64,7 @@ public class MainScreenCustomListAdapter extends BaseAdapter {
 					
 				}
 			});
-	 
+	 	*/
 	        return convertView;
 	    }
 	 

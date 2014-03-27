@@ -112,9 +112,9 @@ public class MainScreen extends Fragment {
             public void onItemClick(AdapterView<?> a, View v, int position, long id) {
                 Object o = ListViewClubListe.getItemAtPosition(position);
                 MainScreen_Club_Item club_item = (MainScreen_Club_Item) o;
-                Toast.makeText(getActivity(), "Selected :" + " " + club_item, Toast.LENGTH_LONG).show();
+           //     Toast.makeText(getActivity(), "Selected :" + " " + club_item, Toast.LENGTH_LONG).show();
 	        	Main main = (Main)getActivity();
-	        	main.changeView(1);
+	        	main.changeView(1, club_item.getClubName());
             }
  
         });
@@ -181,7 +181,7 @@ public class MainScreen extends Fragment {
 	        results.add(clubItem);
 	 
 	        clubItem = new MainScreen_Club_Item();
-	        clubItem.setClubName("Ritz");
+	        clubItem.setClubName("Ritzz");
 	        clubItem.setAktClubIndexe(51);
 	        clubItem.setAvgClubIndex(72);
 	        results.add(clubItem);

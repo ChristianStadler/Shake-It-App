@@ -153,6 +153,30 @@ public class Main extends Activity {
 		ft.commit();
 	}
 	
+	public void changeView(int position, String clubName) {
+		rFragment = getFragment(position);
+
+		// Creating a fragment object
+		//WebViewFragment rFragment = new WebViewFragment();
+
+		// Passing selected item information to fragment
+		Bundle data = new Bundle();
+		data.putInt("position", position);
+		data.putString("clubname", clubName);
+		rFragment.setArguments(data);				
+		
+		// Getting reference to the FragmentManager
+		FragmentManager fragmentManager = getFragmentManager();
+
+		// Creating a fragment transaction
+		FragmentTransaction ft = fragmentManager.beginTransaction();
+
+		// Adding a fragment to the fragment transaction
+		ft.replace(R.id.content_frame, rFragment);
+
+		// Committing the transaction
+		ft.commit();
+	}
 	
 
 	protected android.app.Fragment getFragment(int position) {

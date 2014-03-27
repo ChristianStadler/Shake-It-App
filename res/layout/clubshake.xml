@@ -14,7 +14,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:background="#000"
-        android:src="@drawable/tiffany" />
+        android:src="@drawable/tiffanys" />
     
     
 
