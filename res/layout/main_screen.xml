@@ -133,12 +133,22 @@
             android:text="Stadtteil" />
 
     </RelativeLayout>
+        <RelativeLayout
+        android:id="@+id/relativeLayoutClubs"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/background_box_border_seite"
+        android:layout_below="@+id/relativeLayoutSuche"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="5dp" >
 
         <TextView
             android:id="@+id/textViewClubs"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/relativeLayoutSuche"
             android:ems="12"
             android:paddingTop="6dp"
             android:text="Clubs"
@@ -151,15 +161,22 @@
             android:layout_below="@+id/textViewClubs"
 
             android:background="#005998" />
+                
+                </RelativeLayout>
         
     <ListView
     android:id="@+id/ListViewClubListe"
+    android:background="@drawable/background_box_border"
     android:layout_width="match_parent"
     android:layout_height="match_parent" 
-    android:layout_below="@+id/viewblueClubs"
+    android:layout_below="@+id/relativeLayoutClubs"
     android:divider="#005998"
     android:listSelector="@drawable/rangliste_selector_flatcolor"
-    android:dividerHeight="1dp">
+    android:dividerHeight="1dp"
+    android:paddingBottom="5dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingTop="5dp" >
          
 </ListView>
 

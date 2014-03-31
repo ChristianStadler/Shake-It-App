@@ -13,6 +13,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
 public class MainScreenCustomListAdapter extends BaseAdapter {
  
 	    private ArrayList listData;
@@ -42,10 +43,13 @@ public class MainScreenCustomListAdapter extends BaseAdapter {
 	            holder = new ViewHolder();
 	            holder.textViewClub = (TextView) convertView.findViewById(R.id.textViewClub);
 	            holder.textViewClubShakeIndize = (TextView) convertView.findViewById(R.id.textViewClubShakeIndize);
+	            /*
 	            holder.imageButtonWeiterClub = (ImageButton) convertView.findViewById(R.id.imageButtonWeiterClub);
 	            holder.imageButtonWeiterClub.setFocusable(false);
 	            holder.imageButtonWeiterClub.setFocusableInTouchMode(false);
 	            holder.imageButtonWeiterClub.setActivated(false);
+	            holder.imageButtonWeiterClub.setClickable(false);
+	            */
 	            convertView.setTag(holder);
 	        } else {
 	            holder = (ViewHolder) convertView.getTag();
@@ -55,23 +59,15 @@ public class MainScreenCustomListAdapter extends BaseAdapter {
 	 
 	        holder.textViewClub.setText(club_Item.getClubName());
 	        holder.textViewClubShakeIndize.setText("Aktuell " + club_Item.getAktClubIndex() + " Pkt./ Durchschn. " + club_Item.getAvgClubIndex() + " Pkt.");
-	        /*
-	        holder.imageButtonWeiterClub.setOnClickListener(new OnClickListener() {
-				
-					@SuppressLint("ShowToast")
-					public void onClick(View v) {
-					Toast.makeText(v.getContext(), "Ich bin der Club ", Toast.LENGTH_LONG);
-					
-				}
-			});
-	 	*/
+	        
+	 	
 	        return convertView;
 	    }
 	 
 	    static class ViewHolder {
 	        TextView textViewClub;
 	        TextView textViewClubShakeIndize;
-	        ImageButton imageButtonWeiterClub;
+
 	    }
 	 
 	}

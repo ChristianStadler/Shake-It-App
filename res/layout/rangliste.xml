@@ -3,7 +3,21 @@
     android:layout_width="fill_parent"
     android:layout_height="match_parent"
     android:paddingLeft="16dp"
-    android:paddingRight="16dp" >
+    android:paddingRight="16dp" 
+        android:paddingTop="5dp"
+    android:paddingBottom="5dp" >
+    
+
+        <RelativeLayout
+        android:id="@+id/relativeLayoutRangliste"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/background_box_border_seite"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="5dp" >
     
         <TextView
         android:id="@+id/textViewRanglisteUeberschrift"
@@ -21,15 +35,21 @@
         android:layout_alignParentLeft="true"
          android:layout_below="@+id/textViewRanglisteUeberschrift"
         android:background="#005998" />
+        </RelativeLayout>
     
 <ListView
     android:id="@+id/ListViewRangliste"
+    android:background="@drawable/background_box_border"
     android:layout_width="match_parent"
     android:layout_height="wrap_content" 
-    android:layout_below="@+id/viewblue"
+    android:layout_below="@+id/relativeLayoutRangliste"
     android:divider="#005998"
     android:listSelector="@drawable/rangliste_selector_flatcolor"
-    android:dividerHeight="1dp">
+    android:dividerHeight="1dp"
+    android:paddingBottom="5dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingTop="5dp" >
          
 </ListView>
 

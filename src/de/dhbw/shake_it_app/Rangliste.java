@@ -55,6 +55,8 @@ public class Rangliste extends Fragment {
         ArrayList<Rangliste_Item> image_details = getListData();
         final ListView ListViewRangliste = (ListView) v.findViewById(R.id.ListViewRangliste);
         ListViewRangliste.setAdapter(new RanglisteCustomListAdapter(getActivity(), image_details));
+        
+
         ListViewRangliste.setOnItemClickListener(new OnItemClickListener() {
 			
 			public void onItemClick(AdapterView<?> a, View v, int position, long id) {
