@@ -36,7 +36,7 @@ class HTTPConnector {
 		
 		connection.setRequestMethod(RequestMethod);
 			
-		if(jsonString != null) {
+		if(jsonString.length > 0) {
 			connection.setRequestProperty("Content-Type", "application/json");
 			connection.setDoOutput(true);
 			OutputStreamWriter out = new OutputStreamWriter(connection.getOutputStream());
