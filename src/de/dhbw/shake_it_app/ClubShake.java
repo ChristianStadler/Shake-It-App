@@ -1,5 +1,6 @@
 package de.dhbw.shake_it_app;
 
+import de.dhbw.shake_it_app.data.operator.ShakeAnalyser;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;

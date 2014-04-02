@@ -1,5 +1,6 @@
-package de.dhbw.shake_it_app;
+package de.dhbw.shake_it_app.data.operator;
 
+import de.dhbw.shake_it_app.Main;
 import android.app.Activity;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
