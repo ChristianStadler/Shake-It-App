@@ -2,6 +2,9 @@ package de.dhbw.shake_it_app;
 
 import java.util.ArrayList;
 
+import de.dhbw.shake_it_app.data.DataProvider;
+import de.dhbw.shake_it_app.data.model.Location;
+import de.dhbw.shake_it_app.data.model.User;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.text.Editable;
@@ -86,7 +89,7 @@ public class MainScreen extends Fragment {
 	        }
 	    });
 
-		//Überschrift der ListView
+		//ï¿½berschrift der ListView
 		textViewClubs = (TextView) v.findViewById(R.id.textViewClubs);
 		textViewClubs.setText("Clubs");
 		
@@ -150,7 +153,7 @@ public class MainScreen extends Fragment {
 	                //make sure the country was already selected during the onCreate
 	                /*
 	            	if(selectedStadtteil != null){
-	                    Toast.makeText(parent.getContext(), "Stadtteil, dass du ausgewählt hast: " + selectedItem,
+	                    Toast.makeText(parent.getContext(), "Stadtteil, dass du ausgewï¿½hlt hast: " + selectedItem,
 	                    Toast.LENGTH_LONG).show();
 	                }
 	                */
@@ -166,38 +169,20 @@ public class MainScreen extends Fragment {
 
 	    
 	    private ArrayList<MainScreen_Club_Item> getListData() {
+	    	Location[] location = (Location[]) DataProvider.get().getModel(DataProvider.Location);
 	        ArrayList<MainScreen_Club_Item> results = new ArrayList<MainScreen_Club_Item>();
 	        
-	        MainScreen_Club_Item clubItem = new MainScreen_Club_Item();
-	        clubItem.setClubName("Tiffany's");
-	        clubItem.setAktClubIndexe(78);
-	        clubItem.setAvgClubIndex(89);
-	        results.add(clubItem);
-	        
-	        clubItem = new MainScreen_Club_Item();
-	        clubItem.setClubName("Koi");
-	        clubItem.setAktClubIndexe(87);
-	        clubItem.setAvgClubIndex(90);
-	        results.add(clubItem);
-	 
-	        clubItem = new MainScreen_Club_Item();
-	        clubItem.setClubName("Ritzz");
-	        clubItem.setAktClubIndexe(51);
-	        clubItem.setAvgClubIndex(72);
-	        results.add(clubItem);
-	        
-	        clubItem = new MainScreen_Club_Item();
-	        clubItem.setClubName("Zimmer");
-	        clubItem.setAktClubIndexe(54);
-	        clubItem.setAvgClubIndex(65);
-	        results.add(clubItem);
-	        
-	        clubItem = new MainScreen_Club_Item();
-	        clubItem.setClubName("Suite");
-	        clubItem.setAktClubIndexe(91);
-	        clubItem.setAvgClubIndex(89);
-	        results.add(clubItem);
-	 
+	        int i = location.length;
+	        while(i>0)
+	        {
+		      MainScreen_Club_Item clubItem = new MainScreen_Club_Item();
+		      clubItem.setClubName(location[i-1].getName());
+		      clubItem.setAktClubIndexe(78);
+		      clubItem.setAvgClubIndex(89);
+		      results.add(clubItem);
+	          i--;
+	        }  
+
 	        return results;
 	    }
 }
