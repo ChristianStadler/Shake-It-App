@@ -13,89 +13,85 @@
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:src="@drawable/icon_login" />
-            
+
                 <RelativeLayout
-        android:id="@+id/relativeLayoutSuche"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/imageViewIcon"
-        android:background="@drawable/background_box_border"
-        android:paddingBottom="10dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:paddingTop="10dp" >
+                    android:id="@+id/relativeLayoutSuche"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/background_box_border"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="10dp" >
 
-        <EditText
-            android:id="@+id/password"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/checkBoxDatenSpeichern"
-            android:layout_alignRight="@+id/RegistrierenButton"
-            android:layout_below="@+id/username"
-            android:ems="10"
-            android:hint="Passwort"
-            android:inputType="textPassword" />
+                    <EditText
+                        android:id="@+id/password"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_below="@+id/username"
+                        android:ems="10"
+                        android:hint="Passwort"
+                        android:inputType="textPassword" />
 
-        <CheckBox
-            android:id="@+id/checkBoxDatenSpeichern"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/RegistrierenButton"
-            android:layout_below="@+id/Loginbutton"
-            android:text="Logindaten speichern" />
+                    <CheckBox
+                        android:id="@+id/checkBoxDatenSpeichern"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_below="@+id/Loginbutton"
+                        android:text="Logindaten speichern" />
 
-        <TextView
-            android:id="@+id/PWvergessenButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignRight="@+id/checkBoxDatenSpeichern"
-            android:layout_below="@+id/checkBoxDatenSpeichern"
-            android:layout_marginRight="18dp"
-            android:clickable="true"
-			android:onClick="pwVergessenClick" 
-            android:text="Passwort vergessen"
-            android:textSize="15sp"
-            android:textColor="#005998"/>
+                    <TextView
+                        android:id="@+id/PWvergessenButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignRight="@+id/checkBoxDatenSpeichern"
+                        android:layout_below="@+id/checkBoxDatenSpeichern"
+                        android:layout_marginRight="18dp"
+                        android:clickable="true"
+                        android:onClick="pwVergessenClick"
+                        android:text="Passwort vergessen"
+                        android:textColor="#005998"
+                        android:textSize="15sp" />
 
-        <Button
-            android:id="@+id/Loginbutton"
-            style="@style/button_text"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/password"
-            android:layout_marginTop="72dp"
-            android:background="@drawable/blue_button"
-            android:onClick="loginClick"
-            android:text="Anmelden" />
+                    <Button
+                        android:id="@+id/Loginbutton"
+                        style="@style/button_text"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_below="@+id/password"
+                        android:layout_marginTop="72dp"
+                        android:background="@drawable/blue_button"
+                        android:onClick="loginClick"
+                        android:text="Anmelden" />
 
-        <EditText
-            android:id="@+id/username"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/Loginbutton"
-            android:layout_alignRight="@+id/password"
-            android:ems="10"
-            android:hint="Spitzname" >
+                    <EditText
+                        android:id="@+id/username"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentRight="true"
+                        android:ems="10"
+                        android:hint="Spitzname" />
 
-            <requestFocus />
-        </EditText>
-
-
-
-        <Button
-            android:id="@+id/RegistrierenButton"
-            style="@style/button_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/Loginbutton"
-            android:layout_alignRight="@+id/Loginbutton"
-            android:layout_below="@+id/PWvergessenButton"
-            android:background="@drawable/blue_button"
-            android:onClick="regstrierungClick"
-            android:text="Registrieren"
-            android:textSize="15sp" />
-        
-        </RelativeLayout>
+                    <Button
+                        android:id="@+id/RegistrierenButton"
+                        style="@style/button_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_below="@+id/PWvergessenButton"
+                        android:background="@drawable/blue_button"
+                        android:onClick="regstrierungClick"
+                        android:text="Registrieren"
+                        android:textSize="15sp" />
+                </RelativeLayout>
 
 </RelativeLayout>
