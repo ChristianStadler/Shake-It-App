@@ -7,7 +7,8 @@ import android.content.SharedPreferences;
 public class KeyValue  {
 
 private static KeyValue keyValue;
-public static int userID;
+public static long userID;
+public static boolean amShaken = false;
 
 public static KeyValue getInstance(){
 	if(keyValue == null){
@@ -24,10 +25,10 @@ public void setApplicationContext(Context ctx){
 }
 
 
-public void setUser(int id){
+public void setUser(long id){
 	SharedPreferences sharedPref = ctx.getSharedPreferences("shakeit", 0);
 	  SharedPreferences.Editor editor = sharedPref.edit();
-	  editor.putInt("userid", id);
+	  editor.putLong("userid", id);
 	  editor.commit();
 }
 
@@ -35,5 +36,17 @@ public int getUser(){
 	SharedPreferences sharedPref = ctx.getSharedPreferences("shakeit", 0);
 	return sharedPref.getInt("userid", -1);
 }
+public void setAmShaken(boolean amShaken){
+	SharedPreferences sharedPref = ctx.getSharedPreferences("amShaken", 0);
+	  SharedPreferences.Editor editor = sharedPref.edit();
+	  editor.putBoolean("amShaken", amShaken);
+	  editor.commit();
+}
+
+public boolean getAmShaken(){
+	SharedPreferences sharedPref = ctx.getSharedPreferences("amShaken", 0);
+	return sharedPref.getBoolean("amShaken", amShaken);
+}
+
 
 }

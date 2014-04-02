@@ -1,5 +1,6 @@
 package de.dhbw.shake_it_app;
 
+import de.dhbw.shake_it_app.data.KeyValue;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.FragmentManager;
@@ -35,9 +36,8 @@ public class Main extends Activity {
 	
 	//
     private String[] drawerTitles;
-    private int[] drawerIcons;
     
-    public SharedPreferences sharedPreferences;
+    private int[] drawerIcons;
 
 	//Fragment
 	private android.app.Fragment rFragment;
@@ -55,11 +55,20 @@ public class Main extends Activity {
 		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 
 		mDrawerList = (ListView) findViewById(R.id.drawer_list);
+		
 
         // Hole die Titel aus einem Array aus der strings.xml
         drawerTitles = getResources().getStringArray(R.array.menus);
+
         // Setzt die Icons zu den Einträgen
-        drawerIcons = new int[] {R.drawable.ic_action_search, R.drawable.ic_action_locate, R.drawable.ic_action_group, R.drawable.ic_action_person};
+        if (KeyValue.getInstance().getAmShaken()==false)
+        {
+            drawerIcons = new int[] {R.drawable.ic_action_search, R.drawable.ic_action_locate_grey, R.drawable.ic_action_group, R.drawable.ic_action_person};
+
+        }
+        else {
+            drawerIcons = new int[] {R.drawable.ic_action_search, R.drawable.ic_action_locate, R.drawable.ic_action_group, R.drawable.ic_action_person};
+		}
 
  
         // Bereitet die ActionBar auf den Navigation Drawer vor

@@ -1,5 +1,6 @@
 package de.dhbw.shake_it_app;
 
+import de.dhbw.shake_it_app.data.KeyValue;
 import de.dhbw.shake_it_app.data.operator.ShakeAnalyser;
 import android.app.Fragment;
 import android.content.Context;
@@ -101,7 +102,8 @@ public class ClubShake extends Fragment {
 						    Toast.LENGTH_SHORT).show();
                     //hier den ShakeAnalyse starten
 					 shakeAnalyser.startShakeAnalyser();
-					 sharedPreferences.edit().putBoolean("amShaken", true);
+					 KeyValue.getInstance().setAmShaken(true);
+					 System.out.println("Shaken" +KeyValue.getInstance().getAmShaken());
 				}
 				else if (isChecked==false) {
 					Toast.makeText(
@@ -110,7 +112,8 @@ public class ClubShake extends Fragment {
 						    Toast.LENGTH_SHORT).show();
                     //hier den ShakeAnalyse stoppen
 					shakeAnalyser.stopShakeAnalyser();
-					 sharedPreferences.edit().putBoolean("amShaken", false);
+					 KeyValue.getInstance().setAmShaken(false);
+					 System.out.println("Shaken" +KeyValue.getInstance().getAmShaken());
 				}
 				else {
 					
