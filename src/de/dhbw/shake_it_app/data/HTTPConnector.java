@@ -33,17 +33,20 @@ class HTTPConnector {
 		URL url = new URL("http://space-labs.appspot.com/repo/2855006/shakeit/api/" + modelURL);
 		HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 			
+		
 		connection.setRequestMethod(RequestMethod);
 			
-//		if(jsonString != null) {
-//			connection.setDoOutput(true);
-//			OutputStreamWriter out = new OutputStreamWriter(connection.getOutputStream());
-//			out.write(jsonString[0]);
-//			out.close();
-//		}
+		if(jsonString != null) {
+			connection.setRequestProperty("Content-Type", "application/json");
+			connection.setDoOutput(true);
+			OutputStreamWriter out = new OutputStreamWriter(connection.getOutputStream());
+			out.write(jsonString[0]);
+			out.flush();
+			out.close();
+		}
 		
 		connection.connect();
-			
+				
 		return connection;
 	}
 	

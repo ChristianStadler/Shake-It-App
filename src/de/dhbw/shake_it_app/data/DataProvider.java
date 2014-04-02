@@ -26,6 +26,9 @@ public class DataProvider extends HTTPConnector {
 	public void startDebugging() {
 		// START
 		System.out.println("CS_START DEBUGGING -----");
+		
+		User user = new User(2, "Michael", "michael@sap.com", "e22a63fb76874c99488435f26b117e37", 80.54);
+		createModel(DataProvider.User, user);
 				
 //		User[] users = (User[]) getModel(DataProvider.User);
 //		User[] users = (User[]) getModel(DataProvider.User, "id=3755004");
@@ -112,15 +115,13 @@ public class DataProvider extends HTTPConnector {
 //		if(model.equals(DataProvider.Location)) convertClass = Location.class;
 //		if(model.equals(DataProvider.Session)) convertClass = Session.class;
 //		if(model.equals(DataProvider.User)) convertClass = User.class;
-		
-		object = new User(0, "Name", "name@domain.tld", "Password", 99.4);
 
 		if(getConnectivityState()) {
 			try {
 				String jsonString = getGson().toJson(object);
 				NewEntry newEntry = getGson().fromJson(getResultJson("PUT", requestURL, jsonString), NewEntry.class);
-//				return newEntry.new_id;
-				return 1;
+				return newEntry.new_id;
+//				return 1;
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
