@@ -2,13 +2,13 @@ package de.dhbw.shake_it_app.data.model;
 
 public class User extends Object {
 
-	private int id;
+	private long id;
 	private String name, email, password;
 	private double overallShakeIndex;
 	
 	public User() {}
 	
-	public User(int id, String name, String email, String password, double overallShakeIndex) {
+	public User(long id, String name, String email, String password, double overallShakeIndex) {
 		setID(id);
 		setName(name);
 		setEmail(email);
@@ -17,7 +17,7 @@ public class User extends Object {
 	}
 	
 	/* GETTER */
-	public int getID() {
+	public long getID() {
 		return id;
 	}
 	
@@ -38,7 +38,7 @@ public class User extends Object {
 	}
 	
 	/* SETTER */
-	public void setID(int id) {
+	public void setID(long id) {
 		this.id = id;
 	}
 	

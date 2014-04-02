@@ -12,11 +12,11 @@ import android.hardware.SensorManager;
 public class ShakeAnalyser implements SensorEventListener{
 	
 	private static ShakeAnalyser shakeAnalyser;
-	private long timeStart;
+	private long timeStart, sessionID;
 	private SensorManager sensorManager;
 	private Sensor sensor;
 	private double sessionIndex = 0;
-	private int convertedValue, arrayCounter = 0, convertedSessionIndex, amountValues, sessionID, locationID, userID, counter;
+	private int convertedValue, arrayCounter = 0, convertedSessionIndex, amountValues, locationID, userID, counter;
 	private final int maxIndex = 30;
 	private boolean indexTooHigh;
 	private double[] last10Values = new double[10];
@@ -63,7 +63,8 @@ public class ShakeAnalyser implements SensorEventListener{
 		dancedTime[0] = (int) (millis / 3600000);
 		dancedTime[1] = (int) ((millis - 3600000 * dancedTime[0])/60000);
 		dancedTime[2] = (int) ((millis - (3600000 * dancedTime[0] + 60000 * dancedTime[1]))/1000);
-		//TODO push millis to DB
+		
+		DataProvider.get().updateModel(DataProvider.Session, new Session(sessionID, locationID, userID, getConvertedSessionIndex(), returnCurrentIndex(), false));
 		return dancedTime;
 	}
 	
@@ -80,6 +81,7 @@ public class ShakeAnalyser implements SensorEventListener{
 	private void pushToDatabase(){
 		if(sessionID == 0){
 			sessionID = DataProvider.get().createModel(DataProvider.Session, new Session(sessionID, locationID, userID, getConvertedSessionIndex(), returnCurrentIndex(), true));
+			System.out.println("push to database. session id: "+sessionID);
 		}
 		else{
 			DataProvider.get().updateModel(DataProvider.Session, new Session(sessionID, locationID, userID, getConvertedSessionIndex(), returnCurrentIndex(), true));

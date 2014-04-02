@@ -2,13 +2,13 @@ package de.dhbw.shake_it_app.data.model;
 
 public class Session extends Object {
 
-	private int id, locationID, userID;
+	private long id, locationID, userID;
 	private double overallShakeIndex, currentShakeIndex;
 	private boolean isActive;
 
 	public Session() {}
 	
-	public Session(int id, int locationID, int userID, double overallShakeIndex, double currentShakeIndex, boolean isActive) {
+	public Session(long id, long locationID, long userID, double overallShakeIndex, double currentShakeIndex, boolean isActive) {
 		setID(id);
 		setLocationID(locationID);
 		setUserID(userID);
@@ -18,15 +18,15 @@ public class Session extends Object {
 	}
 	
 	/* GETTER */
-	public int getID() {
+	public long getID() {
 		return id;
 	}
 	
-	public int getLocationID() {
+	public long getLocationID() {
 		return locationID;
 	}
 	
-	public int getUserID() {
+	public long getUserID() {
 		return userID;
 	}
 	
@@ -43,15 +43,15 @@ public class Session extends Object {
 	}
 	
 	/* SETTER */
-	public void setID(int id) {
+	public void setID(long id) {
 		this.id = id;
 	}
 	
-	public void setLocationID(int locationID) {
+	public void setLocationID(long locationID) {
 		this.locationID = locationID;
 	}
 	
-	public void setUserID(int userID) {
+	public void setUserID(long userID) {
 		this.userID = userID;
 	}
 	

@@ -2,13 +2,13 @@ package de.dhbw.shake_it_app.data.model;
 
 public class Location extends Object {
 
-	private int id;
+	private long id;
 	private String name, description;
 	private double longitude, latitude;
 	
 	public Location() {}
 	
-	public Location(int id, String name, String description, double longitude, double latitude) {
+	public Location(long id, String name, String description, double longitude, double latitude) {
 		setID(id);
 		setName(name);
 		setDescription(description);
@@ -17,7 +17,7 @@ public class Location extends Object {
 	}
 	
 	/* GETTER */
-	public int getID() {
+	public long getID() {
 		return id;
 	}
 	
@@ -38,7 +38,7 @@ public class Location extends Object {
 	}
 	
 	/* SETTER */
-	public void setID(int id) {
+	public void setID(long id) {
 		this.id = id;
 	}
 	

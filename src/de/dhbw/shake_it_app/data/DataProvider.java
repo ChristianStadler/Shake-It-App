@@ -16,7 +16,7 @@ public class DataProvider extends HTTPConnector {
 	public static final String User = "user";
 	
 	public class NewEntry {
-		private int new_id;
+		private long new_id;
 	}
 	
 	private static DataProvider dataProvider;
@@ -106,7 +106,7 @@ public class DataProvider extends HTTPConnector {
 	}
 	
 //	TODO
-	public int createModel(String model, Object object) {
+	public long createModel(String model, Object object) {
 		// Modify the URL with optional parameters
 		String requestURL = model + ".sjs";
 		
@@ -119,14 +119,15 @@ public class DataProvider extends HTTPConnector {
 		if(getConnectivityState()) {
 			try {
 				String jsonString = getGson().toJson(object);
+				System.out.println("CS_"+jsonString);
 				NewEntry newEntry = getGson().fromJson(getResultJson("PUT", requestURL, jsonString), NewEntry.class);
+				System.out.println("CS_"+newEntry.new_id);
 				return newEntry.new_id;
-//				return 1;
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}		
-		return 0;
+		return -1;
 	}
 	
 //	TODO
