@@ -1,5 +1,6 @@
 package de.dhbw.shake_it_app;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,7 +22,8 @@ public class Main_MenuListAdapter extends BaseAdapter {
         mIcon = pIcon;
     }
  
-    public View getView(int position, View convertView, ViewGroup parent) {
+    @SuppressLint("ResourceAsColor")
+	public View getView(int position, View convertView, ViewGroup parent) {
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View itemView = inflater.inflate(R.layout.drawer_list_item, parent, false);
  
@@ -29,6 +31,10 @@ public class Main_MenuListAdapter extends BaseAdapter {
         ImageView imgIcon = (ImageView) itemView.findViewById(R.id.icon);
  
         txtTitle.setText(mTitle[position]);
+        if(position==1){
+        	txtTitle.setTextColor(R.color.text_disabled_grey);
+        }
+        
         imgIcon.setImageResource(mIcon[position]);
  
         return itemView;
