@@ -4,15 +4,17 @@ public class Session extends Object {
 
 	private int id, locationID, userID;
 	private double overallShakeIndex, currentShakeIndex;
+	private boolean isActive;
 
 	public Session() {}
 	
-	public Session(int id, int locationID, int userID, double overallShakeIndex, double currentShakeIndex) {
+	public Session(int id, int locationID, int userID, double overallShakeIndex, double currentShakeIndex, boolean isActive) {
 		setID(id);
 		setLocationID(locationID);
 		setUserID(userID);
 		setOverallShakeIndex(overallShakeIndex);
 		setCurrentShakeIndex(currentShakeIndex);
+		setIsActive(isActive);
 	}
 	
 	/* GETTER */
@@ -36,6 +38,10 @@ public class Session extends Object {
 		return currentShakeIndex;
 	}
 	
+	public boolean getIsActive() {
+		return isActive;
+	}
+	
 	/* SETTER */
 	public void setID(int id) {
 		this.id = id;
@@ -55,6 +61,10 @@ public class Session extends Object {
 	
 	public void setCurrentShakeIndex(double currentShakeIndex) {
 		this.currentShakeIndex = currentShakeIndex;
+	}
+	
+	public void setIsActive(boolean isActive) {
+		this.isActive = isActive;
 	}
 	
 }
