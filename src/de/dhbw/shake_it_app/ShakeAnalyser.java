@@ -13,7 +13,7 @@ public class ShakeAnalyser implements SensorEventListener{
 	private SensorManager sensorManager;
 	private Sensor sensor;
 	private double sessionIndex = 0;
-	private int currentIndex, convertedValue, arrayCounter = 0, convertedSessionIndex, amountValues;
+	private int convertedValue, arrayCounter = 0, convertedSessionIndex, amountValues;
 	private final int maxIndex = 30;
 	private double[] last10Values = new double[10];
 		
@@ -37,13 +37,13 @@ public class ShakeAnalyser implements SensorEventListener{
 		sensorManager.unregisterListener(this);
 	}
 	
-	public int getCurrentIndex(){
+	public int returnCurrentIndex(){
 		double cummulatedValues = 0;
 		for(int i = 0; i<10; i++){
 			cummulatedValues += last10Values[i];
 		}
 		if (amountValues <10){
-			 return currentIndex = convertToIndex(cummulatedValues/amountValues);
+			 return convertToIndex(cummulatedValues/amountValues);
 		 }
 		return convertToIndex(cummulatedValues / 10);
 	}
@@ -63,7 +63,7 @@ public class ShakeAnalyser implements SensorEventListener{
 		return dancedTime;
 	}
 	
-	public void calcSessionIndex(double lastValue){
+	private void calcSessionIndex(double lastValue){
 		sessionIndex =(sessionIndex - (sessionIndex - lastValue) / amountValues);
 		convertedSessionIndex = convertToIndex(sessionIndex);
 		}
