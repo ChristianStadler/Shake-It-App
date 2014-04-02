@@ -42,8 +42,10 @@ public class ShakeAnalyser implements SensorEventListener{
 		for(int i = 0; i<10; i++){
 			cummulatedValues += last10Values[i];
 		}
-		currentIndex = convertToIndex(cummulatedValues / 10);
-		return currentIndex;
+		if (amountValues <10){
+			 return currentIndex = convertToIndex(cummulatedValues/amountValues);
+		 }
+		return convertToIndex(cummulatedValues / 10);
 	}
 	
 	private int convertToIndex(double unconvertedValue){
@@ -77,7 +79,7 @@ public class ShakeAnalyser implements SensorEventListener{
 	}
 
 	public void onSensorChanged(SensorEvent event) {
-		last10Values[arrayCounter] = event.values[0] + event.values[1] + event.values[2];
+		last10Values[arrayCounter] = Math.abs(event.values[0]) + Math.abs(event.values[1]) + Math.abs(event.values[2]);
 		amountValues++;
 		calcSessionIndex(last10Values[arrayCounter]);
 		arrayCounter++;
