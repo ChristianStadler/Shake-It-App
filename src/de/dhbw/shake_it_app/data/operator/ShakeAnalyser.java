@@ -1,6 +1,8 @@
 package de.dhbw.shake_it_app.data.operator;
 
 import de.dhbw.shake_it_app.Main;
+import de.dhbw.shake_it_app.data.DataProvider;
+import de.dhbw.shake_it_app.data.model.Session;
 import android.app.Activity;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -14,7 +16,7 @@ public class ShakeAnalyser implements SensorEventListener{
 	private SensorManager sensorManager;
 	private Sensor sensor;
 	private double sessionIndex = 0;
-	private int convertedValue, arrayCounter = 0, convertedSessionIndex, amountValues;
+	private int convertedValue, arrayCounter = 0, convertedSessionIndex, amountValues, sessionID, locationID, userID, counter;
 	private final int maxIndex = 30;
 	private boolean indexTooHigh;
 	private double[] last10Values = new double[10];
@@ -68,12 +70,20 @@ public class ShakeAnalyser implements SensorEventListener{
 	private void calcSessionIndex(double lastValue){
 		sessionIndex =(sessionIndex - (sessionIndex - lastValue) / amountValues);
 		convertedSessionIndex = convertToIndex(sessionIndex);
-		// TODO session Index und current Index auf DB laden
+		counter++;
+		if(counter == 10){
+			pushToDatabase();
+			counter = 0;
+			}
 		}
 	
 	private void pushToDatabase(){
-		//TODO current Index pushen
-		//TODO session Index pushen
+		if(sessionID == 0){
+			sessionID = DataProvider.get().createModel(DataProvider.Session, new Session(sessionID, locationID, userID, getConvertedSessionIndex(), returnCurrentIndex(), true));
+		}
+		else{
+			DataProvider.get().updateModel(DataProvider.Session, new Session(sessionID, locationID, userID, getConvertedSessionIndex(), returnCurrentIndex(), true));
+		}
 	}
 	
 	public int getConvertedSessionIndex(){
