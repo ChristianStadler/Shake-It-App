@@ -27,8 +27,8 @@ public class DataProvider extends HTTPConnector {
 		// START
 		System.out.println("CS_START DEBUGGING -----");
 		
-		User user = new User(2, "Michael", "michael@sap.com", "e22a63fb76874c99488435f26b117e37", 80.54);
-		createModel(DataProvider.User, user);
+//		User user = new User(2, "Michael", "michael@sap.com", "e22a63fb76874c99488435f26b117e37", 80.54);
+//		createModel(DataProvider.User, user);
 				
 //		User[] users = (User[]) getModel(DataProvider.User);
 //		User[] users = (User[]) getModel(DataProvider.User, "id=3755004");
