@@ -16,7 +16,7 @@ public class DataProvider extends HTTPConnector {
 	public static final String User = "user";
 	
 	public class NewEntry {
-		int new_id;
+		private int new_id;
 	}
 	
 	private static DataProvider dataProvider;
