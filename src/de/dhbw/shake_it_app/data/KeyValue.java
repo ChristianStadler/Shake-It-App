@@ -50,4 +50,18 @@ public boolean getAmShaken(){
 }
 
 
+
+
+public void setPassword(String password) {
+	SharedPreferences sharedPref = ctx.getSharedPreferences("shakeit", 0);
+	  SharedPreferences.Editor editor = sharedPref.edit();
+	  editor.putString("password", password);
+	  editor.commit();
+}
+
+public String getPassword(){
+	SharedPreferences sharedPref = ctx.getSharedPreferences("shakeit", 0);
+	return sharedPref.getString("password", "-1");
+}
+
 }

@@ -102,9 +102,11 @@ import de.dhbw.shake_it_app.data.model.User;
 	    	  {
 	        	  if (user[0].getPassword().equals(md5(password)))
 	        	  {
-
-	        		  
 	        		  KeyValue.getInstance().setUser(user[0].getID());
+	        		  if (datenSpeichern == true)
+	        		  {
+	        			  KeyValue.getInstance().setPassword(password);
+	        		  }
 
 		    	  nextScreen = new Intent(this, Main.class);
 	        	  startActivity(nextScreen);	        	
