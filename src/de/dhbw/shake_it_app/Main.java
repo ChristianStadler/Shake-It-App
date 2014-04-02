@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
@@ -16,6 +17,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 public class Main extends Activity {
 
@@ -34,6 +36,8 @@ public class Main extends Activity {
 	//
     private String[] drawerTitles;
     private int[] drawerIcons;
+    
+    public SharedPreferences sharedPreferences;
 
 	//Fragment
 	private android.app.Fragment rFragment;
@@ -114,15 +118,17 @@ public class Main extends Activity {
 
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
+				if (position==1) {
+					Toast.makeText(getApplicationContext(), "Noch kein Club ausgewählt", Toast.LENGTH_LONG).show();
+				}
+				else {
+					// Getting an array of rivers
+					String[] menuItems = getResources().getStringArray(R.array.menus);
+					// Currently selected river
+					mTitle = menuItems[position];
 
-				// Getting an array of rivers
-				String[] menuItems = getResources().getStringArray(R.array.menus);
-				// Currently selected river
-				mTitle = menuItems[position];
-
-				changeView(position);
-
-				// Closing the drawer
+					changeView(position);
+				}
 				mDrawerLayout.closeDrawer(mDrawerList);
 
 			}

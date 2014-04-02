@@ -2,6 +2,8 @@ package de.dhbw.shake_it_app;
 
 import de.dhbw.shake_it_app.data.operator.ShakeAnalyser;
 import android.app.Fragment;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,6 +24,7 @@ public class ClubShake extends Fragment {
 	private String bildname = "tiffanys";
 	private int avgIndexClub, aktIndexUser, avgIndexUser, anzahlTN, aktIndexClub;
 	private ShakeAnalyser shakeAnalyser;
+	private SharedPreferences sharedPreferences;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -40,6 +43,9 @@ public class ClubShake extends Fragment {
 
 		// Updating the action bar title
 		getActivity().getActionBar().setTitle(menus[position]);
+		
+		//sharedPreferences
+		sharedPreferences = v.getContext().getSharedPreferences("de.dhbw.shake_it_app", Context.MODE_PRIVATE);
 		
 		//Testdaten
 		//Hinweis für Raphael... Hier anstelle der Testdaten die Daten des Users und des spezifischen Clubs aus der Datenbank lesen
@@ -93,8 +99,9 @@ public class ClubShake extends Fragment {
 							getActivity(),
 							 "Shake it, now!",
 						    Toast.LENGTH_SHORT).show();
+                    //hier den ShakeAnalyse starten
 					 shakeAnalyser.startShakeAnalyser();
-                        //hier den ShakeAnalyse starten
+					 sharedPreferences.edit().putBoolean("amShaken", true);
 				}
 				else if (isChecked==false) {
 					Toast.makeText(
@@ -103,6 +110,7 @@ public class ClubShake extends Fragment {
 						    Toast.LENGTH_SHORT).show();
                     //hier den ShakeAnalyse stoppen
 					shakeAnalyser.stopShakeAnalyser();
+					 sharedPreferences.edit().putBoolean("amShaken", false);
 				}
 				else {
 					
@@ -121,4 +129,5 @@ public class ClubShake extends Fragment {
 		return v;
 		
 	}
+
 }

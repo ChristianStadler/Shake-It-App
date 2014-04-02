@@ -1,7 +1,10 @@
 package de.dhbw.shake_it_app;
 
+import de.dhbw.shake_it_app.R.color;
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,28 +18,29 @@ public class Main_MenuListAdapter extends BaseAdapter {
     private String[] mSubTitle;
     private int[] mIcon;
     private LayoutInflater inflater;
+    private SharedPreferences sharedPreferences;
  
     public Main_MenuListAdapter(Context pContext, String[] pTitle, int[] pIcon) {
         context = pContext;
         mTitle = pTitle;
         mIcon = pIcon;
+		sharedPreferences = pContext.getSharedPreferences("de.dhbw.shake_it_app", Context.MODE_PRIVATE);
     }
  
-    @SuppressLint("ResourceAsColor")
+
 	public View getView(int position, View convertView, ViewGroup parent) {
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View itemView = inflater.inflate(R.layout.drawer_list_item, parent, false);
  
         TextView txtTitle = (TextView) itemView.findViewById(R.id.title);
         ImageView imgIcon = (ImageView) itemView.findViewById(R.id.icon);
+
  
         txtTitle.setText(mTitle[position]);
-        if(position==1){
-        	txtTitle.setTextColor(R.color.text_disabled_grey);
-        }
-        
         imgIcon.setImageResource(mIcon[position]);
- 
+        if(position==1&&sharedPreferences.getBoolean("amShaken", false)==false){
+        	txtTitle.setTextColor(Color.parseColor("#7F7F7F"));
+        }
         return itemView;
     }
  
@@ -51,6 +55,8 @@ public class Main_MenuListAdapter extends BaseAdapter {
     public long getItemId(int position) {
         return position;
     }
+
+    
 }
 	
 
