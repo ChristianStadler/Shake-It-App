@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import de.dhbw.shake_it_app.data.DataProvider;
 import de.dhbw.shake_it_app.data.model.Location;
 import de.dhbw.shake_it_app.data.model.User;
+import de.dhbw.shake_it_app.data.operator.DataOperator;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.text.Editable;
@@ -171,18 +172,19 @@ public class MainScreen extends Fragment {
 	    private ArrayList<MainScreen_Club_Item> getListData() {
 	    	Location[] location = (Location[]) DataProvider.get().getModel(DataProvider.Location);
 	        ArrayList<MainScreen_Club_Item> results = new ArrayList<MainScreen_Club_Item>();
-	        
+	        DataOperator datop = new DataOperator();
+
 	        int i = location.length;
 	        while(i>0)
 	        {
 		      MainScreen_Club_Item clubItem = new MainScreen_Club_Item();
 		      clubItem.setClubName(location[i-1].getName());
-		      clubItem.setAktClubIndexe(78);
+		      clubItem.setAktClubIndexe(datop.returnCurrLocationIndex(location[i-1].getID()));
 		      clubItem.setAvgClubIndex(89);
 		      results.add(clubItem);
 	          i--;
 	        }  
-
+	        
 	        return results;
 	    }
 }
