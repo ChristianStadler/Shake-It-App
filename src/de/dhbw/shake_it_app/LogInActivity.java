@@ -89,8 +89,8 @@ import de.dhbw.shake_it_app.data.model.User;
         	  //mit Daten aus der Datenbank abgleichen
         	  //auf n�chste Main-Activity gehen
         	  
-        	  System.out.println(md5(password));
-	    	  System.out.println(user[0].getPassword());
+        	  //System.out.println(md5(password));
+	    	  //System.out.println(user[0].getPassword());
 	    	  
         	  if (user[0].getPassword().equals(md5(password)))
         	  {
@@ -101,6 +101,7 @@ import de.dhbw.shake_it_app.data.model.User;
         	  {
         		  System.out.println("else");
         	  //Error Message
+        		  Toast.makeText(v.getContext(), "Passwort falsch eingegeben", Toast.LENGTH_LONG).show();
         	  }
 
           }
