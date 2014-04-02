@@ -12,7 +12,7 @@ public class DataOperator {
 		Session[] sessions = (Session[]) DataProvider.get().getModel(DataProvider.Session, "filter=locationID&value="+clubID);
 		amountValues = sessions.length;
 		for(int i=0; i<amountValues;i++){
-			cumulatedValues=+sessions[i].getCurrentShakeIndex();
+			cumulatedValues+=sessions[i].getCurrentShakeIndex();
 		}
 		return (int) Math.round(cumulatedValues/amountValues);
 	}
