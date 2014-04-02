@@ -94,7 +94,9 @@ public class DataProvider extends HTTPConnector {
 		
 		if(getConnectivityState())
 			try {
-				return (Object[]) getGson().fromJson(getResultJson("GET", requestURL), convertClass);
+				String string = getResultJson("GET", requestURL);
+				Object[] obj = (Object[]) getGson().fromJson(getResultJson("GET", requestURL), convertClass);
+				return obj;
 			} catch (JsonSyntaxException e) {
 				e.printStackTrace();
 			} catch (Exception e) {
