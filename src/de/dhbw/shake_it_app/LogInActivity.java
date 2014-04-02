@@ -41,6 +41,8 @@ import de.dhbw.shake_it_app.data.model.User;
 	          super.onCreate(savedInstanceState);
 	          setContentView(R.layout.login);
 
+	          KeyValue.getInstance().setApplicationContext(getApplicationContext());
+	          
 	          //Userdaten 
 	          Textusername=(EditText)findViewById(R.id.username);
 	          Textpassword=(EditText)findViewById(R.id.password);    
@@ -101,13 +103,9 @@ import de.dhbw.shake_it_app.data.model.User;
 	        	  if (user[0].getPassword().equals(md5(password)))
 	        	  {
 
-//		        	  SharedPreferences sharedPref = KeyValue.get().getPreferences(0);
-//		        	  SharedPreferences.Editor editor = sharedPref.edit();
-//		        	  editor.putInt(getString(KeyValue.get().userID), 22);
-//		        	  editor.commit();
-		        	  
-		        	  
-	  
+	        	  KeyValue.getInstance().setUser(user[0].getID());
+	        	  System.out.println(KeyValue.getInstance().getUser());
+
 		    	  nextScreen = new Intent(this, Main.class);
 	        	  startActivity(nextScreen);	        	
 	        	  }
