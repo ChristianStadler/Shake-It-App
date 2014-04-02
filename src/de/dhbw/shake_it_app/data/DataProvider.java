@@ -25,33 +25,33 @@ public class DataProvider extends HTTPConnector {
 	// DEBUGGING
 	public void startDebugging() {
 		// START
-		System.out.println("CS_START DEBUGGING -----");
+//		System.out.println("CS_START DEBUGGING -----");
 		
 //		User user = new User(2, "Michael", "michael@sap.com", "e22a63fb76874c99488435f26b117e37", 80.54);
 //		createModel(DataProvider.User, user);
 				
-		User[] users = (User[]) getModel(DataProvider.User);
+//		User[] users = (User[]) getModel(DataProvider.User);
 //		User[] users = (User[]) getModel(DataProvider.User, "id=3755004");
 //		User[] users = (User[]) getModel(DataProvider.User, "filter=password&value=dc647eb65e6711e155375218212b3964");
 //		User[] users = (User[]) getModel(DataProvider.User, "sort=name");
 		
-		if(users != null) {
-			for(User user : users) {
-				System.out.println("CS_ID: "+user.getID());
-				System.out.println("CS_Name: "+user.getName());
-				System.out.println("CS_Email: "+user.getEmail());
-				System.out.println("CS_Password: "+user.getPassword());
-				System.out.println("CS_-------------------------");
-			}
-		} else
-			System.out.println("CS_ARRAY IS NULL");
+//		if(users != null) {
+//			for(User user : users) {
+//				System.out.println("CS_ID: "+user.getID());
+//				System.out.println("CS_Name: "+user.getName());
+//				System.out.println("CS_Email: "+user.getEmail());
+//				System.out.println("CS_Password: "+user.getPassword());
+//				System.out.println("CS_-------------------------");
+//			}
+//		} else
+//			System.out.println("CS_ARRAY IS NULL");
 		
 //		System.out.println("CS_"+createModel(DataProvider.User, null));
 		
 //		System.out.println("CS_+deleteModel(DataProvider.User, 3755005));
 				
 		// ENDE
-		System.out.println("CS_END DEBUGGING -----");
+//		System.out.println("CS_END DEBUGGING -----");
 	}
 	// END DEBUGGING
 	
