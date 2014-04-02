@@ -91,19 +91,27 @@ import de.dhbw.shake_it_app.data.model.User;
         	  
         	  //System.out.println(md5(password));
 	    	  //System.out.println(user[0].getPassword());
-	    	  
-        	  if (user[0].getPassword().equals(md5(password)))
-        	  {
-	    	  nextScreen = new Intent(this, Main.class);
-        	  startActivity(nextScreen);
-        	  }
-        	  else
+	    	  if (user.length > 0)
+	    	  {
+	        	  if (user[0].getPassword().equals(md5(password)))
+	        	  {
+		    	  nextScreen = new Intent(this, Main.class);
+	        	  startActivity(nextScreen);
+	        	  }
+	        	  
+	        	  else
+	        	  {
+	        		  System.out.println("else");
+	        	  //Error Message
+	        		  Toast.makeText(v.getContext(), "Passwort falsch eingegeben", Toast.LENGTH_LONG).show();
+	        	  }
+	    	  }
+	    	  else
         	  {
         		  System.out.println("else");
         	  //Error Message
-        		  Toast.makeText(v.getContext(), "Passwort falsch eingegeben", Toast.LENGTH_LONG).show();
-        	  }
-
+        		  Toast.makeText(v.getContext(), "Benutzer nicht gefunden", Toast.LENGTH_LONG).show();
+        	  }	    		  
           }
 
 	      public void pwVergessenClick(View v){
