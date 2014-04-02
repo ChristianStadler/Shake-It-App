@@ -7,14 +7,12 @@ import com.google.gson.JsonSyntaxException;
 
 import de.dhbw.shake_it_app.data.model.Location;
 import de.dhbw.shake_it_app.data.model.Session;
-import de.dhbw.shake_it_app.data.model.ShakeEvent;
 import de.dhbw.shake_it_app.data.model.User;
 
 public class DataProvider extends HTTPConnector {
 	
 	public static final String Location = "location";
 	public static final String Session = "session";
-	public static final String ShakeEvent = "shake";
 	public static final String User = "user";
 	
 	public class NewEntry {
@@ -91,7 +89,6 @@ public class DataProvider extends HTTPConnector {
 		Class<?> convertClass = null;
 		if(model.equals(DataProvider.Location)) convertClass = Location[].class;
 		if(model.equals(DataProvider.Session)) convertClass = Session[].class;
-		if(model.equals(DataProvider.ShakeEvent)) convertClass = ShakeEvent[].class;
 		if(model.equals(DataProvider.User)) convertClass = User[].class;
 		
 		if(getConnectivityState())
@@ -114,10 +111,9 @@ public class DataProvider extends HTTPConnector {
 //		Class<?> convertClass = null;
 //		if(model.equals(DataProvider.Location)) convertClass = Location.class;
 //		if(model.equals(DataProvider.Session)) convertClass = Session.class;
-//		if(model.equals(DataProvider.ShakeEvent)) convertClass = ShakeEvent.class;
 //		if(model.equals(DataProvider.User)) convertClass = User.class;
 		
-		object = new User(0, "Name", "name@domain.tld", "Password");
+		object = new User(0, "Name", "name@domain.tld", "Password", 99.4);
 
 		if(getConnectivityState()) {
 			try {

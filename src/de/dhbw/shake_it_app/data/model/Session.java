@@ -1,19 +1,18 @@
 package de.dhbw.shake_it_app.data.model;
 
-import java.sql.Timestamp;
-
 public class Session extends Object {
 
 	private int id, locationID, userID;
-	private Timestamp checkInTime;
+	private double overallShakeIndex, currentShakeIndex;
 
 	public Session() {}
 	
-	public Session(int id, int locationID, int userID, Timestamp checkInTime) {
+	public Session(int id, int locationID, int userID, double overallShakeIndex, double currentShakeIndex) {
 		setID(id);
 		setLocationID(locationID);
 		setUserID(userID);
-		setCheckInTime(checkInTime);
+		setOverallShakeIndex(overallShakeIndex);
+		setCurrentShakeIndex(currentShakeIndex);
 	}
 	
 	/* GETTER */
@@ -29,8 +28,12 @@ public class Session extends Object {
 		return userID;
 	}
 	
-	public Timestamp getCheckInTime() {
-		return checkInTime;
+	public double getOverallShakeIndex() {
+		return overallShakeIndex;
+	}
+	
+	public double getCurrentShakeIndex() {
+		return currentShakeIndex;
 	}
 	
 	/* SETTER */
@@ -46,8 +49,12 @@ public class Session extends Object {
 		this.userID = userID;
 	}
 	
-	public void setCheckInTime(Timestamp checkInTime) {
-		this.checkInTime = checkInTime;
+	public void setOverallShakeIndex(double overallShakeIndex) {
+		this.overallShakeIndex = overallShakeIndex;
+	}
+	
+	public void setCurrentShakeIndex(double currentShakeIndex) {
+		this.currentShakeIndex = currentShakeIndex;
 	}
 	
 }
