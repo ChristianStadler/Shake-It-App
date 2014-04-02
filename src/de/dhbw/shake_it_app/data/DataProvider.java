@@ -28,7 +28,7 @@ public class DataProvider extends HTTPConnector {
 //		System.out.println("CS_START DEBUGGING -----");
 		
 //		User user = new User(2, "Michael", "michael@sap.com", "e22a63fb76874c99488435f26b117e37", 80.54);
-//		createModel(DataProvider.User, user);
+//		System.out.println("CS_"+createModel(DataProvider.User, user));
 				
 //		User[] users = (User[]) getModel(DataProvider.User);
 //		User[] users = (User[]) getModel(DataProvider.User, "id=3755004");
@@ -45,8 +45,6 @@ public class DataProvider extends HTTPConnector {
 //			}
 //		} else
 //			System.out.println("CS_ARRAY IS NULL");
-		
-//		System.out.println("CS_"+createModel(DataProvider.User, null));
 		
 //		System.out.println("CS_+deleteModel(DataProvider.User, 3755005));
 				
@@ -119,9 +117,7 @@ public class DataProvider extends HTTPConnector {
 		if(getConnectivityState()) {
 			try {
 				String jsonString = getGson().toJson(object);
-				System.out.println("CS_"+jsonString);
 				NewEntry newEntry = getGson().fromJson(getResultJson("PUT", requestURL, jsonString), NewEntry.class);
-				System.out.println("CS_"+newEntry.new_id);
 				return newEntry.new_id;
 			} catch (Exception e) {
 				e.printStackTrace();
