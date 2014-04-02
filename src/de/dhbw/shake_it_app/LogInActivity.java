@@ -1,11 +1,15 @@
 package de.dhbw.shake_it_app;
 
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -18,6 +22,7 @@ import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import de.dhbw.shake_it_app.data.DataProvider;
+import de.dhbw.shake_it_app.data.KeyValue;
 import de.dhbw.shake_it_app.data.model.User;
 
  public class LogInActivity extends Activity{
@@ -28,7 +33,7 @@ import de.dhbw.shake_it_app.data.model.User;
 	      private CheckBox checkBoxDatenSpeichern;
 	      private String username, password;
 	      private Intent nextScreen;
-	      private boolean datenSpeichern = false; 
+	      private boolean datenSpeichern = false;
 	  
 	      @Override
 	      protected void onCreate(Bundle savedInstanceState) {
@@ -95,8 +100,16 @@ import de.dhbw.shake_it_app.data.model.User;
 	    	  {
 	        	  if (user[0].getPassword().equals(md5(password)))
 	        	  {
+
+//		        	  SharedPreferences sharedPref = KeyValue.get().getPreferences(0);
+//		        	  SharedPreferences.Editor editor = sharedPref.edit();
+//		        	  editor.putInt(getString(KeyValue.get().userID), 22);
+//		        	  editor.commit();
+		        	  
+		        	  
+	  
 		    	  nextScreen = new Intent(this, Main.class);
-	        	  startActivity(nextScreen);
+	        	  startActivity(nextScreen);	        	
 	        	  }
 	        	  
 	        	  else
