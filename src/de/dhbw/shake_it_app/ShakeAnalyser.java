@@ -15,6 +15,7 @@ public class ShakeAnalyser implements SensorEventListener{
 	private double sessionIndex = 0;
 	private int convertedValue, arrayCounter = 0, convertedSessionIndex, amountValues;
 	private final int maxIndex = 30;
+	private boolean indexTooHigh;
 	private double[] last10Values = new double[10];
 		
 	private ShakeAnalyser(Activity activity){
@@ -59,31 +60,44 @@ public class ShakeAnalyser implements SensorEventListener{
 		dancedTime[0] = (int) (millis / 3600000);
 		dancedTime[1] = (int) ((millis - 3600000 * dancedTime[0])/60000);
 		dancedTime[2] = (int) ((millis - (3600000 * dancedTime[0] + 60000 * dancedTime[1]))/1000);
-		
+		//TODO push millis to DB
 		return dancedTime;
 	}
 	
 	private void calcSessionIndex(double lastValue){
 		sessionIndex =(sessionIndex - (sessionIndex - lastValue) / amountValues);
 		convertedSessionIndex = convertToIndex(sessionIndex);
+		// TODO session Index und current Index auf DB laden
 		}
 	
+	private void pushToDatabase(){
+		//TODO current Index pushen
+		//TODO session Index pushen
+	}
 	
 	public int getConvertedSessionIndex(){
 		return convertedSessionIndex;	
 	}
 	
+	public boolean getIndexTooHigh(){
+		boolean localIndexTooHigh = indexTooHigh;
+		indexTooHigh = false;
+		return localIndexTooHigh;
+	}
+	
 	public void onAccuracyChanged(Sensor arg0, int arg1) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	public void onSensorChanged(SensorEvent event) {
-		last10Values[arrayCounter] = Math.abs(event.values[0]) + Math.abs(event.values[1]) + Math.abs(event.values[2]);
-		amountValues++;
-		calcSessionIndex(last10Values[arrayCounter]);
-		arrayCounter++;
-		if(arrayCounter == 10)arrayCounter = 0;		
+		if(Math.abs(event.values[0]) + Math.abs(event.values[1]) + Math.abs(event.values[2]) < maxIndex){
+			last10Values[arrayCounter] = Math.abs(event.values[0]) + Math.abs(event.values[1]) + Math.abs(event.values[2]);
+			amountValues++;
+			calcSessionIndex(last10Values[arrayCounter]);
+			arrayCounter++;
+			if(arrayCounter == 10)arrayCounter = 0;		
+		}
+		else indexTooHigh = true;
 	}
 	
 }
