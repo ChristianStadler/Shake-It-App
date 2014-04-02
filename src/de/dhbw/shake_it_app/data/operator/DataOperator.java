@@ -9,9 +9,11 @@ public class DataOperator {
 		double cumulatedValues = 0;
 		int amountValues = 0;
 		Session[] sessions = (Session[]) DataProvider.get().getModel(DataProvider.Session, "filter=locationID&value="+clubID);
-		amountValues = sessions.length;
-		for(int i=0; i<amountValues;i++){
-			cumulatedValues+=sessions[i].getCurrentShakeIndex();
+		for(int i=0; i<sessions.length;i++){
+			if(sessions[i].getIsActive()){
+				cumulatedValues+=sessions[i].getCurrentShakeIndex();
+				amountValues++;
+			}
 		}
 		return (int) Math.round(cumulatedValues/amountValues);
 	}
