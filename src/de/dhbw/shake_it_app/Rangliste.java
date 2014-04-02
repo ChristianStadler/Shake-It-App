@@ -4,6 +4,10 @@ package de.dhbw.shake_it_app;
 
 import java.util.ArrayList;
 
+import de.dhbw.shake_it_app.data.DataProvider;
+import de.dhbw.shake_it_app.data.model.Location;
+import de.dhbw.shake_it_app.data.model.User;
+import de.dhbw.shake_it_app.data.operator.DataOperator;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.renderscript.Sampler.Value;
@@ -72,57 +76,22 @@ public class Rangliste extends Fragment {
 		
 	}
  
-	    private ArrayList<Rangliste_Item> getListData() {
-	        ArrayList <Rangliste_Item> results = new ArrayList<Rangliste_Item>();
-	        
-	        Rangliste_Item ranglisteData = new Rangliste_Item();
-	        ranglisteData.setUsername("Tigger");
-	        ranglisteData.setAvgIndexUser(91);
-	        ranglisteData.setImage("tigger");
-	        results.add(ranglisteData);
-	        
-	         ranglisteData = new Rangliste_Item();
-	        ranglisteData.setUsername("Tanzbienchen");
-	        ranglisteData.setAvgIndexUser(90);
-	        ranglisteData.setImage("tanzbiene");
-	        results.add(ranglisteData);
-	        
-	         ranglisteData = new Rangliste_Item();
-	        ranglisteData.setUsername("HüpfMäuschen");
-	        ranglisteData.setAvgIndexUser(87);
-	        ranglisteData.setImage("maus");
-	        results.add(ranglisteData);
-	        
-	         ranglisteData = new Rangliste_Item();
-	        ranglisteData.setUsername("Kätzchen");
-	        ranglisteData.setAvgIndexUser(87);
-	        ranglisteData.setImage("kaetzchen");
-	        results.add(ranglisteData);
-	        
-	         ranglisteData = new Rangliste_Item();
-	        ranglisteData.setUsername("Tigger92");
-	        ranglisteData.setAvgIndexUser(83);
-	        ranglisteData.setImage("tigger");
-	        results.add(ranglisteData);
-	        
-	         ranglisteData = new Rangliste_Item();
-	        ranglisteData.setUsername("Elle");
-	        ranglisteData.setAvgIndexUser(82);
-	        ranglisteData.setImage("elefant");
-	        results.add(ranglisteData);
-	        
-	        ranglisteData = new Rangliste_Item();
-	        ranglisteData.setUsername("rudi");
-	        ranglisteData.setAvgIndexUser(81);
-	        ranglisteData.setImage("hund");
-	        results.add(ranglisteData);
-	        
-	        ranglisteData = new Rangliste_Item();
-	        ranglisteData.setUsername("tati");
-	        ranglisteData.setAvgIndexUser(81);
-	        ranglisteData.setImage("kaetzchen");
-	        results.add(ranglisteData);
-	        
+	    private ArrayList<Rangliste_Item> getListData() { 
+	    	User[] user = (User[]) DataProvider.get().getModel(DataProvider.User);
+	    	ArrayList <Rangliste_Item> results = new ArrayList<Rangliste_Item>();
+	    	DataOperator datop = new DataOperator();
+	    	
+	        int i = user.length;
+	        while(i>0)
+	        {
+		      Rangliste_Item ranglisteData = new Rangliste_Item();
+		      ranglisteData.setUsername(user[i-1].getName());
+		      ranglisteData.setAvgIndexUser(datop.returnOverallUserIndex(user[i-1].getID()));
+		      ranglisteData.setImage("tigger");
+		      results.add(ranglisteData);
+	          i--;
+	        }  
+	      
 	        return results;
 	    }
 	

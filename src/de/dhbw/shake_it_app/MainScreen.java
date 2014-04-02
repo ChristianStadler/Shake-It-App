@@ -180,7 +180,7 @@ public class MainScreen extends Fragment {
 		      MainScreen_Club_Item clubItem = new MainScreen_Club_Item();
 		      clubItem.setClubName(location[i-1].getName());
 		      clubItem.setAktClubIndexe(datop.returnCurrLocationIndex(location[i-1].getID()));
-		      clubItem.setAvgClubIndex(89);
+		      clubItem.setAvgClubIndex(datop.returnOverallLocationIndex(location[i-1].getID()));
 		      results.add(clubItem);
 	          i--;
 	        }  
