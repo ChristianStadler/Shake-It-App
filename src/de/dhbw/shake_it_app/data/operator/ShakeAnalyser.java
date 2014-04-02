@@ -81,7 +81,6 @@ public class ShakeAnalyser implements SensorEventListener{
 	private void pushToDatabase(){
 		if(sessionID == 0){
 			sessionID = DataProvider.get().createModel(DataProvider.Session, new Session(sessionID, locationID, userID, getConvertedSessionIndex(), returnCurrentIndex(), true));
-			System.out.println("push to database. session id: "+sessionID);
 		}
 		else{
 			DataProvider.get().updateModel(DataProvider.Session, new Session(sessionID, locationID, userID, getConvertedSessionIndex(), returnCurrentIndex(), true));

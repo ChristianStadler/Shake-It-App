@@ -48,6 +48,13 @@ public class DataProvider extends HTTPConnector {
 		
 //		System.out.println("CS_+deleteModel(DataProvider.User, 3755005));
 				
+		
+		// DELETE ALL SESSIONS
+//		System.out.println("CS_DELETE ALL SESSIONS");
+//		Session[] allSessions = (Session[]) getModel(DataProvider.Session);
+//		for(Session session : allSessions)
+//			deleteModel(DataProvider.Session, session.getID());
+		
 		// ENDE
 //		System.out.println("CS_END DEBUGGING -----");
 	}
@@ -133,20 +140,21 @@ public class DataProvider extends HTTPConnector {
 		// Modify the URL with optional parameters
 		String requestURL = model + ".sjs";
 
-//		if(getConnectivityState()) {
-//			try {
-//				if(getResultJson("POST", requestURL).contains("{ Updated : true }"))
-//					return true;
-//				else
-//					return false;
-//			} catch (Exception e) {
-//				e.printStackTrace();
-//			}
-//		}
+		if(getConnectivityState()) {
+			try {
+				String jsonString = getGson().toJson(object);
+				if(getResultJson("POST", requestURL, jsonString).contains("{ Updated : true }"))
+					return true;
+				else
+					return false;
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 		return false;
 	}
 	
-	public boolean deleteModel(String model, int id) {
+	public boolean deleteModel(String model, long id) {
 		// Modify the URL with optional parameters
 		String requestURL = model + ".sjs?id=" + id;
 
