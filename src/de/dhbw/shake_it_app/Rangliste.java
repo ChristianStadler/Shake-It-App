@@ -79,14 +79,13 @@ public class Rangliste extends Fragment {
 	    private ArrayList<Rangliste_Item> getListData() { 
 	    	User[] user = (User[]) DataProvider.get().getModel(DataProvider.User);
 	    	ArrayList <Rangliste_Item> results = new ArrayList<Rangliste_Item>();
-	    	DataOperator datop = new DataOperator();
 	    	
 	        int i = user.length;
 	        while(i>0)
 	        {
 		      Rangliste_Item ranglisteData = new Rangliste_Item();
 		      ranglisteData.setUsername(user[i-1].getName());
-		      ranglisteData.setAvgIndexUser(datop.returnOverallUserIndex(user[i-1].getID()));
+		      ranglisteData.setAvgIndexUser(DataOperator.get().returnOverallUserIndex(user[i-1].getID()));
 		      ranglisteData.setImage("tigger");
 		      results.add(ranglisteData);
 	          i--;

@@ -6,13 +6,13 @@ import de.dhbw.shake_it_app.data.model.User;
 
 public class DataOperator {
 	
-	private DataOperator dataOperator;
+	private static DataOperator dataOperator;
 	
 	private DataOperator(){
 		
 	}
 	
-	public DataOperator get(){
+	public static DataOperator get(){
 		if(dataOperator == null){
 			dataOperator = new DataOperator();
 		}

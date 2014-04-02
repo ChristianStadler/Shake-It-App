@@ -172,15 +172,14 @@ public class MainScreen extends Fragment {
 	    private ArrayList<MainScreen_Club_Item> getListData() {
 	    	Location[] location = (Location[]) DataProvider.get().getModel(DataProvider.Location);
 	        ArrayList<MainScreen_Club_Item> results = new ArrayList<MainScreen_Club_Item>();
-	        DataOperator datop = new DataOperator();
 
 	        int i = location.length;
 	        while(i>0)
 	        {
 		      MainScreen_Club_Item clubItem = new MainScreen_Club_Item();
 		      clubItem.setClubName(location[i-1].getName());
-		      clubItem.setAktClubIndexe(datop.returnCurrLocationIndex(location[i-1].getID()));
-		      clubItem.setAvgClubIndex(datop.returnOverallLocationIndex(location[i-1].getID()));
+		      clubItem.setAktClubIndexe(DataOperator.get().returnCurrLocationIndex(location[i-1].getID()));
+		      clubItem.setAvgClubIndex(DataOperator.get().returnOverallLocationIndex(location[i-1].getID()));
 		      results.add(clubItem);
 	          i--;
 	        }  
