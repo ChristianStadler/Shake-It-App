@@ -1,6 +1,9 @@
 package de.dhbw.shake_it_app;
 
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -72,35 +75,29 @@ import de.dhbw.shake_it_app.data.model.User;
 	      }
     
 	      public void loginClick(View v){
-	    	  Log.d("tt", "gg");
-	    	  System.out.println("Test");
         	  
         	  //Userdaten auslesen
         	  username = Textusername.getText().toString();
         	  password = Textpassword.getText().toString();
         	  
 
-        	  User users = new User(5, "name", "email", "password");
-        	  System.out.println(users.getName());      	  
+        	  //User users = new User(5, "name", "email", "password");
+        	  //System.out.println(users.getName());      	  
         	  
-        	  DataProvider provider = DataProvider.get();
-        	  User[] user = (User[]) provider.getModel(DataProvider.User, "sort=name");
-        	  System.out.println(user[1].getName());
+        	  User[] user = (User[]) DataProvider.get().getModel(DataProvider.User, "filter=name&value=" + username);
         	  
-        	  
-  
         	  //mit Daten aus der Datenbank abgleichen
-	    	  
-       	  
-        	  //�bergabe von Werten an andere Activity 
-              //nextScreen.putExtra("Vorname", username);
-              //nextScreen.putExtra("Passwort", password);
-	    	 
         	  //auf n�chste Main-Activity gehen
 	    	  
+        	  if (password == md5(user[0].getPassword()) )
+        	  {
 	    	  nextScreen = new Intent(this, Main.class);
         	  startActivity(nextScreen);
-        	  
+        	  }
+        	  else
+        	  {
+        	  //Error Message
+        	  }
 
           }
 
@@ -115,5 +112,23 @@ import de.dhbw.shake_it_app.data.model.User;
         	  startActivity(nextScreen);
 	      }
 	      
+	      public String md5(String s) {
+	    	    try {
+	    	        // Create MD5 Hash
+	    	        MessageDigest digest = java.security.MessageDigest.getInstance("MD5");
+	    	        digest.update(s.getBytes());
+	    	        byte messageDigest[] = digest.digest();
+
+	    	        // Create Hex String
+	    	        StringBuffer hexString = new StringBuffer();
+	    	        for (int i=0; i<messageDigest.length; i++)
+	    	            hexString.append(Integer.toHexString(0xFF & messageDigest[i]));
+	    	        return hexString.toString();
+
+	    	    } catch (NoSuchAlgorithmException e) {
+	    	        e.printStackTrace();
+	    	    }
+	    	    return "";
+	    	}
  }
 
