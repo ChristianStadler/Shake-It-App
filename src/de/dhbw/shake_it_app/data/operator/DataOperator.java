@@ -8,7 +8,6 @@ public class DataOperator {
 	public int returnCurrLocationIndex(int clubID){
 		double cumulatedValues = 0;
 		int amountValues = 0;
-		clubID = 3665004;
 		Session[] sessions = (Session[]) DataProvider.get().getModel(DataProvider.Session, "filter=locationID&value="+clubID);
 		amountValues = sessions.length;
 		for(int i=0; i<amountValues;i++){
