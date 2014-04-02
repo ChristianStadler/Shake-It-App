@@ -6,6 +6,19 @@ import de.dhbw.shake_it_app.data.model.User;
 
 public class DataOperator {
 	
+	private DataOperator dataOperator;
+	
+	private DataOperator(){
+		
+	}
+	
+	public DataOperator get(){
+		if(dataOperator == null){
+			dataOperator = new DataOperator();
+		}
+		return dataOperator;
+	}
+	
 	public int returnCurrLocationIndex(int clubID){
 		double cumulatedValues = 0;
 		int amountValues = 0;
