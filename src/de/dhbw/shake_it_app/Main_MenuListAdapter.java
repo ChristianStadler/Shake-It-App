@@ -1,6 +1,7 @@
 package de.dhbw.shake_it_app;
 
 import de.dhbw.shake_it_app.R.color;
+import de.dhbw.shake_it_app.data.KeyValue;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -18,13 +19,12 @@ public class Main_MenuListAdapter extends BaseAdapter {
     private String[] mSubTitle;
     private int[] mIcon;
     private LayoutInflater inflater;
-    private SharedPreferences sharedPreferences;
+
  
     public Main_MenuListAdapter(Context pContext, String[] pTitle, int[] pIcon) {
         context = pContext;
         mTitle = pTitle;
         mIcon = pIcon;
-		sharedPreferences = pContext.getSharedPreferences("de.dhbw.shake_it_app", Context.MODE_PRIVATE);
     }
  
 
@@ -38,7 +38,7 @@ public class Main_MenuListAdapter extends BaseAdapter {
  
         txtTitle.setText(mTitle[position]);
         imgIcon.setImageResource(mIcon[position]);
-        if(position==1&&sharedPreferences.getBoolean("amShaken", false)==false){
+        if(position==1&&KeyValue.getInstance().getAmShaken()==false){
         	txtTitle.setTextColor(Color.parseColor("#7F7F7F"));
         }
         return itemView;

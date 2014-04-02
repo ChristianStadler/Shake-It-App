@@ -37,6 +37,8 @@ import de.dhbw.shake_it_app.data.model.User;
 	  
 	      @Override
 	      protected void onCreate(Bundle savedInstanceState) {
+	    	  
+	    	  KeyValue.getInstance().setApplicationContext(getApplicationContext());
 	  
 	          super.onCreate(savedInstanceState);
 	          setContentView(R.layout.login);
@@ -101,13 +103,9 @@ import de.dhbw.shake_it_app.data.model.User;
 	        	  if (user[0].getPassword().equals(md5(password)))
 	        	  {
 
-//		        	  SharedPreferences sharedPref = KeyValue.get().getPreferences(0);
-//		        	  SharedPreferences.Editor editor = sharedPref.edit();
-//		        	  editor.putInt(getString(KeyValue.get().userID), 22);
-//		        	  editor.commit();
-		        	  
-		        	  
-	  
+	        		  
+	        		  KeyValue.getInstance().setUser(user[0].getID());
+
 		    	  nextScreen = new Intent(this, Main.class);
 	        	  startActivity(nextScreen);	        	
 	        	  }
