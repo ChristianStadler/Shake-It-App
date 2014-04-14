@@ -34,13 +34,16 @@ public class Main_MenuListAdapter extends BaseAdapter {
  
         TextView txtTitle = (TextView) itemView.findViewById(R.id.title);
         ImageView imgIcon = (ImageView) itemView.findViewById(R.id.icon);
-
+        System.out.println("Hallo ich bin im Adapter :)");
  
         txtTitle.setText(mTitle[position]);
         imgIcon.setImageResource(mIcon[position]);
         if(position==1&&KeyValue.getInstance().getAmShaken()==false){
         	txtTitle.setTextColor(Color.parseColor("#7F7F7F"));
         }
+        else {
+			txtTitle.setTextColor(Color.parseColor("#FFFFFF"));
+		}
         return itemView;
     }
  
