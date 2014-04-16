@@ -19,31 +19,43 @@ public class Main_MenuListAdapter extends BaseAdapter {
     private String[] mSubTitle;
     private int[] mIcon;
     private LayoutInflater inflater;
+	private SharedPreferences sharedPreferences;
 
  
     public Main_MenuListAdapter(Context pContext, String[] pTitle, int[] pIcon) {
         context = pContext;
         mTitle = pTitle;
         mIcon = pIcon;
+		sharedPreferences =pContext. getSharedPreferences("de.dhbw.shake_it_app", Context.MODE_PRIVATE);
     }
  
 
 	public View getView(int position, View convertView, ViewGroup parent) {
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View itemView = inflater.inflate(R.layout.drawer_list_item, parent, false);
- 
+       
         TextView txtTitle = (TextView) itemView.findViewById(R.id.title);
+        if(position==1) txtTitle.setEnabled(false);
+        else txtTitle.setEnabled(true);
+        
+//        if(position==1&&KeyValue.getInstance().getAmShaken()==false){
+//            System.out.println("AmShaken in Main_MenuListAdapter: " + KeyValue.getInstance().getAmShaken());
+//        	txtTitle.setTextColor(Color.parseColor("#7F7F7F"));
+//        	mIcon [1] = R.drawable.ic_action_locate_grey;
+//        }
+//        else if (position==1&&KeyValue.getInstance().getAmShaken()==true) {
+//            System.out.println("AmShaken in Main_MenuListAdapter: " + KeyValue.getInstance().getAmShaken());
+//			txtTitle.setTextColor(Color.parseColor("#FFFFFF"));
+//			mIcon [1] = R.drawable.ic_action_locate;
+//		}
+ 
+
         ImageView imgIcon = (ImageView) itemView.findViewById(R.id.icon);
         System.out.println("Hallo ich bin im Adapter :)");
  
         txtTitle.setText(mTitle[position]);
         imgIcon.setImageResource(mIcon[position]);
-        if(position==1&&KeyValue.getInstance().getAmShaken()==false){
-        	txtTitle.setTextColor(Color.parseColor("#7F7F7F"));
-        }
-        else {
-			txtTitle.setTextColor(Color.parseColor("#FFFFFF"));
-		}
+       
         return itemView;
     }
  

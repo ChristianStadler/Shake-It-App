@@ -3,6 +3,7 @@ package de.dhbw.shake_it_app;
 import java.util.ArrayList;
 
 import de.dhbw.shake_it_app.data.DataProvider;
+import de.dhbw.shake_it_app.data.KeyValue;
 import de.dhbw.shake_it_app.data.model.Location;
 import de.dhbw.shake_it_app.data.model.User;
 import de.dhbw.shake_it_app.data.operator.DataOperator;
@@ -118,7 +119,8 @@ public class MainScreen extends Fragment {
                 MainScreen_Club_Item club_item = (MainScreen_Club_Item) o;
            //     Toast.makeText(getActivity(), "Selected :" + " " + club_item, Toast.LENGTH_LONG).show();
 	        	Main main = (Main)getActivity();
-	        	main.changeView(1, club_item.getClubName());
+	        	main.changeView(1);
+	        	KeyValue.getInstance().setClubName(club_item.getClubName());
             }
  
         });

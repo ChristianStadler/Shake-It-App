@@ -27,6 +27,8 @@ public class Main extends Activity {
 
 	// ListView represents Navigation Drawer
 	private ListView mDrawerList;
+	
+	private SharedPreferences sharedPreferences;
 
 	// ActionBarDrawerToggle indicates the presence of Navigation Drawer in the action bar
 	private ActionBarDrawerToggle mDrawerToggle;
@@ -56,20 +58,21 @@ public class Main extends Activity {
 
 		mDrawerList = (ListView) findViewById(R.id.drawer_list);
 		
+		sharedPreferences = getSharedPreferences("de.dhbw.shake_it_app", Context.MODE_PRIVATE);
+		KeyValue.getInstance().setAmShaken(false);
 
         // Hole die Titel aus einem Array aus der strings.xml
         drawerTitles = getResources().getStringArray(R.array.menus);
 
         // Setzt die Icons zu den Einträgen
-        if (KeyValue.getInstance().getAmShaken()==false)
-        {
-            drawerIcons = new int[] {R.drawable.ic_action_search, R.drawable.ic_action_locate_grey, R.drawable.ic_action_group, R.drawable.ic_action_person};
-
-        }
-        else {
-            drawerIcons = new int[] {R.drawable.ic_action_search, R.drawable.ic_action_locate, R.drawable.ic_action_group, R.drawable.ic_action_person};
-		}
-
+//        if (KeyValue.getInstance().getAmShaken()==false)
+//        {
+            drawerIcons = new int[] {R.drawable.ic_action_search, R.drawable.ic_action_locate, R.drawable.ic_action_group, R.drawable.ic_action_person, R.drawable.ic_action_logout};
+//
+//        }
+//        else {
+//            drawerIcons = new int[] {R.drawable.ic_action_search, R.drawable.ic_action_locate, R.drawable.ic_action_group, R.drawable.ic_action_person, R.drawable.ic_action_logout};
+//		}
  
         // Bereitet die ActionBar auf den Navigation Drawer vor
         getActionBar().setDisplayHomeAsUpEnabled(true);
@@ -91,10 +94,19 @@ public class Main extends Activity {
 			/** Called when a drawer is opened */
 			public void onDrawerOpened(View drawerView) {
 				getActionBar().setTitle("Shake-It-App");
+				if (KeyValue.getInstance().getAmShaken()==true) {
+					mDrawerList.getChildAt(1).findViewById(R.id.title).setEnabled(true);
+				}
+				else if(KeyValue.getInstance().getAmShaken()==false){
+					mDrawerList.getChildAt(1).findViewById(R.id.title).setEnabled(false);
+				}
+				System.out.println("AmShaken in der Main onDrawerOpened: " + KeyValue.getInstance().getAmShaken());
 				invalidateOptionsMenu();
 			}
 
 		};
+		
+
 		
 
 		// Setting DrawerToggle on DrawerLayout
@@ -127,7 +139,7 @@ public class Main extends Activity {
 
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
-				if (position==1) {
+				if (position==1&&KeyValue.getInstance().getAmShaken()==false) {
 					Toast.makeText(getApplicationContext(), "Noch kein Club ausgewählt", Toast.LENGTH_LONG).show();
 				}
 				else {
@@ -168,30 +180,30 @@ public class Main extends Activity {
 		ft.commit();
 	}
 	
-	public void changeView(int position, String clubName) {
-		rFragment = getFragment(position);
-
-		// Creating a fragment object
-		//WebViewFragment rFragment = new WebViewFragment();
-
-		// Passing selected item information to fragment
-		Bundle data = new Bundle();
-		data.putInt("position", position);
-		data.putString("clubname", clubName);
-		rFragment.setArguments(data);				
-		
-		// Getting reference to the FragmentManager
-		FragmentManager fragmentManager = getFragmentManager();
-
-		// Creating a fragment transaction
-		FragmentTransaction ft = fragmentManager.beginTransaction();
-
-		// Adding a fragment to the fragment transaction
-		ft.replace(R.id.content_frame, rFragment);
-
-		// Committing the transaction
-		ft.commit();
-	}
+//	public void changeView(int position, String clubName) {
+//		rFragment = getFragment(position);
+//
+//		// Creating a fragment object
+//		//WebViewFragment rFragment = new WebViewFragment();
+//
+//		// Passing selected item information to fragment
+//		Bundle data = new Bundle();
+//		data.putInt("position", position);
+//		data.putString("clubname", clubName);
+//		rFragment.setArguments(data);				
+//		
+//		// Getting reference to the FragmentManager
+//		FragmentManager fragmentManager = getFragmentManager();
+//
+//		// Creating a fragment transaction
+//		FragmentTransaction ft = fragmentManager.beginTransaction();
+//
+//		// Adding a fragment to the fragment transaction
+//		ft.replace(R.id.content_frame, rFragment);
+//
+//		// Committing the transaction
+//		ft.commit();
+//	}
 	
 
 	protected android.app.Fragment getFragment(int position) {

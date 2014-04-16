@@ -10,6 +10,7 @@
         <item >Club</item>
         <item >Rangliste</item>
         <item >Profil</item>
+        <item >Logout</item>
     </string-array>
     
     <string name="drawer_open">Open Drawer</string>

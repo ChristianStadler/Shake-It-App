@@ -24,7 +24,7 @@
             android:ellipsize="end"
             android:textSize="20dp"
             android:singleLine="true"
-            android:textColor="#fff"
+			android:textColor="@drawable/selectordisabledmenu"
             android:text="Beispiel"  />
 
 </LinearLayout>

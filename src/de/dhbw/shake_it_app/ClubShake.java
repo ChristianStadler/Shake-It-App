@@ -34,7 +34,8 @@ public class ClubShake extends Fragment {
 		// Retrieving the currently selected item number
 		int position = getArguments().getInt("position");
 		
-		if(getArguments().getString("clubname")!=null) clubName = getArguments().getString("clubname");
+//		if(getArguments().getString("clubname")!=null) clubName = getArguments().getString("clubname");
+		clubName = KeyValue.getInstance().getClubName();
 		
 		// List of rivers
 		String[] menus = getResources().getStringArray(R.array.menus);
@@ -92,6 +93,9 @@ public class ClubShake extends Fragment {
 		
 		//Schalter zum Starten des Shaken
 		Switch switchShaken = (Switch) v.findViewById(R.id.switchShaken);
+		
+		switchShaken.setChecked(KeyValue.getInstance().getAmShaken());
+		
 		switchShaken.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 			
 			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {

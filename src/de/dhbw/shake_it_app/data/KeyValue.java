@@ -9,7 +9,8 @@ public class KeyValue  {
 private static KeyValue keyValue;
 private static Context ctx;
 public static long userID;
-public static boolean amShaken;
+public static boolean amShaken = false;
+public static String clubname;
 
 public static KeyValue getInstance(){
 	if(keyValue == null){
@@ -37,21 +38,6 @@ public int getUser(){
 	SharedPreferences sharedPref = ctx.getSharedPreferences("shakeit", 0);
 	return sharedPref.getInt("userid", -1);
 }
-public void setAmShaken(boolean amShaken){
-	SharedPreferences sharedPref = ctx.getSharedPreferences("shakeit", 0);
-	  SharedPreferences.Editor editor = sharedPref.edit();
-	  editor.putBoolean("amShaken", amShaken);
-	  editor.commit();
-}
-
-public boolean getAmShaken(){
-	SharedPreferences sharedPref = ctx.getSharedPreferences("shakeit", 0);
-	return sharedPref.getBoolean("amShaken", false);
-}
-
-
-
-
 public void setPassword(String password) {
 	SharedPreferences sharedPref = ctx.getSharedPreferences("shakeit", 0);
 	  SharedPreferences.Editor editor = sharedPref.edit();
@@ -63,5 +49,36 @@ public String getPassword(){
 	SharedPreferences sharedPref = ctx.getSharedPreferences("shakeit", 0);
 	return sharedPref.getString("password", "-1");
 }
+
+public void setClubName(String clubname) {
+	SharedPreferences sharedPref = ctx.getSharedPreferences("shakeit", 0);
+	  SharedPreferences.Editor editor = sharedPref.edit();
+	  editor.putString("clubname", clubname);
+	  editor.commit();
+}
+
+public String getClubName(){
+	SharedPreferences sharedPref = ctx.getSharedPreferences("shakeit", 0);
+	return sharedPref.getString("clubname", clubname);
+}
+
+public void setAmShaken(boolean amShaken){
+	SharedPreferences sharedPref = ctx.getSharedPreferences("shakeit", 0);
+	  SharedPreferences.Editor editor = sharedPref.edit();
+	  editor.putBoolean("amShaken", amShaken);
+	  editor.commit();
+//		System.out.println("Ich setze amShaken "+ amShaken);
+}
+
+public boolean getAmShaken(){
+	SharedPreferences sharedPref = ctx.getSharedPreferences("shakeit", 0);
+//	System.out.println("Ich gebe amShaken "+ amShaken);
+	return sharedPref.getBoolean("amShaken", amShaken);
+}
+
+
+
+
+
 
 }
