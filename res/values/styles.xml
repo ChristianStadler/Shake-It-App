@@ -37,7 +37,8 @@
       <item name="android:textSize">16dp</item>
   </style>
   
-  
+  <color name="back_color">#ffffffff</color>
+
   	<color name="text_disabled_grey">#D3D3D3</color>
     <color name="text_color_default">#00000C</color>
     <color name="text_color_inverse">#FFFFFF</color>

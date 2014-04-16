@@ -2,16 +2,21 @@ package de.dhbw.shake_it_app;
 
 import de.dhbw.shake_it_app.data.KeyValue;
 import de.dhbw.shake_it_app.data.operator.ShakeAnalyser;
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
+import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.PopupWindow;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,6 +25,7 @@ public class ClubShake extends Fragment {
 	
 	private Switch switchShaken;
 	private TextView textViewAvgIndexClub, textAvgIndexClubPkt, textViewAvgIndexPkt, textViewAktIndexPkt, TextTNAnzahl, textVeranstaltungName, textAktIndexClubPkt, textClubName;
+	private TextView textPopUp;
 	private ImageView imageClub;
 	private String clubName = "Club";
 	private String bildname = "tiffanys";
@@ -27,6 +33,7 @@ public class ClubShake extends Fragment {
 	private ShakeAnalyser shakeAnalyser;
 	private SharedPreferences sharedPreferences;
 	
+	@SuppressWarnings("deprecation")
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -59,6 +66,18 @@ public class ClubShake extends Fragment {
 		 
 		//ShakeAnalyser initialisieren
 		 shakeAnalyser = ShakeAnalyser.getShakeAnalyser(getActivity());
+		 
+//		 AlertDialog alertDialog = new AlertDialog.Builder(v.getContext(), R.style.popup_theme).create();
+//		 alertDialog.setTitle("Title");
+//		 alertDialog.setMessage("zu hoher unrealistischer Wert");
+//		 alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
+//		    public void onClick(DialogInterface dialog, int which) {
+//		       // TODO Add your code for the button here.
+//		    }
+//		 });
+//		 // Set the Icon for the Dialog
+//		 alertDialog.setIcon(R.drawable.ic_action_accept);
+//		 alertDialog.show();
 		 
 		 //Bild setzen
 		 imageClub = (ImageView)v.findViewById(R.id.imageClub);
@@ -125,6 +144,7 @@ public class ClubShake extends Fragment {
 				
 			}
 		});
+
 		
 		//Teilnehmerzahl & Veranstaltung des Clubs setzen
 		TextTNAnzahl = (TextView) v.findViewById(R.id.TextTNAnzahl);
@@ -136,5 +156,32 @@ public class ClubShake extends Fragment {
 		return v;
 		
 	}
+	
+    private PopupWindow pw;
+    private void initiatePopupWindow() {
+        try {
+            //We need to get the instance of the LayoutInflater, use the context of this activity
+            LayoutInflater inflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            //Inflate the view from a predefined XML layout
+            View layout = inflater.inflate(R.layout.popup_falsevalue, null, false);
+            // create a 300px width and 470px height PopupWindow
+            pw = new PopupWindow(layout, 350, 200, true);
+            // display the popup in the center
+            pw.showAtLocation(layout, Gravity.CENTER, 0, 0);
+
+            textPopUp = (TextView) layout.findViewById(R.id.textPopUp);
+            ImageButton cancelButton = (ImageButton) layout.findViewById(R.id.imageButtonClose);
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+    public void popupCloseClick(View v) {
+        pw.dismiss();
+}
+
+
 
 }

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/background_box_border"
+    android:orientation="vertical"
+    android:padding="10dip" >
+
+    <TextView
+        android:id="@+id/textPopUp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        android:text="Wert überschreitet Höchstwert" />
+
+    <ImageButton
+        android:id="@+id/imageButtonClose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/textPopUp"
+        android:layout_below="@+id/textPopUp"
+        android:layout_marginRight="29dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/blue_button"
+        android:onClick="popupCloseClick"
+        android:src="@drawable/ic_action_accept" />
+
+</RelativeLayout>
