@@ -122,6 +122,7 @@ public class MainScreen extends Fragment {
     	        	Main main = (Main)getActivity();
     	        	main.changeView(1);
     	        	KeyValue.getInstance().setClubName(club_item.getClubName());
+    	        	KeyValue.getInstance().setClubId(club_item.getClubId());
 				}
             	else {
 					Toast.makeText(
@@ -189,6 +190,7 @@ public class MainScreen extends Fragment {
 	        {
 		      MainScreen_Club_Item clubItem = new MainScreen_Club_Item();
 		      clubItem.setClubName(location[i-1].getName());
+		      clubItem.setClubId(location[i-1].getID());
 		      clubItem.setAktClubIndexe(DataOperator.get().returnCurrLocationIndex(location[i-1].getID()));
 		      clubItem.setAvgClubIndex(DataOperator.get().returnOverallLocationIndex(location[i-1].getID()));
 		      results.add(clubItem);

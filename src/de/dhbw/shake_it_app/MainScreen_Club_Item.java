@@ -5,6 +5,7 @@ public class MainScreen_Club_Item {
 	 private String clubName;
 	    private int aktClubIndex;
 	    private int avgClubIndex;
+	    private long clubItem;
 	 
 	    public String getClubName() {
 	        return clubName;
@@ -35,5 +36,14 @@ public class MainScreen_Club_Item {
 	        return "[ Club =" + clubName + ", aktueller Index =" + 
 	        		aktClubIndex + " , durchschnittl. Index =" + avgClubIndex + "]";
 	    }
+		public long getClubId() {
+			return clubItem;
+		}
+
+		public void setClubId(long id) {
+			this.clubItem = id;
+			// TODO Auto-generated method stub
+			
+		}
 
 }

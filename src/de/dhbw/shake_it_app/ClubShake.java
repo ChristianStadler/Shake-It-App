@@ -1,6 +1,9 @@
 package de.dhbw.shake_it_app;
 
+import de.dhbw.shake_it_app.data.DataProvider;
 import de.dhbw.shake_it_app.data.KeyValue;
+import de.dhbw.shake_it_app.data.model.Location;
+import de.dhbw.shake_it_app.data.operator.DataOperator;
 import de.dhbw.shake_it_app.data.operator.ShakeAnalyser;
 import android.app.AlertDialog;
 import android.app.Fragment;
@@ -32,6 +35,8 @@ public class ClubShake extends Fragment {
 	private int avgIndexClub, aktIndexUser, avgIndexUser, anzahlTN, aktIndexClub;
 	private ShakeAnalyser shakeAnalyser;
 	private SharedPreferences sharedPreferences;
+	private long clubId;
+	private long userId;
 	
 	@SuppressWarnings("deprecation")
 	@Override
@@ -43,6 +48,8 @@ public class ClubShake extends Fragment {
 		
 //		if(getArguments().getString("clubname")!=null) clubName = getArguments().getString("clubname");
 		clubName = KeyValue.getInstance().getClubName();
+		clubId = KeyValue.getInstance().getClubId();
+		userId = KeyValue.getInstance().getUser();
 		
 		// List of rivers
 		String[] menus = getResources().getStringArray(R.array.menus);
@@ -58,14 +65,19 @@ public class ClubShake extends Fragment {
 		
 		//Testdaten
 		//Hinweis für Raphael... Hier anstelle der Testdaten die Daten des Users und des spezifischen Clubs aus der Datenbank lesen
-		avgIndexClub = 89;
-		aktIndexUser = 78;
-		avgIndexUser = 90;
-		aktIndexClub =56;
-		anzahlTN = 200;
+//		avgIndexClub = 89;
+//		aktIndexUser = 78;
+//		avgIndexUser = 90;
+//		aktIndexClub =56;
+//		anzahlTN = 200;
 		 
 		//ShakeAnalyser initialisieren
 		 shakeAnalyser = ShakeAnalyser.getShakeAnalyser(getActivity());
+		 avgIndexClub = DataOperator.get().returnOverallLocationIndex(clubId);
+		 aktIndexClub = DataOperator.get().returnCurrLocationIndex(clubId);
+		 
+		 avgIndexUser = DataOperator.get().returnOverallUserIndex(userId);
+		 aktIndexClub = shakeAnalyser.getConvertedSessionIndex();
 		 
 //		 AlertDialog alertDialog = new AlertDialog.Builder(v.getContext(), R.style.popup_theme).create();
 //		 alertDialog.setTitle("Title");
