@@ -1,6 +1,7 @@
 package de.dhbw.shake_it_app;
 
 
+import de.dhbw.shake_it_app.data.KeyValue;
 import de.dhbw.shake_it_app.data.operator.DataOperator;
 import android.app.Activity;
 import android.content.Intent;

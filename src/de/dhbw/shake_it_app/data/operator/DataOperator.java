@@ -4,6 +4,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 import de.dhbw.shake_it_app.data.DataProvider;
+import de.dhbw.shake_it_app.data.KeyValue;
 import de.dhbw.shake_it_app.data.model.Session;
 import de.dhbw.shake_it_app.data.model.User;
 
@@ -65,6 +66,7 @@ public class DataOperator {
 	public void saveRegisterData(String mail, String username, String password){
 		User user = new User(0, username, mail, md5(password), 0);
 		user.setID(DataProvider.get().createModel(DataProvider.User, user));
+		KeyValue.getInstance().setUser(DataProvider.get().createModel(DataProvider.User, user));
 	}
 	
 	public String md5(String s) {
