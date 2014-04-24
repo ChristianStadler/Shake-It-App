@@ -38,6 +38,7 @@ public class ClubShake extends Fragment {
 	private long clubId;
 	private long userId;
 	
+	
 	@SuppressWarnings("deprecation")
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -78,6 +79,8 @@ public class ClubShake extends Fragment {
 		 
 		 avgIndexUser = DataOperator.get().returnOverallUserIndex(userId);
 		 aktIndexClub = shakeAnalyser.getConvertedSessionIndex();
+		 
+		 Refresher.get().start(this);
 		 
 //		 AlertDialog alertDialog = new AlertDialog.Builder(v.getContext(), R.style.popup_theme).create();
 //		 alertDialog.setTitle("Title");
@@ -193,6 +196,7 @@ public class ClubShake extends Fragment {
     public void popupCloseClick(View v) {
         pw.dismiss();
 }
+    
 
 
 

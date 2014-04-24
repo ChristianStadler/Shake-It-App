@@ -20,7 +20,7 @@ public class Refresher extends Thread {
 	
 	public void start(Fragment fragment){
 		this.fragment = fragment;
-		run();
+		start();
 	}
 	@Override
 	public void run() {
