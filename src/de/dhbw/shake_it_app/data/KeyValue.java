@@ -10,6 +10,7 @@ private static KeyValue keyValue;
 private static Context ctx;
 public static long userID;
 public static boolean amShaken = false;
+public static boolean datenUserSpeichern;
 public static String clubname;
 public static long clubid;
 public static String password;
@@ -68,13 +69,26 @@ public void setAmShaken(boolean amShaken){
 	  SharedPreferences.Editor editor = sharedPref.edit();
 	  editor.putBoolean("amShaken", amShaken);
 	  editor.commit();
-//		System.out.println("Ich setze amShaken "+ amShaken);
 }
 
 public boolean getAmShaken(){
 	SharedPreferences sharedPref = ctx.getSharedPreferences("shakeit", 0);
 //	System.out.println("Ich gebe amShaken "+ amShaken);
 	return sharedPref.getBoolean("amShaken", amShaken);
+}
+
+public void setDatenUserSpeichern(boolean datenUserSpeichern){
+	SharedPreferences sharedPref = ctx.getSharedPreferences("shakeit", 0);
+	  SharedPreferences.Editor editor = sharedPref.edit();
+	  editor.putBoolean("datenuserspeichern", datenUserSpeichern);
+	  editor.commit();
+		System.out.println("Ich speicher die Daten "+ datenUserSpeichern);
+}
+
+public boolean getDatenUserSpeichern(){
+	SharedPreferences sharedPref = ctx.getSharedPreferences("shakeit", 0);
+	System.out.println("Ich gebe Daten "+ datenUserSpeichern);
+	return sharedPref.getBoolean("datenuserspeichern", datenUserSpeichern);
 }
 
 

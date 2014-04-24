@@ -3,6 +3,7 @@ package de.dhbw.shake_it_app;
 import de.dhbw.shake_it_app.data.KeyValue;
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
@@ -11,6 +12,7 @@ import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -172,10 +174,11 @@ public class Main extends Activity {
 
 		// Creating a fragment transaction
 		FragmentTransaction ft = fragmentManager.beginTransaction();
-
+		
 		// Adding a fragment to the fragment transaction
 		ft.replace(R.id.content_frame, rFragment);
-
+		ft.addToBackStack(null);
+		ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
 		// Committing the transaction
 		ft.commit();
 	}
@@ -260,6 +263,26 @@ public class Main extends Activity {
 		SensorManager sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
 		return sensorManager;
 		}
+	
+//	@Override
+//	public void onBackPressed() {
+//	    if (getFragmentManager().findFragmentByTag( "TAG" ) != null) {
+//
+//	    }
+//	    else {
+//	        super.onBackPressed();
+//	        return;
+//	    }
+//	    if (getFragmentManager().getBackStackEntryCount() != 0) {
+//	        Toast.makeText(getApplicationContext(), "Test", Toast.LENGTH_LONG).show();
+//	        Fragment frag = getFragmentManager().findFragmentByTag( "TAG" );
+//	        FragmentTransaction transac = getFragmentManager().beginTransaction().remove(frag);
+//	                transac.commit();
+//	    }
+//
+//	}
+	// Replace whatever is in the fragment_container view with this fragment,
+	  // and add the transaction to the back stack so the user can navigate back
 
 	 
 }

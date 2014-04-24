@@ -51,7 +51,6 @@ public class Main_MenuListAdapter extends BaseAdapter {
  
 
         ImageView imgIcon = (ImageView) itemView.findViewById(R.id.icon);
-        System.out.println("Hallo ich bin im Adapter :)");
  
         txtTitle.setText(mTitle[position]);
         imgIcon.setImageResource(mIcon[position]);

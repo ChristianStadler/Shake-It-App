@@ -10,6 +10,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.inputmethodservice.Keyboard.Key;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -60,7 +61,6 @@ import de.dhbw.shake_it_app.data.model.User;
 					// TODO Auto-generated method stub
 					if (isChecked==true) {
 						datenSpeichern=true;
-						//in die Datenbank einspeichern, damit das n�chste Mal nicht anmelden auf dem Login-Screen
 					}
 					else datenSpeichern=false;
 					
@@ -98,6 +98,12 @@ import de.dhbw.shake_it_app.data.model.User;
         	  
         	  //System.out.println(md5(password));
 	    	  //System.out.println(user[0].getPassword());
+        	  if(KeyValue.getInstance().getDatenUserSpeichern()==true)
+        	  {
+		    	  nextScreen = new Intent(this, Main.class);
+	        	  startActivity(nextScreen);	 
+        	  }
+        	  
 	    	  if (user.length > 0)
 	    	  {
 	        	  if (user[0].getPassword().equals(md5(password)))
@@ -106,6 +112,7 @@ import de.dhbw.shake_it_app.data.model.User;
 	        		  if (datenSpeichern == true)
 	        		  {
 	        			  KeyValue.getInstance().setPassword(password);
+						  KeyValue.getInstance().setDatenUserSpeichern(true);
 	        		  }
 
 		    	  nextScreen = new Intent(this, Main.class);
