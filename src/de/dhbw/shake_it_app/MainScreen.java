@@ -2,21 +2,14 @@ package de.dhbw.shake_it_app;
 
 import java.util.ArrayList;
 
-import de.dhbw.shake_it_app.data.DataProvider;
-import de.dhbw.shake_it_app.data.KeyValue;
-import de.dhbw.shake_it_app.data.model.Location;
-import de.dhbw.shake_it_app.data.model.User;
-import de.dhbw.shake_it_app.data.operator.DataOperator;
 import android.app.Fragment;
 import android.os.Bundle;
-import android.text.Editable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemSelectedListener;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
@@ -24,6 +17,11 @@ import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+import de.dhbw.shake_it_app.data.AsyncClass;
+import de.dhbw.shake_it_app.data.DataProvider;
+import de.dhbw.shake_it_app.data.KeyValue;
+import de.dhbw.shake_it_app.data.model.Location;
+import de.dhbw.shake_it_app.data.operator.DataOperator;
 
  
 public class MainScreen extends Fragment {
@@ -35,7 +33,7 @@ public class MainScreen extends Fragment {
 	private ImageButton buttonSuche;
 	private View v;
 	private String selectedStadtteil = null;
-	private Editable clubName;
+	private String clubName;
 	private ImageButton imageButtonWeiterClub;
 	private int eingabeAktuellerShakeIndex, eingabeDurchschnShakeIndex;
 	
@@ -69,17 +67,17 @@ public class MainScreen extends Fragment {
 		
 		editTextName = (EditText) v.findViewById(R.id.editTextName);
 		
-		clubName = editTextName.getText();
+		clubName = editTextName.getText().toString();
 		
 		textViewStadtteil = (TextView) v.findViewById(R.id.textViewStadtteil);
 		textViewStadtteil.setText("Stadtteil");
 	    
 	    //Eingabe des Aktuellen Indize
-	    SeekBar SeekBarAktShake = (SeekBar) v.findViewById(R.id.SeekBarAktShake);
+	    final SeekBar SeekBarAktShake = (SeekBar) v.findViewById(R.id.SeekBarAktShake);
 	    eingabeAktuellerShakeIndex = SeekBarAktShake.getProgress();
 	   
 	    //Eingabe des Durchschnittlichen Indize zur Suche
-	    SeekBar seekBarDurchschnShake = (SeekBar) v.findViewById(R.id.seekBarDurchschnShake);
+	    final SeekBar seekBarDurchschnShake = (SeekBar) v.findViewById(R.id.seekBarDurchschnShake);
 	    eingabeDurchschnShakeIndex = seekBarDurchschnShake.getProgress();
 	    
 	    //SuchButton mit Erstellung der ListView
@@ -87,6 +85,12 @@ public class MainScreen extends Fragment {
 	    buttonSuche.setOnClickListener(new View.OnClickListener() {
 	        public void onClick(View v) {
 		    	//Hier Daten nach den angegeben Suchparametern aus der DB lesen
+	    	    eingabeAktuellerShakeIndex = SeekBarAktShake.getProgress();
+	    	    eingabeDurchschnShakeIndex = seekBarDurchschnShake.getProgress();
+	    	    textViewStadtteil.setText("Stadtteil");
+	    	    textViewName.setText("Name");
+	    	    clubName = editTextName.getText().toString();
+	    	   
 //		        ArrayList<MainScreen_Club_Item> image_details = getListData();
 	        	new AsyncClass().execute();
 	        }
@@ -183,20 +187,32 @@ public class MainScreen extends Fragment {
 
 	    
 	    private ArrayList<MainScreen_Club_Item> getListData() {
+	    	
+	    	System.out.println(eingabeAktuellerShakeIndex + "dd" + eingabeDurchschnShakeIndex);
+	    	
 	    	Location[] location = (Location[]) DataProvider.get().getModel(DataProvider.Location);
 	        ArrayList<MainScreen_Club_Item> results = new ArrayList<MainScreen_Club_Item>();
 
+	        
 	        int i = location.length;
 	        while(i>0)
 	        {
-		      MainScreen_Club_Item clubItem = new MainScreen_Club_Item();
-		      clubItem.setClubName(location[i-1].getName());
-		      clubItem.setClubId(location[i-1].getID());
-		      clubItem.setAktClubIndexe(DataOperator.get().returnCurrLocationIndex(location[i-1].getID()));
-		      clubItem.setAvgClubIndex(DataOperator.get().returnOverallLocationIndex(location[i-1].getID()));
-		      results.add(clubItem);
-	          i--;
-	        }  
+	        	int CurrentLocationIndex = DataOperator.get().returnCurrLocationIndex(location[i-1].getID());
+	        	int OverallLocationIndex = DataOperator.get().returnOverallLocationIndex(location[i-1].getID());
+	        	
+	        	System.out.println(location[i-1].getName());
+	        	System.out.println(clubName);
+	        	if (eingabeAktuellerShakeIndex <= CurrentLocationIndex && eingabeDurchschnShakeIndex <= OverallLocationIndex && (clubName.equals(location[i-1].getName()) || clubName.equals("")) )
+	        	{
+				      MainScreen_Club_Item clubItem = new MainScreen_Club_Item();
+				      clubItem.setClubName(location[i-1].getName());
+				      clubItem.setClubId(location[i-1].getID());
+				      clubItem.setAktClubIndexe(CurrentLocationIndex);
+				      clubItem.setAvgClubIndex(OverallLocationIndex);
+				      results.add(clubItem); 
+	        	}
+	        	i--;
+	        }
 	        
 	        return results;
 	    }
@@ -216,5 +232,9 @@ public class MainScreen extends Fragment {
 	          i--;
 	        }  
 	        ListViewClubListe.setAdapter(new MainScreenCustomListAdapter(getActivity(), results));
+	    }
+	    
+	    public static void writeSomething(Location location) {
+	    	System.out.println(location.getName());
 	    }
 }

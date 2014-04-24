@@ -8,6 +8,9 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.StrictMode;
 
 class HTTPConnector {
@@ -15,7 +18,7 @@ class HTTPConnector {
 	protected InputStream is;
 	
 	protected boolean getConnectivityState() {
-//		ConnectivityManager connectivityManager = (ConnectivityManager).getSystemService(Context.CONNECTIVITY_SERVICE);
+//		ConnectivityManager connectivityManager = (ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
 //		NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
 //		if (networkInfo != null && networkInfo.isConnected()) {
 //			return true;

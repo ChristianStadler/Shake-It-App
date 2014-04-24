@@ -25,7 +25,8 @@ public class DataProvider extends HTTPConnector {
 	// DEBUGGING
 	public void startDebugging() {
 		// START
-//		System.out.println("CS_START DEBUGGING -----");
+		System.out.println("CS_START DEBUGGING -----");
+		//new AsyncClass().execute("Christian");
 		
 //		User user = new User(2, "Michael", "michael@sap.com", "e22a63fb76874c99488435f26b117e37", 80.54);
 //		System.out.println("CS_"+createModel(DataProvider.User, user));
@@ -50,13 +51,13 @@ public class DataProvider extends HTTPConnector {
 				
 		
 		// DELETE ALL SESSIONS
-//		System.out.println("CS_DELETE ALL SESSIONS");
-//		Session[] allSessions = (Session[]) getModel(DataProvider.Session);
-//		for(Session session : allSessions)
-//			deleteModel(DataProvider.Session, session.getID());
+		System.out.println("CS_DELETE ALL SESSIONS");
+		Session[] allSessions = (Session[]) getModel(DataProvider.Session);
+		for(Session session : allSessions)
+			deleteModel(DataProvider.Session, session.getID());
 		
 		// ENDE
-//		System.out.println("CS_END DEBUGGING -----");
+		System.out.println("CS_END DEBUGGING -----");
 	}
 	// END DEBUGGING
 	
