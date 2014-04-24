@@ -262,7 +262,21 @@ public class Main extends Activity {
 	public SensorManager getSensorManager(){
 		SensorManager sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
 		return sensorManager;
-		}
+	}
+	
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event)
+	{
+//	    if(keyCode == KeyEvent.KEYCODE_BACK)
+//	    {
+//
+//	    }
+	    if(keyCode == KeyEvent.KEYCODE_HOME)
+	    {
+	    	finish();
+	    }
+	    return super.onKeyDown(keyCode, event);
+	}
 	
 //	@Override
 //	public void onBackPressed() {
