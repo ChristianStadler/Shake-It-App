@@ -68,6 +68,7 @@ public class MainScreen extends Fragment {
 		textViewName.setText("Name");
 		
 		editTextName = (EditText) v.findViewById(R.id.editTextName);
+		
 		clubName = editTextName.getText();
 		
 		textViewStadtteil = (TextView) v.findViewById(R.id.textViewStadtteil);
@@ -86,8 +87,8 @@ public class MainScreen extends Fragment {
 	    buttonSuche.setOnClickListener(new View.OnClickListener() {
 	        public void onClick(View v) {
 		    	//Hier Daten nach den angegeben Suchparametern aus der DB lesen
-		        ArrayList<MainScreen_Club_Item> image_details = getListData();
-		        ListViewClubListe.setAdapter(new MainScreenCustomListAdapter(getActivity(), image_details));
+//		        ArrayList<MainScreen_Club_Item> image_details = getListData();
+	        	new AsyncClass().execute();
 	        }
 	    });
 
@@ -198,5 +199,22 @@ public class MainScreen extends Fragment {
 	        }  
 	        
 	        return results;
+	    }
+	    
+	    public void fillList(Location[] location){
+	        ArrayList<MainScreen_Club_Item> results = new ArrayList<MainScreen_Club_Item>();
+
+	        int i = location.length;
+	        while(i>0)
+	        {
+		      MainScreen_Club_Item clubItem = new MainScreen_Club_Item();
+		      clubItem.setClubName(location[i-1].getName());
+		      clubItem.setClubId(location[i-1].getID());
+		      clubItem.setAktClubIndexe(DataOperator.get().returnCurrLocationIndex(location[i-1].getID()));
+		      clubItem.setAvgClubIndex(DataOperator.get().returnOverallLocationIndex(location[i-1].getID()));
+		      results.add(clubItem);
+	          i--;
+	        }  
+	        ListViewClubListe.setAdapter(new MainScreenCustomListAdapter(getActivity(), results));
 	    }
 }
