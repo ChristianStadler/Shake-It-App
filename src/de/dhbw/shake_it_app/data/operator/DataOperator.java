@@ -1,7 +1,11 @@
 package de.dhbw.shake_it_app.data.operator;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
 import de.dhbw.shake_it_app.data.DataProvider;
 import de.dhbw.shake_it_app.data.model.Session;
+import de.dhbw.shake_it_app.data.model.User;
 
 public class DataOperator {
 	
@@ -56,6 +60,30 @@ public class DataOperator {
 		}
 		return (int) Math.round(cumulatedValues/amountValues);
 		
+	}
+	
+	public void saveRegisterData(String mail, String username, String password){
+		User user = new User(0, username, mail, md5(password), 0);
+		user.setID(DataProvider.get().createModel(DataProvider.User, user));
+	}
+	
+	public String md5(String s) {
+	    try {
+	        // Create MD5 Hash
+	        MessageDigest digest = java.security.MessageDigest.getInstance("MD5");
+	        digest.update(s.getBytes());
+	        byte messageDigest[] = digest.digest();
+
+	        // Create Hex String
+	        StringBuffer hexString = new StringBuffer();
+	        for (int i=0; i<messageDigest.length; i++)
+	            hexString.append(Integer.toHexString(0xFF & messageDigest[i]));
+	        return hexString.toString();
+
+	    } catch (NoSuchAlgorithmException e) {
+	        e.printStackTrace();
+	    }
+	    return "";
 	}
 
 }

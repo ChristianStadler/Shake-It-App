@@ -1,6 +1,7 @@
 package de.dhbw.shake_it_app;
 
 
+import de.dhbw.shake_it_app.data.operator.DataOperator;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -59,7 +60,7 @@ import android.widget.Toast;
              }
              else {
             	 //wenn alle Angaben richtig sind 
-            	 //-> Daten in die DB einspeichern
+            	 DataOperator.get().saveRegisterData(eMailUser, nameUser, passwordUser);
             	 
             	 //-> den Hauptbilschrirm starten
             	 fehlermeldung = "erfolgreich registriert";
