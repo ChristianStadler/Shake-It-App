@@ -80,7 +80,7 @@ public class ClubShake extends Fragment {
 		 avgIndexUser = DataOperator.get().returnOverallUserIndex(userId);
 		 aktIndexClub = shakeAnalyser.getConvertedSessionIndex();
 		 
-		 Refresher.get().start(this);
+		 Refresher.get(this).start();
 		 
 //		 AlertDialog alertDialog = new AlertDialog.Builder(v.getContext(), R.style.popup_theme).create();
 //		 alertDialog.setTitle("Title");
