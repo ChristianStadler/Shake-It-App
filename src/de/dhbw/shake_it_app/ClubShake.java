@@ -73,7 +73,7 @@ public class ClubShake extends Fragment {
 //		aktIndexClub =56;
 //		anzahlTN = 200;
 		
-		 refresher = Refresher.get(this);
+		 refresher = Refresher.get(this,clubId,userId);
 		 
 		//ShakeAnalyser initialisieren
 		 shakeAnalyser = ShakeAnalyser.getShakeAnalyser(getActivity());
@@ -215,7 +215,7 @@ public class ClubShake extends Fragment {
 		textViewAktIndexPkt.setText(String.valueOf(aktIndexUser));
 		textViewAvgIndexPkt.setText(String.valueOf(avgIndexUser));
 		
-
+		if(shakeAnalyser.getIndexTooHigh()==true) initiatePopupWindow();
     	
     }
 

@@ -14,15 +14,15 @@ public class Refresher extends Thread {
 	private static Refresher refresher;
 	private ClubShake fragment;
 	private ShakeAnalyser shakeAnalyser;
-	private int clubID, userID;
+	private long clubID, userID;
 	
-	private Refresher(ClubShake nfragment,int club, int user){
+	private Refresher(ClubShake nfragment,long club, long user){
 		fragment = nfragment;
 		clubID = club;
 		userID = user;
 	}
 	
-	public static Refresher get(ClubShake nfragment,int club, int user){
+	public static Refresher get(ClubShake nfragment,long club, long user){
 		if(refresher == null){	
 			refresher = new Refresher(nfragment, club, user);
 		}
