@@ -3,9 +3,10 @@ package de.dhbw.shake_it_app;
 import android.app.Activity;
 import android.app.Fragment;
 
-public class Refresher implements Runnable {
+public class Refresher extends Thread {
 	
 	private static Refresher refresher;
+	private Fragment fragment;
 	
 	private Refresher(){
 	}
@@ -17,13 +18,20 @@ public class Refresher implements Runnable {
 		return refresher;		
 	}
 	
-	public void go(Fragment fragment){
-		
+	public void start(Fragment fragment){
+		this.fragment = fragment;
+		run();
 	}
 	@Override
 	public void run() {
-		
-		
+			while(true){
+				try {
+					wait(10000);
+					System.out.println("ich laufe!");
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+		}
 	}
 
 }
