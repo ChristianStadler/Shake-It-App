@@ -37,6 +37,7 @@ public class ClubShake extends Fragment {
 	private SharedPreferences sharedPreferences;
 	private long clubId;
 	private long userId;
+	private Refresher refresher;
 	
 	
 	@SuppressWarnings("deprecation")
@@ -71,6 +72,8 @@ public class ClubShake extends Fragment {
 //		avgIndexUser = 90;
 //		aktIndexClub =56;
 //		anzahlTN = 200;
+		
+		 refresher = Refresher.get(this);
 		 
 		//ShakeAnalyser initialisieren
 		 shakeAnalyser = ShakeAnalyser.getShakeAnalyser(getActivity());
@@ -78,9 +81,8 @@ public class ClubShake extends Fragment {
 		 aktIndexClub = DataOperator.get().returnCurrLocationIndex(clubId);
 		 
 		 avgIndexUser = DataOperator.get().returnOverallUserIndex(userId);
-		 aktIndexClub = shakeAnalyser.getConvertedSessionIndex();
+		 aktIndexUser = shakeAnalyser.getConvertedSessionIndex();
 		 
-		 Refresher.get(this).start();
 		 
 //		 AlertDialog alertDialog = new AlertDialog.Builder(v.getContext(), R.style.popup_theme).create();
 //		 alertDialog.setTitle("Title");
@@ -142,6 +144,7 @@ public class ClubShake extends Fragment {
 					 shakeAnalyser.startShakeAnalyser();
 					 KeyValue.getInstance().setAmShaken(true);
 					 System.out.println("Shaken" +KeyValue.getInstance().getAmShaken());
+					 refresher.start();
 				}
 				else if (isChecked==false) {
 					Toast.makeText(
@@ -152,6 +155,7 @@ public class ClubShake extends Fragment {
 					shakeAnalyser.stopShakeAnalyser();
 					 KeyValue.getInstance().setAmShaken(false);
 					 System.out.println("Shaken" +KeyValue.getInstance().getAmShaken());
+					 refresher.stop();
 				}
 				else {
 					
@@ -197,7 +201,23 @@ public class ClubShake extends Fragment {
         pw.dismiss();
 }
     
+    public void setData(int avgIndexClub, int aktIndexClub, int avgIndexUser, int aktIndexUser){
+    	this.aktIndexClub = aktIndexClub;
+    	this.avgIndexClub = avgIndexClub;
+    	this.aktIndexUser = aktIndexUser;
+    	this.avgIndexUser = aktIndexUser;
+    	
+    	//Indize Clubs setzen
+    	textAvgIndexClubPkt.setText(String.valueOf(avgIndexClub));		
+		textAktIndexClubPkt.setText(String.valueOf(aktIndexClub));
+		
+		//Indize des Users setzen:
+		textViewAktIndexPkt.setText(String.valueOf(aktIndexUser));
+		textViewAvgIndexPkt.setText(String.valueOf(avgIndexUser));
+		
 
+    	
+    }
 
 
 }
