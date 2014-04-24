@@ -3,21 +3,28 @@ package de.dhbw.shake_it_app;
 import java.util.Timer;
 import java.util.concurrent.CountDownLatch;
 
+import de.dhbw.shake_it_app.data.operator.DataOperator;
+import de.dhbw.shake_it_app.data.operator.ShakeAnalyser;
+
 import android.app.Activity;
 import android.app.Fragment;
 
 public class Refresher extends Thread {
 	
 	private static Refresher refresher;
-	private static Fragment fragment;
+	private ClubShake fragment;
+	private ShakeAnalyser shakeAnalyser;
+	private int clubID, userID;
 	
-	private Refresher(){
+	private Refresher(ClubShake nfragment,int club, int user){
+		fragment = nfragment;
+		clubID = club;
+		userID = user;
 	}
 	
-	public static Refresher get(Fragment nfragment){
-		fragment = nfragment;
+	public static Refresher get(ClubShake nfragment,int club, int user){
 		if(refresher == null){	
-			refresher = new Refresher();
+			refresher = new Refresher(nfragment, club, user);
 		}
 		return refresher;		
 	}
@@ -30,8 +37,16 @@ public class Refresher extends Thread {
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
-				
+				refreshData();
 			}
+	}
+
+	private void refreshData() {
+		int currentLocationIndex = DataOperator.get().returnCurrLocationIndex(clubID);
+		int overallLocationIndex = DataOperator.get().returnOverallLocationIndex(clubID);
+		int overallUserIndex = DataOperator.get().returnOverallUserIndex(userID);
+		int currentUserIndex = shakeAnalyser.returnCurrentIndex();
+		fragment.setData(overallLocationIndex, currentLocationIndex, overallUserIndex, currentUserIndex);
 	}
 
 }
