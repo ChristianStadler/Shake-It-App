@@ -69,6 +69,11 @@ public class DataOperator {
 		KeyValue.getInstance().setUser(DataProvider.get().createModel(DataProvider.User, user));
 	}
 	
+	public User returnUser(long userID){
+		User[] user = (User[]) DataProvider.get().getModel(DataProvider.User, "id="+userID);
+		return user[0];
+	}
+	
 	public String md5(String s) {
 	    try {
 	        // Create MD5 Hash

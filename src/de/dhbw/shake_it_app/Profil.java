@@ -1,5 +1,8 @@
 package de.dhbw.shake_it_app;
 
+import de.dhbw.shake_it_app.data.KeyValue;
+import de.dhbw.shake_it_app.data.model.User;
+import de.dhbw.shake_it_app.data.operator.DataOperator;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -30,9 +33,10 @@ public class Profil extends Fragment {
 		// Updating the action bar title
 		getActivity().getActionBar().setTitle(menus[position]);
 		
+		User user = DataOperator.get().returnUser(KeyValue.getInstance().getUser());
 		//erste Testdaten
-		userName = "Tigger";
-		eMailUser = "Tigger@dhbw-mannheim.de";
+		userName = user.getName();
+		eMailUser = user.getEmail();
 		
 		//Avatar User
 		imageViewUser = (ImageView) v.findViewById(R.id.imageViewUser);
