@@ -38,16 +38,15 @@ public class ClubShake extends Fragment {
 	private long clubId;
 	private long userId;
 	private Refresher refresher;
-	
+
+	private View v2;
 	
 	@SuppressWarnings("deprecation")
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		
 		// Retrieving the currently selected item number
 		int position = getArguments().getInt("position");
-		
 //		if(getArguments().getString("clubname")!=null) clubName = getArguments().getString("clubname");
 		clubName = KeyValue.getInstance().getClubName();
 		clubId = KeyValue.getInstance().getClubId();
@@ -58,6 +57,7 @@ public class ClubShake extends Fragment {
 
 		// Creating view corresponding to the fragment
 		View v = inflater.inflate(R.layout.clubshake, container, false);
+		v2 = v;
 
 		// Updating the action bar title
 		getActivity().getActionBar().setTitle(menus[position]);
@@ -73,10 +73,11 @@ public class ClubShake extends Fragment {
 //		aktIndexClub =56;
 //		anzahlTN = 200;
 		
-		 refresher = Refresher.get(this,clubId,userId);
+		 
 		 
 		//ShakeAnalyser initialisieren
 		 shakeAnalyser = ShakeAnalyser.getShakeAnalyser(getActivity());
+		 refresher = Refresher.get(this,clubId,userId,shakeAnalyser);
 		 avgIndexClub = DataOperator.get().returnOverallLocationIndex(clubId);
 		 aktIndexClub = DataOperator.get().returnCurrLocationIndex(clubId);
 		 
@@ -144,7 +145,11 @@ public class ClubShake extends Fragment {
 					 shakeAnalyser.startShakeAnalyser();
 					 KeyValue.getInstance().setAmShaken(true);
 					 System.out.println("Shaken" +KeyValue.getInstance().getAmShaken());
+					 if(refresher.getState()==Thread.State.WAITING){
+						 refresher.notify();}
+					 else{
 					 refresher.start();
+					 }
 				}
 				else if (isChecked==false) {
 					Toast.makeText(
@@ -155,7 +160,12 @@ public class ClubShake extends Fragment {
 					shakeAnalyser.stopShakeAnalyser();
 					 KeyValue.getInstance().setAmShaken(false);
 					 System.out.println("Shaken" +KeyValue.getInstance().getAmShaken());
-					 refresher.stop();
+					 try {
+						refresher.wait();
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				}
 				else {
 					
@@ -201,23 +211,30 @@ public class ClubShake extends Fragment {
         pw.dismiss();
 }
     
-    public void setData(int avgIndexClub, int aktIndexClub, int avgIndexUser, int aktIndexUser){
-    	this.aktIndexClub = aktIndexClub;
-    	this.avgIndexClub = avgIndexClub;
-    	this.aktIndexUser = aktIndexUser;
-    	this.avgIndexUser = aktIndexUser;
-    	
-    	//Indize Clubs setzen
-    	textAvgIndexClubPkt.setText(String.valueOf(avgIndexClub));		
-		textAktIndexClubPkt.setText(String.valueOf(aktIndexClub));
-		
-		//Indize des Users setzen:
-		textViewAktIndexPkt.setText(String.valueOf(aktIndexUser));
-		textViewAvgIndexPkt.setText(String.valueOf(avgIndexUser));
-		
-		if(shakeAnalyser.getIndexTooHigh()==true) initiatePopupWindow();
-    	
+    public void setData(){
+    	v2.post((new Runnable() {
+            public void run() {
+            	int currentLocationIndex = DataOperator.get().returnCurrLocationIndex(KeyValue.getInstance().getClubId());
+        		int overallLocationIndex = DataOperator.get().returnOverallLocationIndex(KeyValue.getInstance().getClubId());
+        		int overallUserIndex = DataOperator.get().returnOverallUserIndex(KeyValue.getInstance().getUser());
+        		int currentUserIndex = shakeAnalyser.returnCurrentIndex();
+        		
+            	textAvgIndexClubPkt = (TextView) v2.findViewById(R.id.textAvgIndexClubPkt);
+            	textAvgIndexClubPkt.setText(String.valueOf(overallLocationIndex));	
+         
+            	
+            	textAktIndexClubPkt = (TextView)v2.findViewById(R.id.textViewAktClubIndexPkt);
+        		textAktIndexClubPkt.setText(String.valueOf(currentLocationIndex));
+        		
+        		//Indize des Users setzen:
+        		textViewAktIndexPkt = (TextView) v2.findViewById(R.id.textViewAktIndexPkt);
+        		textViewAktIndexPkt.setText(String.valueOf(currentUserIndex));
+        		
+        		textViewAvgIndexPkt = (TextView) v2.findViewById(R.id.textViewAvgIndexPkt);
+        		textViewAvgIndexPkt.setText(String.valueOf(overallUserIndex));
+        		
+        		if(shakeAnalyser.getIndexTooHigh()==true) initiatePopupWindow();
+            }
+        }));
     }
-
-
 }
