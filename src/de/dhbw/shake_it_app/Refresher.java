@@ -6,6 +6,7 @@ public class Refresher extends Thread {
 	
 	private static Refresher refresher;
 	private ClubShake fragment;
+	private volatile boolean go;
 	
 	private Refresher(ClubShake nfragment,long club, long user, ShakeAnalyser nshakeAnalyser){
 		fragment = nfragment;
@@ -18,9 +19,22 @@ public class Refresher extends Thread {
 		return refresher;		
 	}
 	
+	public void stopRefrehs(){
+		go = false;
+		return;
+//		try {
+//			System.out.println("ich warte");
+//			wait();
+//		} catch (InterruptedException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+	}
+	
 	@Override
 	public void run() {
-			while(true){
+		go = true;
+			while(go){
 				try {
 					refresher.sleep(10000);
 				} catch (InterruptedException e) {

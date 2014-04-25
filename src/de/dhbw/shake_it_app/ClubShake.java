@@ -145,9 +145,7 @@ public class ClubShake extends Fragment {
 					 shakeAnalyser.startShakeAnalyser();
 					 KeyValue.getInstance().setAmShaken(true);
 					 System.out.println("Shaken" +KeyValue.getInstance().getAmShaken());
-					 if(refresher.getState()==Thread.State.WAITING){
-						 refresher.notify();}
-					 else{
+					 if(refresher.getState()==Thread.State.NEW){
 					 refresher.start();
 					 }
 				}
@@ -160,12 +158,7 @@ public class ClubShake extends Fragment {
 					shakeAnalyser.stopShakeAnalyser();
 					 KeyValue.getInstance().setAmShaken(false);
 					 System.out.println("Shaken" +KeyValue.getInstance().getAmShaken());
-					 try {
-						refresher.wait();
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
+					 refresher.stopRefrehs();
 				}
 				else {
 					
@@ -212,6 +205,7 @@ public class ClubShake extends Fragment {
 }
     
     public void setData(){
+    	if(KeyValue.getInstance().getAmShaken()==true){
     	v2.post((new Runnable() {
             public void run() {
             	int currentLocationIndex = DataOperator.get().returnCurrLocationIndex(KeyValue.getInstance().getClubId());
@@ -236,5 +230,6 @@ public class ClubShake extends Fragment {
         		if(shakeAnalyser.getIndexTooHigh()==true) initiatePopupWindow();
             }
         }));
+    	}
     }
 }
