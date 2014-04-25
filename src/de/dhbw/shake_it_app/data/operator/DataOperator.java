@@ -49,6 +49,30 @@ public class DataOperator {
 		return (int) Math.round(cumulatedValues/amountValues);
 	}
 	
+	public int[] returnLocationIndices(long clubID){
+		double cumulatedValues = 0;
+		int amountValues = 0;
+		int[] clubIndices = new int[2];
+		Session[] sessions = (Session[]) DataProvider.get().getModel(DataProvider.Session, "filter=locationID&value="+clubID);
+		for(int i=0; i<sessions.length;i++){
+			if(!sessions[i].getIsActive()){
+				cumulatedValues+=sessions[i].getCurrentShakeIndex();
+				amountValues++;
+			}
+		}
+		clubIndices[0] = (int) Math.round(cumulatedValues/amountValues);
+		cumulatedValues = 0;
+		amountValues = 0;
+		for(int i=0; i<sessions.length;i++){
+			if(sessions[i].getIsActive()){
+				cumulatedValues+=sessions[i].getCurrentShakeIndex();
+				amountValues++;
+			}
+		}
+		clubIndices[1] = (int) Math.round(cumulatedValues/amountValues);
+		return clubIndices;
+	}
+	
 	public int returnOverallUserIndex(long userID){
 		double cumulatedValues = 0;
 		int amountValues = 0;

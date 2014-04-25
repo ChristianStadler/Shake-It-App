@@ -1,5 +1,6 @@
 package de.dhbw.shake_it_app;
 
+import java.security.Timestamp;
 import java.util.ArrayList;
 
 import android.app.Fragment;
@@ -188,7 +189,6 @@ public class MainScreen extends Fragment {
 
 	    
 	    private ArrayList<MainScreen_Club_Item> getListData() {
-	    	
 	    	System.out.println(eingabeAktuellerShakeIndex + "dd" + eingabeDurchschnShakeIndex);
 	    	
 	    	Location[] location = (Location[]) DataProvider.get().getModel(DataProvider.Location);
@@ -198,11 +198,10 @@ public class MainScreen extends Fragment {
 	        int i = location.length;
 	        while(i>0)
 	        {
-	        	int CurrentLocationIndex = DataOperator.get().returnCurrLocationIndex(location[i-1].getID());
-	        	int OverallLocationIndex = DataOperator.get().returnOverallLocationIndex(location[i-1].getID());
+	        	int[] clubIndices = DataOperator.get().returnLocationIndices(location[i-1].getID());
+	        	int CurrentLocationIndex = clubIndices[1];
+	        	int OverallLocationIndex = clubIndices[0];
 	        	
-	        	System.out.println(location[i-1].getName());
-	        	System.out.println(clubName);
 	        	if (eingabeAktuellerShakeIndex <= CurrentLocationIndex && eingabeDurchschnShakeIndex <= OverallLocationIndex && (clubName.equals(location[i-1].getName()) || clubName.equals("")) )
 	        	{
 				      MainScreen_Club_Item clubItem = new MainScreen_Club_Item();
@@ -214,7 +213,6 @@ public class MainScreen extends Fragment {
 	        	}
 	        	i--;
 	        }
-	        
 	        return results;
 	    }
 	    
