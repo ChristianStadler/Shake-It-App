@@ -90,9 +90,10 @@ public class MainScreen extends Fragment {
 	    	    textViewStadtteil.setText("Stadtteil");
 	    	    textViewName.setText("Name");
 	    	    clubName = editTextName.getText().toString();
-	    	   
-//		        ArrayList<MainScreen_Club_Item> image_details = getListData();
-	        	new AsyncClass().execute();
+	    	    ArrayList<MainScreen_Club_Item> image_details = getListData();
+	    	    ListViewClubListe.setAdapter(new MainScreenCustomListAdapter(getActivity(), image_details));
+
+//	        	new AsyncClass().execute();
 	        }
 	    });
 
