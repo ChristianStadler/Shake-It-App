@@ -79,6 +79,13 @@ import de.dhbw.shake_it_app.data.model.User;
 	          //startDebugging() is for debugging the DataProvider
 	          DataProvider.get().startDebugging();
 	          
+	    	  if(KeyValue.getInstance().getDatenUserSpeichern()==true)
+        	  {
+	    		  System.out.println("Ich überspringe LogIn" + KeyValue.getInstance().getDatenUserSpeichern());
+		    	  nextScreen = new Intent(this, Main.class);
+	        	  startActivity(nextScreen);	 
+        	  }
+	          
 	      }
     
 	      public void loginClick(View v){
@@ -98,11 +105,7 @@ import de.dhbw.shake_it_app.data.model.User;
         	  
         	  //System.out.println(md5(password));
 	    	  //System.out.println(user[0].getPassword());
-        	  if(KeyValue.getInstance().getDatenUserSpeichern()==true)
-        	  {
-		    	  nextScreen = new Intent(this, Main.class);
-	        	  startActivity(nextScreen);	 
-        	  }
+    
         	  
 	    	  if (user.length > 0)
 	    	  {

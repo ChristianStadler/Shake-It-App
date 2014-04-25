@@ -1,5 +1,7 @@
 package de.dhbw.shake_it_app;
 
+import java.util.Stack;
+
 import de.dhbw.shake_it_app.data.KeyValue;
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -7,6 +9,7 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.hardware.SensorManager;
 import android.os.Bundle;
@@ -159,28 +162,34 @@ public class Main extends Activity {
 	}
 	
 	public void changeView(int position) {
-		rFragment = getFragment(position);
+		if (position==4) {
+			actionLogout();
+		}
+		else {
+			rFragment = getFragment(position);
 
-		// Creating a fragment object
-		//WebViewFragment rFragment = new WebViewFragment();
+			// Creating a fragment object
+			//WebViewFragment rFragment = new WebViewFragment();
 
-		// Passing selected item information to fragment
-		Bundle data = new Bundle();
-		data.putInt("position", position);
-		rFragment.setArguments(data);				
-		
-		// Getting reference to the FragmentManager
-		FragmentManager fragmentManager = getFragmentManager();
+			// Passing selected item information to fragment
+			Bundle data = new Bundle();
+			data.putInt("position", position);
+			rFragment.setArguments(data);				
+			
+			// Getting reference to the FragmentManager
+			FragmentManager fragmentManager = getFragmentManager();
 
-		// Creating a fragment transaction
-		FragmentTransaction ft = fragmentManager.beginTransaction();
-		
-		// Adding a fragment to the fragment transaction
-		ft.replace(R.id.content_frame, rFragment);
-		ft.addToBackStack(null);
-		ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-		// Committing the transaction
-		ft.commit();
+			// Creating a fragment transaction
+			FragmentTransaction ft = fragmentManager.beginTransaction();
+			
+			// Adding a fragment to the fragment transaction
+			ft.replace(R.id.content_frame, rFragment);
+			ft.addToBackStack(null);
+			ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+			// Committing the transaction
+			ft.commit();
+		}
+
 	}
 	
 //	public void changeView(int position, String clubName) {
@@ -225,6 +234,14 @@ public class Main extends Activity {
 		}
 		
 
+	}
+
+	private void actionLogout() {
+		KeyValue.getInstance().clear(); 
+  	  Intent nextScreen = new Intent(this, LogInActivity.class);
+  	  nextScreen.setFlags( Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NO_HISTORY);
+	  startActivity(nextScreen);
+		
 	}
 
 	@Override

@@ -10,7 +10,7 @@ private static KeyValue keyValue;
 private static Context ctx;
 public static long userID;
 public static boolean amShaken = false;
-public static boolean datenUserSpeichern;
+public static boolean datenUserSpeichern = false;
 public static String clubname;
 public static long clubid;
 public static String password;
@@ -104,6 +104,16 @@ public void setClubId(long clubId) {
 public long getClubId(){
 	SharedPreferences sharedPref = ctx.getSharedPreferences("shakeit", 0);
 	return sharedPref.getLong("clubid", clubid);
+}
+
+
+public void clear() {
+	setUser(0);
+	setAmShaken(false);
+	setDatenUserSpeichern(false);
+	setClubId(0);
+	setClubName(null);
+	setPassword(null);
 }
 
 
