@@ -12,11 +12,11 @@ import android.hardware.SensorManager;
 public class ShakeAnalyser implements SensorEventListener{
 	
 	private static ShakeAnalyser shakeAnalyser;
-	private long timeStart, sessionID;
+	private long timeStart, sessionID, locationID, userID;
 	private SensorManager sensorManager;
 	private Sensor sensor;
 	private double sessionIndex = 0;
-	private int convertedValue, arrayCounter = 0, convertedSessionIndex, amountValues, locationID, userID, counter;
+	private int convertedValue, arrayCounter = 0, convertedSessionIndex, amountValues, counter;
 	private final int maxIndex = 30;
 	private boolean indexTooHigh;
 	private double[] last10Values = new double[10];
@@ -32,7 +32,9 @@ public class ShakeAnalyser implements SensorEventListener{
 		return shakeAnalyser;
 	}
 	
-	public void startShakeAnalyser(){
+	public void startShakeAnalyser(long clubID, long userID){
+		locationID = clubID;
+		this.userID = userID;
 		sensorManager.registerListener(this, sensor, SensorManager.SENSOR_DELAY_NORMAL);
 		timeStart = System.currentTimeMillis();
 	}

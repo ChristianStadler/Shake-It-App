@@ -142,7 +142,7 @@ public class ClubShake extends Fragment {
 							 "Shake it, now!",
 						    Toast.LENGTH_SHORT).show();
                     //hier den ShakeAnalyse starten
-					 shakeAnalyser.startShakeAnalyser();
+					 shakeAnalyser.startShakeAnalyser(clubId, userId);
 					 KeyValue.getInstance().setAmShaken(true);
 					 System.out.println("Shaken" +KeyValue.getInstance().getAmShaken());
 					 if(refresher.getState()==Thread.State.NEW){
