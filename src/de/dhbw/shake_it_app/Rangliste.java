@@ -66,7 +66,7 @@ public class Rangliste extends Fragment {
 			public void onItemClick(AdapterView<?> a, View v, int position, long id) {
                 Object o = ListViewRangliste.getItemAtPosition(position);
                 Rangliste_Item ranglisteItem = (Rangliste_Item) o;
-                Toast.makeText(getActivity(), "Selected :" + position + " " + ranglisteItem, Toast.LENGTH_LONG).show();
+//                Toast.makeText(getActivity(), "Selected :" + position + " " + ranglisteItem, Toast.LENGTH_LONG).show();
 				
 			}
 		});     

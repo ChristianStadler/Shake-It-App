@@ -168,12 +168,12 @@ public class ClubShake extends Fragment {
 		});
 
 		
-		//Teilnehmerzahl & Veranstaltung des Clubs setzen
-		TextTNAnzahl = (TextView) v.findViewById(R.id.TextTNAnzahl);
-		TextTNAnzahl.setText(String.valueOf(anzahlTN)+ " Personen");
-		
-		textVeranstaltungName = (TextView) v.findViewById(R.id.textVeranstaltungName);
-		textVeranstaltungName.setText("DanceNight");
+//		//Teilnehmerzahl & Veranstaltung des Clubs setzen
+//		TextTNAnzahl = (TextView) v.findViewById(R.id.TextTNAnzahl);
+//		TextTNAnzahl.setText(String.valueOf(anzahlTN)+ " Personen");
+//		
+//		textVeranstaltungName = (TextView) v.findViewById(R.id.textVeranstaltungName);
+//		textVeranstaltungName.setText("DanceNight");
 		
 		return v;
 		

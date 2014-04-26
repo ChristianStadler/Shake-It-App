@@ -4,8 +4,8 @@
     android:layout_height="match_parent"
     android:layout_centerHorizontal="true"
     android:paddingBottom="5dp"
-    android:paddingLeft="10dp"
-    android:paddingRight="10dp" >
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp" >
 
     <ImageView
         android:id="@+id/imageClub"
@@ -28,8 +28,8 @@
         android:layout_marginBottom="10dp"
         android:background="@drawable/background_box_border"
         android:paddingBottom="5dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
         android:paddingTop="5dp" >
 
         <View
@@ -98,8 +98,8 @@
                 android:layout_gravity="fill_horizontal"
                 android:layout_weight="1"
                 android:paddingBottom="5dp"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
                 android:paddingTop="5dp" >
 
                 <TextView
@@ -228,51 +228,6 @@
             </RelativeLayout>
         </LinearLayout>
     </RelativeLayout>
-        <RelativeLayout
-        android:id="@+id/relativeLayoutClubEvent"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/relativeLayoutClubIndex"
-        android:background="@drawable/background_box_border"
-        android:layout_marginTop="10dp"
-        android:paddingBottom="5dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:paddingTop="5dp" >
-    
-            <TextView
-            android:id="@+id/textVeranstaltung"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Event" />
-
-        <TextView
-            android:id="@+id/textVeranstaltungName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/textVeranstaltung"
-            android:layout_alignBottom="@+id/textVeranstaltung"
-            android:layout_marginLeft="30dp"
-            android:layout_toRightOf="@+id/textTNAnzahl"
-            android:text="DanceNightXY" />
-
-        <TextView
-            android:id="@+id/textTNAnzahl"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/textVeranstaltung"
-            android:layout_below="@+id/textVeranstaltung"
-            android:text="Shaker im Club" />
-
-        <TextView
-            android:id="@+id/TextTNAnzahl"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/textTNAnzahl"
-            android:layout_alignBottom="@+id/textTNAnzahl"
-            android:layout_alignLeft="@+id/textVeranstaltungName"
-            android:text="XY Personen" />
-        </RelativeLayout>
 
     <Switch
         android:id="@+id/switchShaken"
