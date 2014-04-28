@@ -99,9 +99,11 @@ public class Main extends Activity {
 				getActionBar().setTitle("Shake-It-App");
 				if (KeyValue.getInstance().getAmShaken()==true) {
 					mDrawerList.getChildAt(1).findViewById(R.id.title).setEnabled(true);
+					mDrawerList.getChildAt(2).findViewById(R.id.title).setEnabled(true);
 				}
 				else if(KeyValue.getInstance().getAmShaken()==false){
 					mDrawerList.getChildAt(1).findViewById(R.id.title).setEnabled(false);
+					mDrawerList.getChildAt(2).findViewById(R.id.title).setEnabled(false);
 				}
 				System.out.println("AmShaken in der Main onDrawerOpened: " + KeyValue.getInstance().getAmShaken());
 				invalidateOptionsMenu();
@@ -140,7 +142,10 @@ public class Main extends Activity {
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 				if (position==1&&KeyValue.getInstance().getAmShaken()==false) {
-					Toast.makeText(getApplicationContext(), "Noch kein Club ausgewählt", Toast.LENGTH_LONG).show();
+					Toast.makeText(getApplicationContext(), "Noch kein Club ausgewählt.", Toast.LENGTH_LONG).show();
+				}
+				if (position==2&&KeyValue.getInstance().getAmShaken()==false) {
+					Toast.makeText(getApplicationContext(), "Noch kein Club ausgewählt, daher keine Rangliste verfügbar.", Toast.LENGTH_LONG).show();
 				}
 				else {
 					// Getting an array of rivers

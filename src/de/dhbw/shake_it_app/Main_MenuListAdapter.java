@@ -35,7 +35,7 @@ public class Main_MenuListAdapter extends BaseAdapter {
         View itemView = inflater.inflate(R.layout.drawer_list_item, parent, false);
        
         TextView txtTitle = (TextView) itemView.findViewById(R.id.title);
-        if(position==1) txtTitle.setEnabled(false);
+        if(position==1|position==2) txtTitle.setEnabled(false);
         else txtTitle.setEnabled(true);
         
 //        if(position==1&&KeyValue.getInstance().getAmShaken()==false){
