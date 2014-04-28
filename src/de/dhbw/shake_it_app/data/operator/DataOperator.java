@@ -89,7 +89,6 @@ public class DataOperator {
 	
 	public void saveRegisterData(String mail, String username, String password){
 		User user = new User(0, username, mail, md5(password), 0);
-		user.setID(DataProvider.get().createModel(DataProvider.User, user));
 		KeyValue.getInstance().setUser(DataProvider.get().createModel(DataProvider.User, user));
 	}
 	
