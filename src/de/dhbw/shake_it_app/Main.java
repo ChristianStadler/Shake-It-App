@@ -103,7 +103,6 @@ public class Main extends Activity {
 					mDrawerList.getChildAt(1).findViewById(R.id.title).setEnabled(false);
 					mDrawerList.getChildAt(2).findViewById(R.id.title).setEnabled(false);
 				}
-				System.out.println("AmShaken in der Main onDrawerOpened: " + KeyValue.getInstance().getAmShaken());
 				invalidateOptionsMenu();
 			}
 

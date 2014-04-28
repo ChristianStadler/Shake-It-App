@@ -111,7 +111,6 @@ public class MainScreen extends Fragment {
                 Object o = ListViewClubListe.getItemAtPosition(position);
                 MainScreen_Club_Item club_item = (MainScreen_Club_Item) o;
 	        	Main main = (Main)getActivity();
-//	        	System.out.println("ClubItem: "+club_item.getClubName()+ " - KeyValue: " + KeyValue.getInstance().getClubName());
             	if (KeyValue.getInstance().getAmShaken()==false) {
                //     Toast.makeText(getActivity(), "Selected :" + " " + club_item, Toast.LENGTH_LONG).show();
 
@@ -219,9 +218,5 @@ public class MainScreen extends Fragment {
 	          i--;
 	        }  
 	        ListViewClubListe.setAdapter(new MainScreenCustomListAdapter(getActivity(), results));
-	    }
-	    
-	    public static void writeSomething(Location location) {
-	    	System.out.println(location.getName());
 	    }
 }

@@ -95,21 +95,13 @@ import de.dhbw.shake_it_app.data.model.User;
         	  
         	  //Userdaten auslesen
         	  username = Textusername.getText().toString();
-        	  password = Textpassword.getText().toString();
-        	  
-
-        	  //User users = new User(5, "name", "email", "password");
-        	  //System.out.println(users.getName());      	  
+        	  password = Textpassword.getText().toString(); 	  
         	  
         	  User[] user = (User[]) DataProvider.get().getModel(DataProvider.User, "filter=name&value=" + username);
         	  
         	  //mit Daten aus der Datenbank abgleichen
         	  //auf n�chste Main-Activity gehen
-        	  
-        	  //System.out.println(md5(password));
-	    	  //System.out.println(user[0].getPassword());
-    
-        	  
+        	   
 	    	  if (user.length > 0)
 	    	  {
 	        	  if (user[0].getPassword().equals(md5(password)))

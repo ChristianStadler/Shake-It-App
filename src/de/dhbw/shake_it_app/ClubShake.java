@@ -127,7 +127,6 @@ public class ClubShake extends Fragment {
                     //hier den ShakeAnalyse starten
 					 shakeAnalyser.startShakeAnalyser(clubId, userId);
 					 KeyValue.getInstance().setAmShaken(true);
-					 System.out.println("Shaken" +KeyValue.getInstance().getAmShaken());
 					 if(refresher.getState()==Thread.State.NEW){
 						 
 					 refresher.start();
@@ -141,8 +140,6 @@ public class ClubShake extends Fragment {
                     //hier den ShakeAnalyse stoppen
 					shakeAnalyser.stopShakeAnalyser();
 					 KeyValue.getInstance().setAmShaken(false);
-					 System.out.println("Shaken" +KeyValue.getInstance().getAmShaken());
-//					 refresher.stopRefrehs();
 				}
 				else {
 					
