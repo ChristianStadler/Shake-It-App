@@ -79,11 +79,15 @@ public class ClubShake extends Fragment {
 
 		 //Bild setzen
 		 imageClub = (ImageView)v.findViewById(R.id.imageClub);
-		 if (clubName.equals("Tiffany's")) bildname = "tiffanys";
-		 else if(clubName.equals("Koi")) bildname = "koi";
+		 if (clubName.equals("Tiffany")) bildname = "tiffanys";
+		 else if(clubName.equals("KOI Club")) bildname = "koi";
 		 else if (clubName.equals("Ritzz")) bildname="ritzz";	
 		 else if (clubName.equals("Suite")) bildname="suite";
-		 else if (clubName.equals("Zimmer")) bildname="zimmer";
+		 else if (clubName.equals("Das Zimmer")) bildname="zimmer";
+		
+		 else if (clubName.equals("Baton Rouge")) bildname="batonrouge";
+		 else if (clubName.equals("Soho")) bildname="soho";
+		 else if (clubName.equals("Schneckenhof")) bildname="schneckenhof";
 
      	 int resId = getResources().getIdentifier(bildname, "drawable", v.getContext().getPackageName());
      	 imageClub.setImageResource(resId);
