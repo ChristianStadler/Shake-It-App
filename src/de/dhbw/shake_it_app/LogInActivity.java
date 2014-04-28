@@ -77,7 +77,7 @@ import de.dhbw.shake_it_app.data.model.User;
 	          RegistrierenButton = (Button)findViewById(R.id.RegistrierenButton);
 	          
 	          //startDebugging() is for debugging the DataProvider
-	          DataProvider.get().startDebugging();
+//	          DataProvider.get().startDebugging();
 	          
 	    	  if(KeyValue.getInstance().getDatenUserSpeichern()==true)
         	  {
