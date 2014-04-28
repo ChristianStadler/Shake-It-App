@@ -71,7 +71,6 @@ public class KeyValue  {
 
 	public boolean getAmShaken(){
 		SharedPreferences sharedPref = ctx.getSharedPreferences("shakeit", 0);
-	//	System.out.println("Ich gebe amShaken "+ amShaken);
 		return sharedPref.getBoolean("amShaken", amShaken);
 	}
 
@@ -80,12 +79,10 @@ public class KeyValue  {
 		SharedPreferences.Editor editor = sharedPref.edit();
 		editor.putBoolean("datenuserspeichern", datenUserSpeichern);
 		editor.commit();
-		System.out.println("Ich speicher die Daten "+ datenUserSpeichern);
 	}
 
 	public boolean getDatenUserSpeichern(){
 		SharedPreferences sharedPref = ctx.getSharedPreferences("shakeit", 0);
-		System.out.println("Ich gebe Daten "+ datenUserSpeichern);
 		return sharedPref.getBoolean("datenuserspeichern", datenUserSpeichern);
 	}
 

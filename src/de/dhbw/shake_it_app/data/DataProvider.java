@@ -91,9 +91,6 @@ public class DataProvider extends HTTPConnector {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-//		Object[] returnObject = new Object[1];
-//		returnObject[0] = new ConnectivityObject();
-//		return returnObject;
 		return null;
 	}
 	
