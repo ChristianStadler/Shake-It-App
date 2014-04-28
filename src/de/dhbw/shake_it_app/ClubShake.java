@@ -193,10 +193,11 @@ public class ClubShake extends Fragment {
     	if(KeyValue.getInstance().getAmShaken()==true){
     	v2.post((new Runnable() {
             public void run() {
-            	int currentLocationIndex = DataOperator.get().returnCurrLocationIndex(KeyValue.getInstance().getClubId());
-        		int overallLocationIndex = DataOperator.get().returnOverallLocationIndex(KeyValue.getInstance().getClubId());
-        		int overallUserIndex = DataOperator.get().returnOverallUserIndex(KeyValue.getInstance().getUser());
+            	int currentLocationIndex = refresher.getCurrentLocationIndex();
+        		int overallLocationIndex = refresher.getOverallLocationIndex();
+        		int overallUserIndex = refresher.getOverallUserIndex();
         		int currentUserIndex = shakeAnalyser.returnCurrentIndex();
+        		
         		
             	textAvgIndexClubPkt = (TextView) v2.findViewById(R.id.textAvgIndexClubPkt);
             	textAvgIndexClubPkt.setText(String.valueOf(overallLocationIndex));	
