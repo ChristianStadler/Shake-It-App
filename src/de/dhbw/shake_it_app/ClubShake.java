@@ -38,10 +38,10 @@ public class ClubShake extends Fragment {
 	private long clubId;
 	private long userId;
 	private Refresher refresher;
+	private ImageButton cancelButton;
 
 	private View v2;
 	
-	@SuppressWarnings("deprecation")
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -65,14 +65,6 @@ public class ClubShake extends Fragment {
 		//sharedPreferences
 		sharedPreferences = v.getContext().getSharedPreferences("de.dhbw.shake_it_app", Context.MODE_PRIVATE);
 		
-		//Testdaten
-		//Hinweis für Raphael... Hier anstelle der Testdaten die Daten des Users und des spezifischen Clubs aus der Datenbank lesen
-//		avgIndexClub = 89;
-//		aktIndexUser = 78;
-//		avgIndexUser = 90;
-//		aktIndexClub =56;
-//		anzahlTN = 200;
-		
 		 
 		 
 		//ShakeAnalyser initialisieren
@@ -84,19 +76,7 @@ public class ClubShake extends Fragment {
 		 avgIndexUser = DataOperator.get().returnOverallUserIndex(userId);
 		 aktIndexUser = shakeAnalyser.getConvertedSessionIndex();
 		 
-		 
-//		 AlertDialog alertDialog = new AlertDialog.Builder(v.getContext(), R.style.popup_theme).create();
-//		 alertDialog.setTitle("Title");
-//		 alertDialog.setMessage("zu hoher unrealistischer Wert");
-//		 alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
-//		    public void onClick(DialogInterface dialog, int which) {
-//		       // TODO Add your code for the button here.
-//		    }
-//		 });
-//		 // Set the Icon for the Dialog
-//		 alertDialog.setIcon(R.drawable.ic_action_accept);
-//		 alertDialog.show();
-		 
+
 		 //Bild setzen
 		 imageClub = (ImageView)v.findViewById(R.id.imageClub);
 		 if (clubName.equals("Tiffany's")) bildname = "tiffanys";
@@ -168,19 +148,12 @@ public class ClubShake extends Fragment {
 		});
 
 		
-//		//Teilnehmerzahl & Veranstaltung des Clubs setzen
-//		TextTNAnzahl = (TextView) v.findViewById(R.id.TextTNAnzahl);
-//		TextTNAnzahl.setText(String.valueOf(anzahlTN)+ " Personen");
-//		
-//		textVeranstaltungName = (TextView) v.findViewById(R.id.textVeranstaltungName);
-//		textVeranstaltungName.setText("DanceNight");
-		
 		return v;
 		
 	}
 	
-    private PopupWindow pw;
-    private void initiatePopupWindow() {
+    public PopupWindow pw;
+    public void initiatePopupWindow() {
         try {
             //We need to get the instance of the LayoutInflater, use the context of this activity
             LayoutInflater inflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -192,7 +165,15 @@ public class ClubShake extends Fragment {
             pw.showAtLocation(layout, Gravity.CENTER, 0, 0);
 
             textPopUp = (TextView) layout.findViewById(R.id.textPopUp);
-            ImageButton cancelButton = (ImageButton) layout.findViewById(R.id.imageButtonClose);
+            cancelButton = (ImageButton) layout.findViewById(R.id.imageButtonClose);
+            cancelButton.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+                    // TODO Auto-generated method stub
+                    pw.dismiss();
+                }
+        });
 
 
         } catch (Exception e) {
@@ -200,10 +181,7 @@ public class ClubShake extends Fragment {
         }
 
     }
-    public void popupCloseClick(View v) {
-        System.out.println("PopUp schließen");
-        pw.dismiss();
-    }
+
     
     public void setData(){
     	if(KeyValue.getInstance().getAmShaken()==true){

@@ -15,14 +15,19 @@ import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
+import android.view.Gravity;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.PopupWindow;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class Main extends Activity {
@@ -45,6 +50,8 @@ public class Main extends Activity {
     private String[] drawerTitles;
     
     private int[] drawerIcons;
+	private ImageButton cancelButton;
+	private TextView textPopUp;
 
 	//Fragment
 	private android.app.Fragment rFragment;
@@ -70,15 +77,8 @@ public class Main extends Activity {
         drawerTitles = getResources().getStringArray(R.array.menus);
 
         // Setzt die Icons zu den Einträgen
-//        if (KeyValue.getInstance().getAmShaken()==false)
-//        {
             drawerIcons = new int[] {R.drawable.ic_action_search, R.drawable.ic_action_locate, R.drawable.ic_action_group, R.drawable.ic_action_person, R.drawable.ic_action_logout};
-//
-//        }
-//        else {
-//            drawerIcons = new int[] {R.drawable.ic_action_search, R.drawable.ic_action_locate, R.drawable.ic_action_group, R.drawable.ic_action_person, R.drawable.ic_action_logout};
-//		}
- 
+
         // Bereitet die ActionBar auf den Navigation Drawer vor
         getActionBar().setDisplayHomeAsUpEnabled(true);
         getActionBar().setHomeButtonEnabled(true);
@@ -120,9 +120,6 @@ public class Main extends Activity {
         // Erstellt den neuen MenuAdapter aus der Klasse MenuListAdapter
         Main_MenuListAdapter mMenuAdapter = new Main_MenuListAdapter(this, drawerTitles, drawerIcons);
         mDrawerList.setAdapter(mMenuAdapter);
-		// Creating an ArrayAdapter to add items to the listview mDrawerList
-		//ArrayAdapter<String> adapter = new ArrayAdapter<String>(getBaseContext(), 
-		//		R.layout.drawer_list_item, getResources().getStringArray(R.array.menus));
 
 		// Setting the adapter on mDrawerList
 		//mDrawerList.setAdapter(adapter);
@@ -191,31 +188,6 @@ public class Main extends Activity {
 		}
 
 	}
-	
-//	public void changeView(int position, String clubName) {
-//		rFragment = getFragment(position);
-//
-//		// Creating a fragment object
-//		//WebViewFragment rFragment = new WebViewFragment();
-//
-//		// Passing selected item information to fragment
-//		Bundle data = new Bundle();
-//		data.putInt("position", position);
-//		data.putString("clubname", clubName);
-//		rFragment.setArguments(data);				
-//		
-//		// Getting reference to the FragmentManager
-//		FragmentManager fragmentManager = getFragmentManager();
-//
-//		// Creating a fragment transaction
-//		FragmentTransaction ft = fragmentManager.beginTransaction();
-//
-//		// Adding a fragment to the fragment transaction
-//		ft.replace(R.id.content_frame, rFragment);
-//
-//		// Committing the transaction
-//		ft.commit();
-//	}
 	
 
 	protected android.app.Fragment getFragment(int position) {
@@ -295,25 +267,5 @@ public class Main extends Activity {
 	    return super.onKeyDown(keyCode, event);
 	}
 	
-//	@Override
-//	public void onBackPressed() {
-//	    if (getFragmentManager().findFragmentByTag( "TAG" ) != null) {
-//
-//	    }
-//	    else {
-//	        super.onBackPressed();
-//	        return;
-//	    }
-//	    if (getFragmentManager().getBackStackEntryCount() != 0) {
-//	        Toast.makeText(getApplicationContext(), "Test", Toast.LENGTH_LONG).show();
-//	        Fragment frag = getFragmentManager().findFragmentByTag( "TAG" );
-//	        FragmentTransaction transac = getFragmentManager().beginTransaction().remove(frag);
-//	                transac.commit();
-//	    }
-//
-//	}
-	// Replace whatever is in the fragment_container view with this fragment,
-	  // and add the transaction to the back stack so the user can navigate back
-
 	 
 }

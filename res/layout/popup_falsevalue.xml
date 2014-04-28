@@ -22,7 +22,6 @@
         android:layout_marginRight="29dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/blue_button"
-        android:onClick="popupCloseClick"
         android:src="@drawable/ic_action_accept" />
 
 </RelativeLayout>
