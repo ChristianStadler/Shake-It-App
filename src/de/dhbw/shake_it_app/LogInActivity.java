@@ -82,13 +82,14 @@ import de.dhbw.shake_it_app.data.model.User;
 	          
 	          Session[] sessions = (Session[]) DataProvider.get().getModel(DataProvider.Session, "filter=userID&value="+KeyValue.getInstance().getUser());
 	          for(int i = 0; i<sessions.length; i++){
-	        	  sessions[i].setIsActive(false);
-	        	  DataProvider.get().updateModel(DataProvider.Session, sessions[i]);
+	        	  if(sessions[i].getIsActive()){
+		        	  sessions[i].setIsActive(false);
+		        	  DataProvider.get().updateModel(DataProvider.Session, sessions[i]);
+	        	  }
 	          }
 	          
 	    	  if(KeyValue.getInstance().getDatenUserSpeichern()==true)
         	  {
-	    		  System.out.println("Ich überspringe LogIn" + KeyValue.getInstance().getDatenUserSpeichern());
 		    	  nextScreen = new Intent(this, Main.class);
 	        	  startActivity(nextScreen);	 
         	  }
@@ -131,21 +132,21 @@ import de.dhbw.shake_it_app.data.model.User;
 	        	  
 	        	  else
 	        	  {
-	        		  System.out.println("else");
 	        	  //Error Message
 	        		  Toast.makeText(v.getContext(), "Passwort falsch eingegeben", Toast.LENGTH_LONG).show();
 	        	  }
 	    	  }
 	    	  else
         	  {
-        		  System.out.println("else");
         	  //Error Message
         		  Toast.makeText(v.getContext(), "Benutzer nicht gefunden", Toast.LENGTH_LONG).show();
         	  }	    		  
 	    	  Session[] sessions = (Session[]) DataProvider.get().getModel(DataProvider.Session, "filter=userID&value="+KeyValue.getInstance().getUser());
 	          for(int i = 0; i<sessions.length; i++){
-	        	  sessions[i].setIsActive(false);
-	        	  DataProvider.get().updateModel(DataProvider.Session, sessions[i]);
+	        	  if(sessions[i].getIsActive()){
+		        	  sessions[i].setIsActive(false);
+		        	  DataProvider.get().updateModel(DataProvider.Session, sessions[i]);
+	        	  }
 	          }
           }
 
