@@ -1,7 +1,6 @@
 package de.dhbw.shake_it_app;
 
 
-import de.dhbw.shake_it_app.data.KeyValue;
 import de.dhbw.shake_it_app.data.operator.DataOperator;
 import android.app.Activity;
 import android.content.Intent;
@@ -9,14 +8,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 
  public class Registrierung extends Activity{
 	 
 	 private EditText eMail, password, username, passwordWDH;
-	 private Button RegistrierungButton;
+	 @SuppressWarnings("unused")
+	private Button RegistrierungButton;
 	 private String eMailUser, passwordUser, nameUser, passwordWDHUser, fehlermeldung;
 	 
      @Override

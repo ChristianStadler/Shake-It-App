@@ -2,21 +2,18 @@ package de.dhbw.shake_it_app;
 
 import java.util.ArrayList;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 
 public class MainScreenCustomListAdapter extends BaseAdapter {
  
-	    private ArrayList listData;
+	    @SuppressWarnings("rawtypes")
+		private ArrayList listData;
 	    private LayoutInflater layoutInflater;
 	 
 	    public MainScreenCustomListAdapter(Context context, ArrayList<?> listData) {

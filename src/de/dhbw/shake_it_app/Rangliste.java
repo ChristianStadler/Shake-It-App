@@ -6,24 +6,17 @@ import java.util.ArrayList;
 
 import de.dhbw.shake_it_app.data.DataProvider;
 import de.dhbw.shake_it_app.data.KeyValue;
-import de.dhbw.shake_it_app.data.model.Location;
 import de.dhbw.shake_it_app.data.model.Session;
 import de.dhbw.shake_it_app.data.model.User;
-import de.dhbw.shake_it_app.data.operator.DataOperator;
 import android.app.Fragment;
 import android.os.Bundle;
-import android.renderscript.Sampler.Value;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 
 
@@ -68,6 +61,7 @@ public class Rangliste extends Fragment {
 
         ListViewRangliste.setOnItemClickListener(new OnItemClickListener() {
 			
+			@SuppressWarnings("unused")
 			public void onItemClick(AdapterView<?> a, View v, int position, long id) {
                 Object o = ListViewRangliste.getItemAtPosition(position);
                 Rangliste_Item ranglisteItem = (Rangliste_Item) o;

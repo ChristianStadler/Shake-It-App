@@ -1,18 +1,12 @@
 package de.dhbw.shake_it_app;
 
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.inputmethodservice.Keyboard.Key;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -20,7 +14,6 @@ import android.widget.CompoundButton;
 import android.widget.Toast;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.EditText;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 import de.dhbw.shake_it_app.data.DataProvider;
 import de.dhbw.shake_it_app.data.KeyValue;
@@ -28,10 +21,12 @@ import de.dhbw.shake_it_app.data.model.Session;
 import de.dhbw.shake_it_app.data.model.User;
 
  public class LogInActivity extends Activity{
-	      private Button login, RegistrierenButton;
+	      @SuppressWarnings("unused")
+		private Button login, RegistrierenButton;
 	      private EditText Textusername;
 	      private EditText Textpassword;
-	      private TextView PWvergessenButton;
+	      @SuppressWarnings("unused")
+		private TextView PWvergessenButton;
 	      private CheckBox checkBoxDatenSpeichern;
 	      private String username, password;
 	      private Intent nextScreen;

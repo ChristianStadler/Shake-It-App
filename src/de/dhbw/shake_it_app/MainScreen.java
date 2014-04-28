@@ -13,7 +13,6 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.SeekBar;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import de.dhbw.shake_it_app.data.DataProvider;
@@ -25,15 +24,12 @@ import de.dhbw.shake_it_app.data.operator.DataOperator;
  
 public class MainScreen extends Fragment {
 	
-	private TextView textViewFilter, textViewName, textViewClubs, textViewStadtteil, textViewAktShake;
+	private TextView textViewFilter, textViewName, textViewClubs;
 	private EditText editTextName;
-	private Spinner spinnerStadtteil;
 	private ListView ListViewClubListe;
 	private ImageButton buttonSuche;
 	private View v;
-	private String selectedStadtteil = null;
 	private String clubName;
-	private ImageButton imageButtonWeiterClub;
 	private int eingabeAktuellerShakeIndex, eingabeDurchschnShakeIndex;
 	private SeekBar seekBarAktShake, seekBarDurchschnShake;
 

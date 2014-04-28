@@ -15,7 +15,8 @@ public class RanglisteCustomListAdapter extends BaseAdapter {
 	 
     private ArrayList<Rangliste_Item> listData;
     private LayoutInflater layoutInflater;
-    private int position = 0;
+    @SuppressWarnings("unused")
+	private int position = 0;
  
     public RanglisteCustomListAdapter(Context context, ArrayList<Rangliste_Item> listData) {
         this.listData = listData;

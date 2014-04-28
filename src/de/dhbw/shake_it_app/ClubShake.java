@@ -1,14 +1,10 @@
 package de.dhbw.shake_it_app;
 
-import de.dhbw.shake_it_app.data.DataProvider;
 import de.dhbw.shake_it_app.data.KeyValue;
-import de.dhbw.shake_it_app.data.model.Location;
 import de.dhbw.shake_it_app.data.operator.DataOperator;
 import de.dhbw.shake_it_app.data.operator.ShakeAnalyser;
-import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -26,14 +22,16 @@ import android.widget.Toast;
 
 public class ClubShake extends Fragment {
 	
-	private Switch switchShaken;
+	@SuppressWarnings("unused")
 	private TextView textViewAvgIndexClub, textAvgIndexClubPkt, textViewAvgIndexPkt, textViewAktIndexPkt, TextTNAnzahl, textVeranstaltungName, textAktIndexClubPkt, textClubName;
+	@SuppressWarnings("unused")
 	private TextView textPopUp;
 	private ImageView imageClub;
 	private String clubName = "Club";
 	private String bildname = "tiffanys";
-	private int avgIndexClub, aktIndexUser, avgIndexUser, anzahlTN, aktIndexClub;
+	private int avgIndexClub, aktIndexUser, avgIndexUser, aktIndexClub;
 	private ShakeAnalyser shakeAnalyser;
+	@SuppressWarnings("unused")
 	private SharedPreferences sharedPreferences;
 	private long clubId;
 	private long userId;

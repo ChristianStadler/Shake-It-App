@@ -14,6 +14,7 @@ import android.widget.TextView;
 public class Profil extends Fragment {
 	
 	private TextView textViewNameUser, textEmailUser;
+	@SuppressWarnings("unused")
 	private ImageView imageViewUser;
 	private String userName, eMailUser;
 	

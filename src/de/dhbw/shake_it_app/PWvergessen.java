@@ -12,8 +12,10 @@ import android.widget.Toast;
 
  public class PWvergessen extends Activity{
 	 
-	 private EditText eMail,username;
-	 private Button ButtonPWanfordern;
+	 @SuppressWarnings("unused")
+	private EditText eMail,username;
+	 @SuppressWarnings("unused")
+	private Button ButtonPWanfordern;
 	 
      @Override
      protected void onCreate(Bundle savedInstanceState) {

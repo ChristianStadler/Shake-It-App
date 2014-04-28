@@ -17,11 +17,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ImageButton;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
-import de.dhbw.shake_it_app.data.DataProvider;
 import de.dhbw.shake_it_app.data.KeyValue;
 
 public class Main extends Activity {
@@ -32,6 +29,7 @@ public class Main extends Activity {
 	// ListView represents Navigation Drawer
 	private ListView mDrawerList;
 	
+	@SuppressWarnings("unused")
 	private SharedPreferences sharedPreferences;
 
 	// ActionBarDrawerToggle indicates the presence of Navigation Drawer in the action bar
@@ -44,8 +42,7 @@ public class Main extends Activity {
     private String[] drawerTitles;
     
     private int[] drawerIcons;
-	private ImageButton cancelButton;
-	private TextView textPopUp;
+
 
 	//Context
 	private static Context context;
@@ -243,6 +240,7 @@ public class Main extends Activity {
 	@Override
 	public boolean onPrepareOptionsMenu(Menu menu) {
 		// If the drawer is open, hide action items related to the content view
+		@SuppressWarnings("unused")
 		boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
 
 		return super.onPrepareOptionsMenu(menu);
