@@ -35,7 +35,7 @@ public class MainScreen extends Fragment {
 	private String clubName;
 	private ImageButton imageButtonWeiterClub;
 	private int eingabeAktuellerShakeIndex, eingabeDurchschnShakeIndex;
-	
+	private SeekBar seekBarAktShake, seekBarDurchschnShake;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -72,19 +72,21 @@ public class MainScreen extends Fragment {
 //		textViewStadtteil.setText("Stadtteil");
 	    
 	    //Eingabe des Aktuellen Indize
-	    final SeekBar SeekBarAktShake = (SeekBar) v.findViewById(R.id.SeekBarAktShake);
-	    eingabeAktuellerShakeIndex = SeekBarAktShake.getProgress();
+	    seekBarAktShake = (SeekBar) v.findViewById(R.id.SeekBarAktShake);
+//	    eingabeAktuellerShakeIndex = SeekBarAktShake.getProgress();
+	    seekBarAktShake.setMax(100);
 	   
 	    //Eingabe des Durchschnittlichen Indize zur Suche
-	    final SeekBar seekBarDurchschnShake = (SeekBar) v.findViewById(R.id.seekBarDurchschnShake);
-	    eingabeDurchschnShakeIndex = seekBarDurchschnShake.getProgress();
+	    seekBarDurchschnShake = (SeekBar) v.findViewById(R.id.seekBarDurchschnShake);
+//	    eingabeDurchschnShakeIndex = seekBarDurchschnShake.getProgress();
+	    seekBarDurchschnShake.setMax(100);
 	    
 	    //SuchButton mit Erstellung der ListView
 	    buttonSuche = (ImageButton) v.findViewById(R.id.buttonSuche);
 	    buttonSuche.setOnClickListener(new View.OnClickListener() {
 	        public void onClick(View v) {
 		    	//Hier Daten nach den angegeben Suchparametern aus der DB lesen
-	    	    eingabeAktuellerShakeIndex = SeekBarAktShake.getProgress();
+	    	    eingabeAktuellerShakeIndex = seekBarAktShake.getProgress();
 	    	    eingabeDurchschnShakeIndex = seekBarDurchschnShake.getProgress();
 //	    	    textViewStadtteil.setText("Stadtteil");
 	    	    textViewName.setText("Name");
