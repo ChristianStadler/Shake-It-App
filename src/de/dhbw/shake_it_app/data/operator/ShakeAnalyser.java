@@ -35,12 +35,14 @@ public class ShakeAnalyser implements SensorEventListener{
 	public void startShakeAnalyser(long clubID, long userID){
 		locationID = clubID;
 		this.userID = userID;
+		sessionID = 0;
 		sensorManager.registerListener(this, sensor, SensorManager.SENSOR_DELAY_NORMAL);
 		timeStart = System.currentTimeMillis();
 	}
 	
 	public void stopShakeAnalyser(){
 		sensorManager.unregisterListener(this);
+		DataProvider.get().updateModel(DataProvider.Session, new Session(sessionID, locationID, userID, getConvertedSessionIndex(), returnCurrentIndex(), false));
 	}
 	
 	public int returnCurrentIndex(){

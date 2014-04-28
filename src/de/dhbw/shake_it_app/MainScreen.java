@@ -1,6 +1,5 @@
 package de.dhbw.shake_it_app;
 
-import java.security.Timestamp;
 import java.util.ArrayList;
 
 import android.app.Fragment;
@@ -10,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
@@ -146,12 +144,9 @@ public class MainScreen extends Fragment {
 
 	    
 	    private ArrayList<MainScreen_Club_Item> getListData() {
-	    	System.out.println("bin drin");
 	    	double cumulatedValuesOverall = 0;
-	    	double cumulatedValuesCurrent = 0;
+	    	double valueCurrent = 0;
 			int amountValuesOverall = 0;
-			int amountValuesCurrent = 0;
-	    	System.out.println(eingabeAktuellerShakeIndex + "dd" + eingabeDurchschnShakeIndex);
 	    	
 	    	Location[] location = (Location[]) DataProvider.get().getModel(DataProvider.Location);
 	    	Session[] sessions =(Session[]) DataProvider.get().getModel(DataProvider.Session);
@@ -160,21 +155,19 @@ public class MainScreen extends Fragment {
 	        
 	        for(int i = 0; i<location.length; i++){
 	        	cumulatedValuesOverall = 0;
-	        	cumulatedValuesCurrent = 0;
-	        	amountValuesCurrent = 0;
+	        	valueCurrent = 0;
 	        	amountValuesOverall = 0;
 	        	for(int x = 0; x < sessions.length; x++ ){
 	        		if(sessions[x].getLocationID() == location[i].getID()){
 	        			if(!sessions[x].getIsActive()){
-		        			cumulatedValuesOverall+=sessions[i].getCurrentShakeIndex();
+		        			cumulatedValuesOverall+=sessions[i].getOverallShakeIndex();
 		    				amountValuesOverall++;
 	        			}else{
-	        				cumulatedValuesCurrent+=sessions[i].getCurrentShakeIndex();
-		    				amountValuesCurrent++;
+	        				valueCurrent=sessions[i].getCurrentShakeIndex();
 	        			}
 	        		}
 	        	}
-	        	int CurrentLocationIndex = (int) Math.round(cumulatedValuesCurrent/amountValuesCurrent);
+	        	int CurrentLocationIndex = (int) Math.round(valueCurrent);
 	        	int OverallLocationIndex = (int) Math.round(cumulatedValuesOverall/amountValuesOverall);
 	        	
 	        	if (eingabeAktuellerShakeIndex <= CurrentLocationIndex && eingabeDurchschnShakeIndex <= OverallLocationIndex && (clubName.equals(location[i].getName()) || clubName.equals("")) )
