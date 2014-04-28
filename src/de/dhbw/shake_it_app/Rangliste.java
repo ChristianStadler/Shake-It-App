@@ -120,6 +120,15 @@ public class Rangliste extends Fragment {
 	        		    	  }
 	        		      }    
 	        	        }
+	        	        for(int i = 0; i < results.size(); i++){
+	        	        	for(int x = 0; x < results.size()-1; x++){
+	        		        	if(results.get(x).getAvgIndexUser() < results.get(x+1).getAvgIndexUser()){
+	        		        		Rangliste_Item tempData = results.get(x);
+	        		        		results.set(x, results.get(x+1));
+	        		        		results.set(x+1, tempData);
+	        	        		}
+	        	        	}
+	        	        }
 	        	        final ListView ListViewRangliste = (ListView) v2.findViewById(R.id.ListViewRangliste);
 	        	        ListViewRangliste.setAdapter(new RanglisteCustomListAdapter(getActivity(), results));
 	                }
