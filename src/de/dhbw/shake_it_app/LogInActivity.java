@@ -66,8 +66,6 @@ import de.dhbw.shake_it_app.data.model.User;
 	          );
 
 	          
-	          //Passwort vergessen
-	          PWvergessenButton = (TextView)findViewById(R.id.PWvergessenButton);
 	          
 	          //Registrieren Button
 	          RegistrierenButton = (Button)findViewById(R.id.RegistrierenButton);
@@ -136,11 +134,6 @@ import de.dhbw.shake_it_app.data.model.User;
 	        	  }
 	          }
           }
-
-	      public void pwVergessenClick(View v){
-	    	  nextScreen = new Intent(this, PWvergessen.class);
-        	  startActivity(nextScreen);
-	      }
 
 	      
 	      public void regstrierungClick(View v){

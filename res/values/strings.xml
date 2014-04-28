@@ -22,7 +22,38 @@
     <string name="xy">XY</string>
     <string name="jetzt_shaken">Jetzt Shaken</string>
     <string name="club_shake_index">Club Shake-Index</string>
+    
+    
+    <string name="login_speichern">Logindaten speichern</string>
+    <string name="passwort">Passwort</string>
+    <string name="anmelden">Anmelden</string>
+    <string name="spitzname">Spitzname</string>
+    <string name="passwort_vergessen">Passwort vergessen</string>
+    <string name="registrieren">Registrieren</string>
+    
+    <string name="beispiel">Beispiel</string>    
+    
+    <string name="suche">Suche</string>
+    <string name="dshake_index">Durchschn.Shake-Index</string>
+    <string name="ashake_index">Aktueller Shake-Index</string>
+    <string name="name">Name</string>
+    <string name="clubs">Clubs</string>
+    
+    <string name="wert_zu_hoch">Wert überschreitet Höchstwert</string>
+    
+    <string name="profil">Profil</string>
+    <string name="email">E-Mail</string>
+    
+    <string name="aktShaker">Aktuelle Shaker im Tiffanys</string>
+    
+    <string name="passwort_wdh">Passwort wdh.</string>
+    
+    
 
+    
+    
+
+    
 
  
 

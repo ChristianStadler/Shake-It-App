@@ -6,7 +6,7 @@ android:layout_height="fill_parent">
     <RelativeLayout
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
             android:paddingLeft="5dp"
     android:paddingRight="5dp"  >
     
@@ -18,7 +18,8 @@ android:layout_height="fill_parent">
             android:layout_centerHorizontal="true"
             android:paddingTop="10dp"
             android:paddingBottom="10dp" 
-            android:src="@drawable/icon_login" />
+            android:src="@drawable/icon_login"
+            android:contentDescription="@string/login_speichern" />
             
                          
                   <RelativeLayout
@@ -41,7 +42,7 @@ android:layout_height="fill_parent">
               android:layout_alignParentRight="true"
               android:layout_below="@+id/username"
               android:ems="10"
-              android:hint="Passwort"
+              android:hint="@string/passwort"
               android:inputType="textPassword" />
   
           <CheckBox
@@ -50,20 +51,7 @@ android:layout_height="fill_parent">
               android:layout_height="wrap_content"
               android:layout_alignLeft="@+id/Loginbutton"
               android:layout_below="@+id/Loginbutton"
-              android:text="Logindaten speichern" />
-  
-          <TextView
-              android:id="@+id/PWvergessenButton"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_alignRight="@+id/checkBoxDatenSpeichern"
-              android:layout_below="@+id/checkBoxDatenSpeichern"
-              android:layout_marginRight="18dp"
-              android:clickable="true"
-  			android:onClick="pwVergessenClick" 
-              android:text="Passwort vergessen"
-              android:textSize="15sp"
-              android:textColor="#005998"/>
+              android:text="@string/login_speichern" />
  
  <Button
      android:id="@+id/Loginbutton"
@@ -76,7 +64,7 @@ android:layout_height="fill_parent">
      android:layout_marginTop="72dp"
      android:background="@drawable/blue_button"
      android:onClick="loginClick"
-     android:text="Anmelden" />
+     android:text="@string/anmelden" />
  
           <EditText
               android:id="@+id/username"
@@ -85,7 +73,7 @@ android:layout_height="fill_parent">
               android:layout_alignParentLeft="true"
               android:layout_alignParentRight="true"
               android:ems="10"
-              android:hint="Spitzname" >
+              android:hint="@string/spitzname" >
  
              <requestFocus />
           </EditText>
@@ -97,10 +85,10 @@ android:layout_height="fill_parent">
               android:layout_height="wrap_content"
               android:layout_alignParentLeft="true"
               android:layout_alignParentRight="true"
-              android:layout_below="@+id/PWvergessenButton"
+              android:layout_below="@+id/checkBoxDatenSpeichern"
               android:background="@drawable/blue_button"
               android:onClick="regstrierungClick"
-              android:text="Registrieren"
+              android:text="@string/registrieren"
               android:textSize="15sp" />
           
           </RelativeLayout>

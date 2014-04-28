@@ -17,7 +17,7 @@
         android:paddingBottom="5dp"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:paddingTop="5dp"
+        android:paddingTop="5dp" 
         android:layout_centerVertical="true">
     
 
@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/username"
         android:layout_below="@+id/username"
-        android:hint="E-Mail" >
+        android:hint="@string/email" >
     </EditText>
 
     <EditText
@@ -38,7 +38,7 @@
         android:layout_alignLeft="@+id/passwordWDH"
         android:layout_below="@+id/eMail"
         android:ems="10"
-        android:hint="Passwort"
+        android:hint="@string/passwort"
         android:inputType="textPassword">
     </EditText>
 
@@ -49,7 +49,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:ems="10"
-        android:hint="Spitzname"
+        android:hint="@string/name"
         />
 
     <EditText
@@ -59,7 +59,7 @@
         android:layout_alignLeft="@+id/eMail"
         android:layout_below="@+id/password"
         android:ems="10"
-        android:hint="Passwort wdh."
+        android:hint="@string/passwort_wdh"
         android:inputType="textPassword" >
 
         <requestFocus />
@@ -75,7 +75,7 @@
         android:layout_marginTop="20dp"
         android:background="@drawable/blue_button"
         android:onClick="registrierenClick"
-        android:text="Registrieren" />
+        android:text="@string/registrieren" />
     
     </RelativeLayout>
 

@@ -25,9 +25,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:text="Suche"
-            android:textSize="20sp" />
-
+            android:text="@string/suche"
+            android:textSize="20sp" />  
         
             <View
         android:id="@+id/viewblue"
@@ -36,15 +35,13 @@
         android:layout_height="2dip"
         android:layout_alignParentLeft="true"
         android:background="#005998" />
-
         <TextView
             android:id="@+id/textViewDurchschnShake"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/viewblue"
             android:layout_below="@+id/textViewAktShake"
-            android:text="Durchschn.Shake-Index" />
-
+            android:text="@string/dshake_index" />
         <SeekBar
             android:id="@+id/SeekBarAktShake"
             style="?android:attr/progressBarStyleHorizontal"
@@ -58,7 +55,6 @@
             android:minHeight="9dp"
             android:progressDrawable="@drawable/seekbar_progress"
             android:thumb="@drawable/shine_btn2" />
-
         <SeekBar
             android:id="@+id/seekBarDurchschnShake"
             style="?android:attr/progressBarStyleHorizontal"
@@ -71,7 +67,6 @@
             android:minHeight="9dp"
             android:progressDrawable="@drawable/seekbar_progress"
             android:thumb="@drawable/shine_btn2" />
-
         <EditText
             android:id="@+id/editTextName"
             android:layout_width="wrap_content"
@@ -79,20 +74,17 @@
             android:layout_alignRight="@+id/viewblue"
             android:layout_below="@+id/viewblue"
             android:layout_toRightOf="@+id/textViewName"
-            android:contentDescription="Name"
+            android:contentDescription="@string/app_name"
             android:ems="10"
             android:inputType="textFilter" >
-
         </EditText>
-
         <TextView
             android:id="@+id/textViewAktShake"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textViewName"
             android:layout_toLeftOf="@+id/SeekBarAktShake"
-            android:text="Aktueller Shake-Index" />
-
+            android:text="@string/ashake_index" />
         <TextView
             android:id="@+id/textViewName"
             android:layout_width="80dp"
@@ -100,8 +92,7 @@
             android:layout_alignBaseline="@+id/editTextName"
             android:layout_alignBottom="@+id/editTextName"
             android:layout_alignLeft="@+id/viewblue"
-            android:text="Name" />
-
+            android:text="@string/name" /> 
         <ImageButton
              android:id="@+id/buttonSuche"
              android:layout_width="50dp"
@@ -111,8 +102,8 @@
              android:background="@drawable/blue_button"
              android:src="@drawable/ic_action_search"
              android:layout_marginTop="3dp"
-             android:layout_marginBottom="3dp" />
-
+             android:layout_marginBottom="3dp"
+             android:contentDescription="@string/suche" />
     </RelativeLayout>
         <RelativeLayout
         android:id="@+id/relativeLayoutClubs"
@@ -125,14 +116,13 @@
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:paddingTop="5dp" >
-
         <TextView
             android:id="@+id/textViewClubs"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="12"
             android:paddingTop="6dp"
-            android:text="Clubs"
+            android:text="@string/clubs" 
             android:textSize="20sp" />
         
                 <View
@@ -140,7 +130,6 @@
             android:layout_width="fill_parent"
             android:layout_height="2dip"
             android:layout_below="@+id/textViewClubs"
-
             android:background="#005998" />
                 
                 </RelativeLayout>
@@ -160,9 +149,4 @@
     android:paddingTop="5dp" >
          
 </ListView>
-
-
-
-
-
 </RelativeLayout>

@@ -22,7 +22,7 @@
             android:id="@+id/textNameUser"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Profil"
+            android:text="@string/profil"
             android:textSize="20sp" />
 
         <View
@@ -39,7 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/imageViewUser"
             android:paddingTop="30dp"
-            android:text="Spitzname" />
+            android:text="@string/spitzname" />
 
         <TextView
             android:id="@+id/textEmailUser"
@@ -49,7 +49,7 @@
             android:layout_alignBottom="@+id/textEmail"
             android:layout_alignLeft="@+id/textViewNameUser"
             android:paddingTop="10dp"
-            android:text="tigger@web.de" />
+            android:text="@string/email" />
 
         <TextView
             android:id="@+id/textEmail"
@@ -58,7 +58,7 @@
             android:layout_alignLeft="@+id/textViewName"
             android:layout_below="@+id/textViewName"
             android:paddingTop="10dp"
-            android:text="E-Mail" />
+            android:text="@string/email" />
 
         <TextView
             android:id="@+id/textViewNameUser"
@@ -66,7 +66,7 @@
             android:layout_height="wrap_content"
             android:layout_above="@+id/textEmail"
             android:layout_toRightOf="@+id/textViewName"
-            android:text="Name"
+            android:text="@string/name"
             android:textStyle="bold" />
 
         <ImageView
@@ -79,7 +79,8 @@
             android:layout_marginTop="22dp"
             android:background="#000000"
             android:padding="1dp"
-            android:src="@drawable/ic_icon_dance" />
+            android:src="@drawable/ic_icon_dance"
+            android:contentDescription="@string/name" />
     </RelativeLayout>
 
 </RelativeLayout>

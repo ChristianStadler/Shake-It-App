@@ -14,7 +14,8 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:background="#000"
-        android:src="@drawable/tiffanys" />
+        android:src="@drawable/tiffanys"
+        android:contentDescription="@string/club_shake_index" />
     
     
 
@@ -55,14 +56,13 @@
             android:layout_alignParentRight="true"
             android:layout_below="@+id/viewblueDeinIndex"
             android:layout_marginTop="10dp"
-            android:orientation="horizontal" >
+            android:orientation="horizontal"
+            android:baselineAligned="false"              >
 
             <RelativeLayout
                 android:id="@+id/relativeLayoutDeinIndexAkt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/viewblueDeinIndex"
-                android:layout_below="@+id/viewblueDeinIndex"
                 android:layout_weight="1"
                 android:paddingBottom="5dp"
                 android:paddingLeft="10dp"
@@ -160,14 +160,13 @@
             android:layout_alignParentRight="true"
             android:layout_below="@+id/viewblueClubs"
             android:layout_marginTop="10dp"
-            android:orientation="horizontal" >
+            android:orientation="horizontal"
+            android:baselineAligned="false" >
 
             <RelativeLayout
                 android:id="@+id/relativeLayoutClubIndexAkt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/textViewaktClubIndex"
-                android:layout_below="@+id/textViewaktClubIndex"
                 android:layout_weight="1"
                 android:paddingBottom="5dp"
                 android:paddingLeft="10dp"

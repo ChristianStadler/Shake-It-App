@@ -13,18 +13,18 @@
         android:adjustViewBounds="true"
         android:paddingLeft="4dp"
         android:paddingRight="4dp"
-        android:contentDescription="Entry-Icon"
+        android:contentDescription="@string/beispiel"
         android:src="@drawable/ic_action_next_item" />
-
+ 
 
         <TextView
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ellipsize="end"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:singleLine="true"
 			android:textColor="@drawable/selectordisabledmenu"
-            android:text="Beispiel"  />
+            android:text="@string/beispiel"  />
 
 </LinearLayout>
