@@ -37,18 +37,6 @@
         android:layout_alignParentLeft="true"
         android:background="#005998" />
 
-
-
-        <Spinner
-            android:id="@+id/spinnerStadtteil"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignRight="@+id/editTextName"
-            android:layout_below="@+id/editTextName"
-            android:layout_toRightOf="@+id/textViewAktShake"
-            android:entries="@array/stadtteil_arrays"
-            android:prompt="@string/stadtteil_prompt" />
-
         <TextView
             android:id="@+id/textViewDurchschnShake"
             android:layout_width="80dp"
@@ -57,22 +45,14 @@
             android:layout_below="@+id/textViewAktShake"
             android:text="Durchschn.Shake-Index" />
 
-                <TextView
-            android:id="@+id/textViewAktShake"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/SeekBarAktShake"
-            android:layout_toLeftOf="@+id/seekBarDurchschnShake"
-            android:text="Aktueller Shake-Index" />
-
         <SeekBar
             android:id="@+id/SeekBarAktShake"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/spinnerStadtteil"
-            android:layout_alignRight="@+id/spinnerStadtteil"
-            android:layout_below="@+id/spinnerStadtteil"
+            android:layout_alignLeft="@+id/editTextName"
+            android:layout_alignRight="@+id/editTextName"
+            android:layout_alignBottom="@+id/textViewAktShake"
             android:layout_marginTop="2dp"
             android:maxHeight="9dp"
             android:minHeight="9dp"
@@ -117,22 +97,21 @@
         </EditText>
 
         <TextView
+            android:id="@+id/textViewAktShake"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewName"
+            android:layout_toLeftOf="@+id/SeekBarAktShake"
+            android:text="Aktueller Shake-Index" />
+
+        <TextView
             android:id="@+id/textViewName"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/editTextName"
             android:layout_alignBottom="@+id/editTextName"
             android:layout_alignLeft="@+id/viewblue"
             android:text="Name" />
-
-        <TextView
-            android:id="@+id/textViewStadtteil"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/editTextName"
-            android:layout_toLeftOf="@+id/spinnerStadtteil"
-            android:ems="10"
-            android:paddingTop="3dp"
-            android:text="Stadtteil" />
 
     </RelativeLayout>
         <RelativeLayout

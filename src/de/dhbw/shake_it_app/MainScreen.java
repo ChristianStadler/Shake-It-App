@@ -51,7 +51,7 @@ public class MainScreen extends Fragment {
 
 		// Creating view corresponding to the fragment
 		v = inflater.inflate(R.layout.main_screen, container, false);
-		addListenerOnSpinnerItemSelection();
+//		addListenerOnSpinnerItemSelection();
 
 		// Updating the action bar title
 		getActivity().getActionBar().setTitle(menus[position]);
@@ -70,8 +70,8 @@ public class MainScreen extends Fragment {
 		
 		clubName = editTextName.getText().toString();
 		
-		textViewStadtteil = (TextView) v.findViewById(R.id.textViewStadtteil);
-		textViewStadtteil.setText("Stadtteil");
+//		textViewStadtteil = (TextView) v.findViewById(R.id.textViewStadtteil);
+//		textViewStadtteil.setText("Stadtteil");
 	    
 	    //Eingabe des Aktuellen Indize
 	    final SeekBar SeekBarAktShake = (SeekBar) v.findViewById(R.id.SeekBarAktShake);
@@ -88,7 +88,7 @@ public class MainScreen extends Fragment {
 		    	//Hier Daten nach den angegeben Suchparametern aus der DB lesen
 	    	    eingabeAktuellerShakeIndex = SeekBarAktShake.getProgress();
 	    	    eingabeDurchschnShakeIndex = seekBarDurchschnShake.getProgress();
-	    	    textViewStadtteil.setText("Stadtteil");
+//	    	    textViewStadtteil.setText("Stadtteil");
 	    	    textViewName.setText("Name");
 	    	    clubName = editTextName.getText().toString();
 	    	    ArrayList<MainScreen_Club_Item> image_details = getListData();
@@ -102,17 +102,7 @@ public class MainScreen extends Fragment {
 		textViewClubs = (TextView) v.findViewById(R.id.textViewClubs);
 		textViewClubs.setText("Clubs");
 		
-		/*
-		//Button um auf ClubSeite zu kommen.
-		imageButtonWeiterClub = (ImageButton) v.findViewById(R.id.imageButtonWeiterClub);
-	    imageButtonWeiterClub.setOnClickListener(new View.OnClickListener() {
-	        @Override
-	        public void onClick(View v) {
-	        	Main main = (Main)getActivity();
-	        	main.changeView(1);
-	        }
-	    });
-	    */
+
 		//ListView initialisiern und Eventhandler
 		ListViewClubListe = (ListView) v.findViewById(R.id.ListViewClubListe);
 		ListViewClubListe.setItemsCanFocus(true);
@@ -153,39 +143,6 @@ public class MainScreen extends Fragment {
 		super.onCreate(savedInstanceState);
 
 	  }
-	  
-	  //Stadtteil spinner 
-	  public void addListenerOnSpinnerItemSelection() {
-		  spinnerStadtteil = (Spinner) v.findViewById(R.id.spinnerStadtteil);
-		  spinnerStadtteil.setOnItemSelectedListener(new MyOnItemSelectedListener());
-		  }
-	  
-	    public class MyOnItemSelectedListener implements OnItemSelectedListener {
-	    	 
-	        public void onItemSelected(AdapterView<?> parent, View v, int pos, long id) {
-	            
-	            String selectedItem = parent.getItemAtPosition(pos).toString();
-	            
-	            //check which spinner triggered the listener
-	            switch (parent.getId()) {
-	            //country spinner
-	            case R.id.spinnerStadtteil:
-	                //make sure the country was already selected during the onCreate
-	                /*
-	            	if(selectedStadtteil != null){
-	                    Toast.makeText(parent.getContext(), "Stadtteil, dass du ausgew�hlt hast: " + selectedItem,
-	                    Toast.LENGTH_LONG).show();
-	                }
-	                */
-	                selectedStadtteil = selectedItem;
-	                break;
-	            }
-	        }
-	  	  public void onNothingSelected(AdapterView<?> parent) {
-	          // Do nothing.
-	      }
-     
-	}
 
 	    
 	    private ArrayList<MainScreen_Club_Item> getListData() {
