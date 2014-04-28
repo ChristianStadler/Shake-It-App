@@ -22,6 +22,7 @@ import de.dhbw.shake_it_app.data.AsyncClass;
 import de.dhbw.shake_it_app.data.DataProvider;
 import de.dhbw.shake_it_app.data.KeyValue;
 import de.dhbw.shake_it_app.data.model.Location;
+import de.dhbw.shake_it_app.data.model.Session;
 import de.dhbw.shake_it_app.data.operator.DataOperator;
 
  
@@ -189,29 +190,55 @@ public class MainScreen extends Fragment {
 
 	    
 	    private ArrayList<MainScreen_Club_Item> getListData() {
+	    	System.out.println("bin drin");
+	    	double cumulatedValuesOverall = 0;
+	    	double cumulatedValuesCurrent = 0;
+			int amountValuesOverall = 0;
+			int amountValuesCurrent = 0;
 	    	System.out.println(eingabeAktuellerShakeIndex + "dd" + eingabeDurchschnShakeIndex);
 	    	
 	    	Location[] location = (Location[]) DataProvider.get().getModel(DataProvider.Location);
+	    	Session[] sessions =(Session[]) DataProvider.get().getModel(DataProvider.Session);
 	        ArrayList<MainScreen_Club_Item> results = new ArrayList<MainScreen_Club_Item>();
 
 	        
-	        int i = location.length;
-	        while(i>0)
-	        {
-	        	int[] clubIndices = DataOperator.get().returnLocationIndices(location[i-1].getID());
-	        	int CurrentLocationIndex = clubIndices[1];
-	        	int OverallLocationIndex = clubIndices[0];
+	        for(int i = 0; i<location.length; i++){
+	        	cumulatedValuesOverall = 0;
+	        	cumulatedValuesCurrent = 0;
+	        	amountValuesCurrent = 0;
+	        	amountValuesOverall = 0;
+	        	for(int x = 0; x < sessions.length; x++ ){
+	        		if(sessions[x].getLocationID() == location[i].getID()){
+	        			if(!sessions[x].getIsActive()){
+		        			cumulatedValuesOverall+=sessions[i].getCurrentShakeIndex();
+		    				amountValuesOverall++;
+	        			}else{
+	        				cumulatedValuesCurrent+=sessions[i].getCurrentShakeIndex();
+		    				amountValuesCurrent++;
+	        			}
+	        		}
+	        	}
+	        	int CurrentLocationIndex = (int) Math.round(cumulatedValuesCurrent/amountValuesCurrent);
+	        	int OverallLocationIndex = (int) Math.round(cumulatedValuesOverall/amountValuesOverall);
 	        	
-	        	if (eingabeAktuellerShakeIndex <= CurrentLocationIndex && eingabeDurchschnShakeIndex <= OverallLocationIndex && (clubName.equals(location[i-1].getName()) || clubName.equals("")) )
+	        	if (eingabeAktuellerShakeIndex <= CurrentLocationIndex && eingabeDurchschnShakeIndex <= OverallLocationIndex && (clubName.equals(location[i].getName()) || clubName.equals("")) )
 	        	{
 				      MainScreen_Club_Item clubItem = new MainScreen_Club_Item();
-				      clubItem.setClubName(location[i-1].getName());
-				      clubItem.setClubId(location[i-1].getID());
+				      clubItem.setClubName(location[i].getName());
+				      clubItem.setClubId(location[i].getID());
 				      clubItem.setAktClubIndexe(CurrentLocationIndex);
 				      clubItem.setAvgClubIndex(OverallLocationIndex);
 				      results.add(clubItem); 
 	        	}
-	        	i--;
+	        }
+	        for(int i = 0; i < results.size(); i++){
+	        	for(int x = 0; x < results.size()-1; x++){
+	        		if(results.get(x).getAktClubIndex() < results.get(x+1).getAktClubIndex()){
+	        			MainScreen_Club_Item clubTemp = results.get(x);
+	        			results.set(x, results.get(x+1));
+	        			results.set(x+1, clubTemp);
+	        		}
+	        	}
 	        }
 	        return results;
 	    }

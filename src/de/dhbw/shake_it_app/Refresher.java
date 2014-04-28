@@ -36,7 +36,7 @@ public class Refresher extends Thread {
 		go = true;
 			while(go){
 				try {
-					refresher.sleep(10000);
+					refresher.sleep(5000);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
