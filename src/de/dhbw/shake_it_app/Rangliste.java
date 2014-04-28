@@ -83,15 +83,11 @@ public class Rangliste extends Fragment {
 	    	double cummulatedValues = 0;
 	    	User[] user = (User[]) DataProvider.get().getModel(DataProvider.User);
 	    	Session[] sessions = (Session[]) DataProvider.get().getModel(DataProvider.Session);
-	    	System.out.println("id: "+KeyValue.getInstance().getClubId());
-	    	System.out.println("anzahl shakender User: "+user.length);
 	    	ArrayList <Rangliste_Item> results = new ArrayList<Rangliste_Item>();
 	    	
 	        for(int i = 0; i < user.length; i++){
 		      for(int x = 0; x < sessions.length; x++){
-		    	  System.out.println("ich suche");
 		    	  if(sessions[x].getUserID() == user[i].getID() && sessions[x].getIsActive() && sessions[x].getLocationID() == KeyValue.getInstance().getClubId()){
-		    		  System.out.println("wert gefunden");
 		    		  Rangliste_Item ranglisteData = new Rangliste_Item();
 				      ranglisteData.setUsername(user[i].getName());
 				      ranglisteData.setAvgIndexUser((int) sessions[x].getOverallShakeIndex());

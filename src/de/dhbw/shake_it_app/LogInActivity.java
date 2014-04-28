@@ -24,6 +24,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import de.dhbw.shake_it_app.data.DataProvider;
 import de.dhbw.shake_it_app.data.KeyValue;
+import de.dhbw.shake_it_app.data.model.Session;
 import de.dhbw.shake_it_app.data.model.User;
 
  public class LogInActivity extends Activity{
@@ -78,6 +79,12 @@ import de.dhbw.shake_it_app.data.model.User;
 	          
 	          //startDebugging() is for debugging the DataProvider
 //	          DataProvider.get().startDebugging();
+	          
+	          Session[] sessions = (Session[]) DataProvider.get().getModel(DataProvider.Session, "filter=userID&value="+KeyValue.getInstance().getUser());
+	          for(int i = 0; i<sessions.length; i++){
+	        	  sessions[i].setIsActive(false);
+	        	  DataProvider.get().updateModel(DataProvider.Session, sessions[i]);
+	          }
 	          
 	    	  if(KeyValue.getInstance().getDatenUserSpeichern()==true)
         	  {
@@ -135,6 +142,11 @@ import de.dhbw.shake_it_app.data.model.User;
         	  //Error Message
         		  Toast.makeText(v.getContext(), "Benutzer nicht gefunden", Toast.LENGTH_LONG).show();
         	  }	    		  
+	    	  Session[] sessions = (Session[]) DataProvider.get().getModel(DataProvider.Session, "filter=userID&value="+KeyValue.getInstance().getUser());
+	          for(int i = 0; i<sessions.length; i++){
+	        	  sessions[i].setIsActive(false);
+	        	  DataProvider.get().updateModel(DataProvider.Session, sessions[i]);
+	          }
           }
 
 	      public void pwVergessenClick(View v){
