@@ -12,20 +12,20 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.StrictMode;
+import de.dhbw.shake_it_app.Main;
 
 class HTTPConnector {
 
 	protected InputStream is;
 	
 	protected boolean getConnectivityState() {
-//		ConnectivityManager connectivityManager = (ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
-//		NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
-//		if (networkInfo != null && networkInfo.isConnected()) {
-//			return true;
-//		} else {
-//			return false;
-//		}
-		return true;
+		ConnectivityManager connectivityManager = (ConnectivityManager)Main.getAppContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+		NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+		if (networkInfo != null && networkInfo.isConnected()) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 	
 	protected HttpURLConnection getConnection(String RequestMethod, String modelURL, String... jsonString) throws IOException {

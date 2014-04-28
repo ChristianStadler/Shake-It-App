@@ -5,6 +5,7 @@ import java.io.IOException;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 
+import de.dhbw.shake_it_app.data.model.ConnectivityObject;
 import de.dhbw.shake_it_app.data.model.Location;
 import de.dhbw.shake_it_app.data.model.Session;
 import de.dhbw.shake_it_app.data.model.User;
@@ -51,10 +52,10 @@ public class DataProvider extends HTTPConnector {
 				
 		
 		// DELETE ALL SESSIONS
-		System.out.println("CS_DELETE ALL SESSIONS");
-		Session[] allSessions = (Session[]) getModel(DataProvider.Session);
-		for(Session session : allSessions)
-			deleteModel(DataProvider.Session, session.getID());
+//		System.out.println("CS_DELETE ALL SESSIONS");
+//		Session[] allSessions = (Session[]) getModel(DataProvider.Session);
+//		for(Session session : allSessions)
+//			deleteModel(DataProvider.Session, session.getID());
 		
 		// ENDE
 		System.out.println("CS_END DEBUGGING -----");
@@ -116,38 +117,31 @@ public class DataProvider extends HTTPConnector {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		return null;
+		Object[] returnObject = new Object[1];
+		returnObject[0] = new ConnectivityObject();
+		return returnObject;
 	}
 	
-//	TODO
 	public long createModel(String model, Object object) {
 		// Modify the URL with optional parameters
 		String requestURL = model + ".sjs";
-		
-		// Define type of class in which the json is converted
-//		Class<?> convertClass = null;
-//		if(model.equals(DataProvider.Location)) convertClass = Location.class;
-//		if(model.equals(DataProvider.Session)) convertClass = Session.class;
-//		if(model.equals(DataProvider.User)) convertClass = User.class;
 
-		if(getConnectivityState()) {
+		if(getConnectivityState())
 			try {
 				String jsonString = getGson().toJson(object);
 				NewEntry newEntry = getGson().fromJson(getResultJson("PUT", requestURL, jsonString), NewEntry.class);
 				return newEntry.new_id;
 			} catch (Exception e) {
 				e.printStackTrace();
-			}
-		}		
+			}		
 		return -1;
 	}
 	
-//	TODO
 	public boolean updateModel(String model, Object object) {
 		// Modify the URL with optional parameters
 		String requestURL = model + ".sjs";
 
-		if(getConnectivityState()) {
+		if(getConnectivityState())
 			try {
 				String jsonString = getGson().toJson(object);
 				if(getResultJson("POST", requestURL, jsonString).contains("{ Updated : true }"))
@@ -157,7 +151,6 @@ public class DataProvider extends HTTPConnector {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}
 		return false;
 	}
 	
@@ -165,7 +158,7 @@ public class DataProvider extends HTTPConnector {
 		// Modify the URL with optional parameters
 		String requestURL = model + ".sjs?id=" + id;
 
-		if(getConnectivityState()) {
+		if(getConnectivityState())
 			try {
 				if(getResultJson("DELETE", requestURL).contains("{ Deleted : true }"))
 					return true;
@@ -174,7 +167,6 @@ public class DataProvider extends HTTPConnector {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}
 		return false;
 	}
 	// END API METHODS
