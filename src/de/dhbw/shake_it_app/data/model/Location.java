@@ -6,8 +6,6 @@ public class Location extends Object {
 	private String name, description;
 	private double longitude, latitude;
 	
-	public Location() {}
-	
 	public Location(long id, String name, String description, double longitude, double latitude) {
 		setID(id);
 		setName(name);
@@ -18,23 +16,23 @@ public class Location extends Object {
 	
 	/* GETTER */
 	public long getID() {
-		return id;
+		return this.id;
 	}
 	
 	public String getName() {
-		return name;
+		return this.name;
 	}
 	
 	public String getDescription() {
-		return description;
+		return this.description;
 	}
 	
 	public double getLongitude() {
-		return longitude;
+		return this.longitude;
 	}
 	
 	public double getLatitude() {
-		return latitude;
+		return this.latitude;
 	}
 	
 	/* SETTER */

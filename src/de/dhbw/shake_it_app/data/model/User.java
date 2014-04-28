@@ -6,8 +6,6 @@ public class User extends Object {
 	private String name, email, password;
 	private double overallShakeIndex;
 	
-	public User() {}
-	
 	public User(long id, String name, String email, String password, double overallShakeIndex) {
 		setID(id);
 		setName(name);
@@ -18,23 +16,23 @@ public class User extends Object {
 	
 	/* GETTER */
 	public long getID() {
-		return id;
+		return this.id;
 	}
 	
 	public String getName() {
-		return name;
+		return this.name;
 	}
 	
 	public String getEmail() {
-		return email;
+		return this.email;
 	}
 	
 	public String getPassword() {
-		return password;
+		return this.password;
 	}
 	
 	public double getOverallShakeIndex() {
-		return overallShakeIndex;
+		return this.overallShakeIndex;
 	}
 	
 	/* SETTER */
@@ -57,4 +55,5 @@ public class User extends Object {
 	public void setOverallShakeIndex(double overallShakeIndex) {
 		this.overallShakeIndex = overallShakeIndex;
 	}
+	
 }
