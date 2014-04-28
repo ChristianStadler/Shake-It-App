@@ -17,7 +17,7 @@ public class ShakeAnalyser implements SensorEventListener{
 	private Sensor sensor;
 	private double sessionIndex = 0;
 	private int convertedValue, arrayCounter = 0, convertedSessionIndex, amountValues, counter;
-	private final int maxIndex = 15;
+	private final int maxIndex = 15, tooHigh = 25;
 	private boolean indexTooHigh;
 	private double[] last10Values = new double[10];
 		
@@ -41,8 +41,8 @@ public class ShakeAnalyser implements SensorEventListener{
 	}
 	
 	public void stopShakeAnalyser(){
-		sensorManager.unregisterListener(this);
 		DataProvider.get().updateModel(DataProvider.Session, new Session(sessionID, locationID, userID, getConvertedSessionIndex(), returnCurrentIndex(), false));
+		sensorManager.unregisterListener(this);	
 	}
 	
 	public int returnCurrentIndex(){
@@ -106,7 +106,7 @@ public class ShakeAnalyser implements SensorEventListener{
 	}
 
 	public void onSensorChanged(SensorEvent event) {
-		if(Math.abs(event.values[0]) + Math.abs(event.values[1]) + Math.abs(event.values[2]) < maxIndex){
+		if(Math.abs(event.values[0]) + Math.abs(event.values[1]) + Math.abs(event.values[2]) < tooHigh){
 			last10Values[arrayCounter] = Math.abs(event.values[0]) + Math.abs(event.values[1]) + Math.abs(event.values[2]);
 			amountValues++;
 			calcSessionIndex(last10Values[arrayCounter]);
