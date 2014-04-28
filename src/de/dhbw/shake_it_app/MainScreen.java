@@ -160,10 +160,10 @@ public class MainScreen extends Fragment {
 	        	for(int x = 0; x < sessions.length; x++ ){
 	        		if(sessions[x].getLocationID() == location[i].getID()){
 	        			if(!sessions[x].getIsActive()){
-		        			cumulatedValuesOverall+=sessions[i].getOverallShakeIndex();
+		        			cumulatedValuesOverall+=sessions[x].getOverallShakeIndex();
 		    				amountValuesOverall++;
 	        			}else{
-	        				valueCurrent=sessions[i].getCurrentShakeIndex();
+	        				valueCurrent=sessions[x].getCurrentShakeIndex();
 	        			}
 	        		}
 	        	}
