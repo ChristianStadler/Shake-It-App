@@ -201,8 +201,9 @@ public class ClubShake extends Fragment {
 
     }
     public void popupCloseClick(View v) {
+        System.out.println("PopUp schlieﬂen");
         pw.dismiss();
-}
+    }
     
     public void setData(){
     	if(KeyValue.getInstance().getAmShaken()==true){
