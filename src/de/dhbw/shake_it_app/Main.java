@@ -21,6 +21,7 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+import de.dhbw.shake_it_app.data.DataProvider;
 import de.dhbw.shake_it_app.data.KeyValue;
 
 public class Main extends Activity {
@@ -159,6 +160,7 @@ public class Main extends Activity {
 
 			}
 		});
+	// DataProvider.get().startDebugging();
 	}
 	
 	public static Context getAppContext() {

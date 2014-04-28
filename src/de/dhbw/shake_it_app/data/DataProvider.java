@@ -28,10 +28,10 @@ public class DataProvider extends HTTPConnector {
 		System.out.println("CS_START DEBUGGING -----");
 					
 		// DELETE ALL SESSIONS
-//		System.out.println("CS_DELETE ALL SESSIONS");
-//		Session[] allSessions = (Session[]) getModel(DataProvider.Session);
-//		for(Session session : allSessions)
-//			deleteModel(DataProvider.Session, session.getID());
+		System.out.println("CS_DELETE ALL SESSIONS");
+		Session[] allSessions = (Session[]) getModel(DataProvider.Session);
+		for(Session session : allSessions)
+			deleteModel(DataProvider.Session, session.getID());
 		
 		System.out.println("CS_END DEBUGGING -----");
 	}
@@ -92,9 +92,10 @@ public class DataProvider extends HTTPConnector {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		Object[] returnObject = new Object[1];
-		returnObject[0] = new ConnectivityObject();
-		return returnObject;
+//		Object[] returnObject = new Object[1];
+//		returnObject[0] = new ConnectivityObject();
+//		return returnObject;
+		return null;
 	}
 	
 	public long createModel(String model, Object object) {

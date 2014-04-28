@@ -19,13 +19,14 @@ class HTTPConnector {
 	protected InputStream is;
 	
 	protected boolean getConnectivityState() {
-		ConnectivityManager connectivityManager = (ConnectivityManager)Main.getAppContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+		/*ConnectivityManager connectivityManager = (ConnectivityManager)Main.getAppContext().getSystemService(Context.CONNECTIVITY_SERVICE);
 		NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
 		if (networkInfo != null && networkInfo.isConnected()) {
-			return true;
+			// return true; --> not relevant for prototyping
 		} else {
-			return false;
-		}
+			// return false; --> not relevant for prototyping
+		}*/
+		return true; // --> only relevant for prototyping
 	}
 	
 	protected HttpURLConnection getConnection(String RequestMethod, String modelURL, String... jsonString) throws IOException {
