@@ -18,7 +18,6 @@ import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-import de.dhbw.shake_it_app.data.AsyncClass;
 import de.dhbw.shake_it_app.data.DataProvider;
 import de.dhbw.shake_it_app.data.KeyValue;
 import de.dhbw.shake_it_app.data.model.Location;

@@ -1,11 +1,7 @@
 package de.dhbw.shake_it_app;
 
-import java.util.Stack;
-
-import de.dhbw.shake_it_app.data.KeyValue;
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
@@ -15,20 +11,17 @@ import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
-import android.view.Gravity;
 import android.view.KeyEvent;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ListView;
-import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
+import de.dhbw.shake_it_app.data.KeyValue;
 
 public class Main extends Activity {
 
@@ -53,6 +46,9 @@ public class Main extends Activity {
 	private ImageButton cancelButton;
 	private TextView textPopUp;
 
+	//Context
+	private static Context context;
+	
 	//Fragment
 	private android.app.Fragment rFragment;
 
@@ -72,6 +68,8 @@ public class Main extends Activity {
 		
 		sharedPreferences = getSharedPreferences("de.dhbw.shake_it_app", Context.MODE_PRIVATE);
 		KeyValue.getInstance().setAmShaken(false);
+		
+		context = getApplicationContext();
 
         // Hole die Titel aus einem Array aus der strings.xml
         drawerTitles = getResources().getStringArray(R.array.menus);
@@ -156,6 +154,10 @@ public class Main extends Activity {
 
 			}
 		});
+	}
+	
+	public static Context getAppContext() {
+		return context;
 	}
 	
 	public void changeView(int position) {
