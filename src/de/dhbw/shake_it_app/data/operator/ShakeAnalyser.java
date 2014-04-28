@@ -17,7 +17,7 @@ public class ShakeAnalyser implements SensorEventListener{
 	private Sensor sensor;
 	private double sessionIndex = 0;
 	private int convertedValue, arrayCounter = 0, convertedSessionIndex, amountValues, counter;
-	private final int maxIndex = 20, tooHigh = 30;
+	private final int maxIndex = 15, tooHigh = 30;
 	private boolean indexTooHigh;
 	private double[] last10Values = new double[10];
 		
