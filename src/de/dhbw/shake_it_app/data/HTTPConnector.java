@@ -8,11 +8,7 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.StrictMode;
-import de.dhbw.shake_it_app.Main;
 
 class HTTPConnector {
 

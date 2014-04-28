@@ -5,7 +5,6 @@ import java.io.IOException;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 
-import de.dhbw.shake_it_app.data.model.ConnectivityObject;
 import de.dhbw.shake_it_app.data.model.Location;
 import de.dhbw.shake_it_app.data.model.Session;
 import de.dhbw.shake_it_app.data.model.User;

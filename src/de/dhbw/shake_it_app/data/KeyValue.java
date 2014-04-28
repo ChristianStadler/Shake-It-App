@@ -21,6 +21,7 @@ public class KeyValue  {
 		return keyValue;
 	}
 
+	@SuppressWarnings("static-access")
 	public void setApplicationContext(Context ctx){
 		this.ctx = ctx;
 	}
