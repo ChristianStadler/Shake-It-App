@@ -121,6 +121,7 @@ public class ClubShake extends Fragment {
 			
 			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 				if (isChecked==true) {
+//					initiatePopupWindow();
 					Toast.makeText(
 							getActivity(),
 							 "Shake it, now!",
@@ -130,6 +131,7 @@ public class ClubShake extends Fragment {
 					 KeyValue.getInstance().setAmShaken(true);
 					 System.out.println("Shaken" +KeyValue.getInstance().getAmShaken());
 					 if(refresher.getState()==Thread.State.NEW){
+						 
 					 refresher.start();
 					 }
 				}
@@ -142,7 +144,7 @@ public class ClubShake extends Fragment {
 					shakeAnalyser.stopShakeAnalyser();
 					 KeyValue.getInstance().setAmShaken(false);
 					 System.out.println("Shaken" +KeyValue.getInstance().getAmShaken());
-					 refresher.stopRefrehs();
+//					 refresher.stopRefrehs();
 				}
 				else {
 					
