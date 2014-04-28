@@ -110,14 +110,19 @@ public class MainScreen extends Fragment {
 		
         ListViewClubListe.setOnItemClickListener(new OnItemClickListener() {
             public void onItemClick(AdapterView<?> a, View v, int position, long id) {
+                Object o = ListViewClubListe.getItemAtPosition(position);
+                MainScreen_Club_Item club_item = (MainScreen_Club_Item) o;
+	        	Main main = (Main)getActivity();
+//	        	System.out.println("ClubItem: "+club_item.getClubName()+ " - KeyValue: " + KeyValue.getInstance().getClubName());
             	if (KeyValue.getInstance().getAmShaken()==false) {
-                    Object o = ListViewClubListe.getItemAtPosition(position);
-                    MainScreen_Club_Item club_item = (MainScreen_Club_Item) o;
                //     Toast.makeText(getActivity(), "Selected :" + " " + club_item, Toast.LENGTH_LONG).show();
-    	        	Main main = (Main)getActivity();
+
     	        	main.changeView(1);
     	        	KeyValue.getInstance().setClubName(club_item.getClubName());
     	        	KeyValue.getInstance().setClubId(club_item.getClubId());
+				}
+            	else if(club_item.getClubName().equals(KeyValue.getInstance().getClubName())) {
+    	        	main.changeView(1);
 				}
             	else {
 					Toast.makeText(
