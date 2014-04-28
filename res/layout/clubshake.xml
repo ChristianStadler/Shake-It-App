@@ -45,7 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/viewblueDeinIndex"
             android:layout_alignParentTop="true"
-            android:text="Dein Shake-Index"
+            android:text="@string/dein_shake_Index"
             android:textSize="20sp" />
 
         <LinearLayout
@@ -76,7 +76,7 @@
                     android:layout_centerHorizontal="true"
                     android:gravity="center_horizontal"
                     android:singleLine="false"
-                    android:text="Aktuell"
+                    android:text="@string/aktuell"
                     android:textStyle="bold" />
 
                 <TextView
@@ -86,8 +86,8 @@
                     android:layout_below="@+id/textViewaktIndex"
                     android:layout_centerHorizontal="true"
                     android:gravity="center_horizontal"
-                    android:text="XY"
                     android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="@string/xy"
                     android:textStyle="bold" />
             </RelativeLayout>
 
@@ -110,7 +110,7 @@
                     android:layout_centerHorizontal="true"
                     android:gravity="center_horizontal"
                     android:singleLine="false"
-                    android:text="Durchschnittlich" />
+                    android:text="@string/durchschnittlich" />
 
                 <TextView
                     android:id="@+id/textViewAvgIndexPkt"
@@ -118,7 +118,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/textViewAvgIndex"
                     android:layout_centerHorizontal="true"
-                    android:text="XY"
+                    android:text="@string/xy"
                     android:textAppearance="?android:attr/textAppearanceLarge" />
             </RelativeLayout>
         </LinearLayout>
@@ -149,7 +149,7 @@
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/viewblueClubs"
             android:layout_alignParentTop="true"
-            android:text="Tiffany&apos;s Shake-Index"
+            android:text="@string/club_shake_index"
             android:textSize="20sp" />
         
                 <LinearLayout
@@ -180,8 +180,8 @@
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:gravity="center_horizontal"
-                    android:singleLine="false"
-                    android:text="Aktuell"
+                    android:singleLine="false" 
+                    android:text="@string/aktuell"
                     android:textStyle="bold" />
 
                 <TextView
@@ -191,7 +191,7 @@
                     android:layout_below="@+id/textViewaktClubIndex"
                     android:layout_centerHorizontal="true"
                     android:gravity="center_horizontal"
-                    android:text="XY"
+                    android:text="@string/xy"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textStyle="bold" />
             </RelativeLayout>
@@ -215,7 +215,7 @@
                     android:layout_centerHorizontal="true"
                     android:gravity="center_horizontal"
                     android:singleLine="false"
-                    android:text="Durchschnittlich" />
+                    android:text="@string/durchschnittlich" />
 
                 <TextView
                     android:id="@+id/textAvgIndexClubPkt"
@@ -223,7 +223,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/textViewAvgIndexClub"
                     android:layout_centerHorizontal="true"
-                    android:text="XY"
+                    android:text="@string/xy"
                     android:textAppearance="?android:attr/textAppearanceLarge" />
             </RelativeLayout>
         </LinearLayout>
@@ -243,6 +243,6 @@
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:paddingTop="10dp"
-        android:text="Jetzt Shaken" />
+        android:text="@string/jetzt_shaken" />
 
 </RelativeLayout>

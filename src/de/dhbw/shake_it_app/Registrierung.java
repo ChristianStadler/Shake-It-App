@@ -63,7 +63,7 @@ import android.widget.Toast;
             	 DataOperator.get().saveRegisterData(eMailUser, nameUser, passwordUser);
             	 
             	 //-> den Hauptbilschrirm starten
-            	 fehlermeldung = "erfolgreich registriert";
+            	 fehlermeldung = "Erfolgreich registriert.";
     	    	  Intent nextScreen = new Intent(this, Main.class);
             	  startActivity(nextScreen);
     		}

@@ -16,14 +16,15 @@
     <string name="drawer_open">Open Drawer</string>
     <string name="drawer_close">Close Drawer</string>
     
-    <string name="stadtteil_prompt">Stadtteil</string>
+    <string name="dein_shake_Index">Dein Shake-Index</string>
+    <string name="aktuell">Aktuell</string>
+    <string name="durchschnittlich">Durchschnittlich</string>
+    <string name="xy">XY</string>
+    <string name="jetzt_shaken">Jetzt Shaken</string>
+    <string name="club_shake_index">Club Shake-Index</string>
+
+
  
-    <string-array name="stadtteil_arrays">
-         <item>alle</item>
-        <item>Quadrate</item>
-        <item>Jungbusch</item>
-        <item>Neckarstadt</item>
-    </string-array>
 
 </resources>
 
