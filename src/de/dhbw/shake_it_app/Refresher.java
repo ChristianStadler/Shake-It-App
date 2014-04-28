@@ -19,18 +19,6 @@ public class Refresher extends Thread {
 		return refresher;		
 	}
 	
-	public void stopRefrehs(){
-		go = false;
-		return;
-//		try {
-//			System.out.println("ich warte");
-//			wait();
-//		} catch (InterruptedException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-	}
-	
 	@Override
 	public void run() {
 		go = true;
