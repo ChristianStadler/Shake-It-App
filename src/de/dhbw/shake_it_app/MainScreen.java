@@ -193,6 +193,15 @@ public class MainScreen extends Fragment {
 	        			results.set(x+1, clubTemp);
 	        		}
 	        	}
+	        	for(int x = 0; x < results.size()-1; x++){
+	        		if(results.get(x).getAktClubIndex() == results.get(x+1).getAktClubIndex()){
+	        			if(results.get(x).getAvgClubIndex() < results.get(x+1).getAvgClubIndex()){
+		        			MainScreen_Club_Item clubTemp = results.get(x);
+		        			results.set(x, results.get(x+1));
+		        			results.set(x+1, clubTemp);
+	        			}
+	        		}
+	        	}
 	        }
 	        return results;
 	    }
