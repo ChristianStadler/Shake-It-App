@@ -8,6 +8,7 @@ public class Refresher extends Thread {
 	
 	private static Refresher refresher;
 	private ClubShake fragment;
+	private static Rangliste rangliste;
 	private volatile boolean go;
 	private int currentLocationIndex, overallLocationIndex, overallUserIndex;
 	
@@ -22,6 +23,12 @@ public class Refresher extends Thread {
 		return refresher;		
 	}
 	
+	public static Refresher get(Rangliste nrangliste){
+		rangliste = nrangliste;
+		return refresher;
+	}
+	
+	@SuppressWarnings("static-access")
 	@Override
 	public void run() {
 		go = true;
@@ -35,6 +42,9 @@ public class Refresher extends Thread {
 					e.printStackTrace();
 				}
 				fragment.setData();
+				if(!(rangliste==null)){
+				rangliste.update();
+				}
 			}
 	}
 	
