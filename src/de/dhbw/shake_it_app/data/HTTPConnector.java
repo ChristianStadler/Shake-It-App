@@ -35,8 +35,7 @@ class HTTPConnector {
 		
 		URL url = new URL("http://space-labs.appspot.com/repo/2855006/shakeit/api/" + modelURL);
 		HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-			
-		
+					
 		connection.setRequestMethod(RequestMethod);
 			
 		if(jsonString.length > 0) {
@@ -48,8 +47,7 @@ class HTTPConnector {
 			out.close();
 		}
 		
-		connection.connect();
-				
+		connection.connect();				
 		return connection;
 	}
 	

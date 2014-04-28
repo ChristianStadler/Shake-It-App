@@ -16,48 +16,23 @@ public class DataProvider extends HTTPConnector {
 	public static final String Session = "session";
 	public static final String User = "user";
 	
+	private static DataProvider dataProvider;
+	private Gson gson;
+	
 	public class NewEntry {
 		private long new_id;
 	}
 	
-	private static DataProvider dataProvider;
-	private Gson gson;
-	
-	// DEBUGGING
+	// START DEBUGGING
 	public void startDebugging() {
-		// START
 		System.out.println("CS_START DEBUGGING -----");
-		//new AsyncClass().execute("Christian");
-		
-//		User user = new User(2, "Michael", "michael@sap.com", "e22a63fb76874c99488435f26b117e37", 80.54);
-//		System.out.println("CS_"+createModel(DataProvider.User, user));
-				
-//		User[] users = (User[]) getModel(DataProvider.User);
-//		User[] users = (User[]) getModel(DataProvider.User, "id=3755004");
-//		User[] users = (User[]) getModel(DataProvider.User, "filter=password&value=dc647eb65e6711e155375218212b3964");
-//		User[] users = (User[]) getModel(DataProvider.User, "sort=name");
-		
-//		if(users != null) {
-//			for(User user : users) {
-//				System.out.println("CS_ID: "+user.getID());
-//				System.out.println("CS_Name: "+user.getName());
-//				System.out.println("CS_Email: "+user.getEmail());
-//				System.out.println("CS_Password: "+user.getPassword());
-//				System.out.println("CS_-------------------------");
-//			}
-//		} else
-//			System.out.println("CS_ARRAY IS NULL");
-		
-//		System.out.println("CS_+deleteModel(DataProvider.User, 3755005));
-				
-		
+					
 		// DELETE ALL SESSIONS
 //		System.out.println("CS_DELETE ALL SESSIONS");
 //		Session[] allSessions = (Session[]) getModel(DataProvider.Session);
 //		for(Session session : allSessions)
 //			deleteModel(DataProvider.Session, session.getID());
 		
-		// ENDE
 		System.out.println("CS_END DEBUGGING -----");
 	}
 	// END DEBUGGING
@@ -82,7 +57,7 @@ public class DataProvider extends HTTPConnector {
 		this.gson = gson;
 	}
 	
-	// START API METHODS
+	/* START API METHODS */
 	public Object[] getModel(String model, String... parameters) {
 		// Modify the URL with optional parameters
 		String requestURL = model + ".sjs";
@@ -169,7 +144,7 @@ public class DataProvider extends HTTPConnector {
 			}
 		return false;
 	}
-	// END API METHODS
+	/* END API METHODS */
 	
 	private String getResultJson(String requestMethod, String requestURL, String... jsonString) throws IOException, Exception {	
 		return convertStreamToString(getConnection(requestMethod, requestURL, jsonString).getInputStream());
