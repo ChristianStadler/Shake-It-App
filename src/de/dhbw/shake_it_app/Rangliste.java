@@ -5,7 +5,9 @@ package de.dhbw.shake_it_app;
 import java.util.ArrayList;
 
 import de.dhbw.shake_it_app.data.DataProvider;
+import de.dhbw.shake_it_app.data.KeyValue;
 import de.dhbw.shake_it_app.data.model.Location;
+import de.dhbw.shake_it_app.data.model.Session;
 import de.dhbw.shake_it_app.data.model.User;
 import de.dhbw.shake_it_app.data.operator.DataOperator;
 import android.app.Fragment;
@@ -50,8 +52,8 @@ public class Rangliste extends Fragment {
 		getActivity().getActionBar().setTitle(menus[position]);
 		
 		//testdaten
-		clubName = "Tiffany's";
-		
+		clubName = KeyValue.getInstance().getClubName();
+
 		textViewRanglisteUeberschrift = (TextView) v.findViewById(R.id.textViewRanglisteUeberschrift);
 		textViewRanglisteUeberschrift.setText("Aktuelle Shaker im "+ clubName);
 		
@@ -77,18 +79,27 @@ public class Rangliste extends Fragment {
 	}
  
 	    private ArrayList<Rangliste_Item> getListData() { 
+	    	int amountOfValues = 0;
+	    	double cummulatedValues = 0;
 	    	User[] user = (User[]) DataProvider.get().getModel(DataProvider.User);
+	    	Session[] sessions = (Session[]) DataProvider.get().getModel(DataProvider.Session);
+	    	System.out.println("id: "+KeyValue.getInstance().getClubId());
+	    	System.out.println("anzahl shakender User: "+user.length);
 	    	ArrayList <Rangliste_Item> results = new ArrayList<Rangliste_Item>();
 	    	
-	        int i = user.length;
-	        while(i>0)
-	        {
-		      Rangliste_Item ranglisteData = new Rangliste_Item();
-		      ranglisteData.setUsername(user[i-1].getName());
-		      ranglisteData.setAvgIndexUser(DataOperator.get().returnOverallUserIndex(user[i-1].getID()));
-		      ranglisteData.setImage("tigger");
-		      results.add(ranglisteData);
-	          i--;
+	        for(int i = 0; i < user.length; i++){
+		      for(int x = 0; x < sessions.length; x++){
+		    	  System.out.println("ich suche");
+		    	  if(sessions[x].getUserID() == user[i].getID() && sessions[x].getIsActive() && sessions[x].getLocationID() == KeyValue.getInstance().getClubId()){
+		    		  System.out.println("wert gefunden");
+		    		  Rangliste_Item ranglisteData = new Rangliste_Item();
+				      ranglisteData.setUsername(user[i].getName());
+				      ranglisteData.setAvgIndexUser((int) sessions[x].getOverallShakeIndex());
+				      results.add(ranglisteData);
+		    	  }
+		    	  
+		      }
+		      
 	        }  
 	      
 	        return results;
